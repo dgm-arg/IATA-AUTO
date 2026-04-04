@@ -1,0 +1,4 @@
+A194 (369) De acuerdo con lo previsto en el párrafo 3.10.3, el material radiactivo contenido en un bulto exceptuado que posea características tóxicas y corrosivas es asignado a la División 6.1, con peligros secundarios por radiactividad y corrosividad.
+El hexafluoruro de uranio puede ser asignado a esta entrada sólo si se cumplen las condiciones previstas en los párrafos 10.3.11.1.1.2, 10.3.11.1.5, 10.3.11.5.2 y, en el caso de material fisionable exceptuado deben reunirse las condiciones en 10.3.7.2.
+Además de las disposiciones aplicables al transporte de sustancias de la División 6.1 con un peligro secundario por corrosividad, se aplican igualmente las disposiciones de los párrafos 5.0.2.13.5.4, 10.5.7.2.3, 10.9.2.3 y 10.9.4.1 a 10.9.4.4.
+No se requiere el uso de etiquetas de la Clase 7.

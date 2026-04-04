@@ -1,0 +1,12 @@
+A178 El equipo de seguridad como maletines, cajas de seguridad, sacos de seguridad y otros, que contengan mercancías peligrosas (p. ej., baterías de litio o material pirotécnico), no está sujeto a esta Reglamentación si se cumple lo siguiente:
+(a)el equipo debe estar dotado de un medio eficaz para prevenir su activación accidental;
+(b)si el equipo contiene una sustancia explosiva o pirotécnica o un objeto explosivo, la autoridad nacional que corresponda del Estado de fabricación debe excluir de la Clase 1 el artículo o la sustancia en cuestión, según 3.1.7.1;
+(c)si el equipo contiene pilas o baterías de litio, estas pilas o baterías deben ajustarse a las restricciones siguientes:
+1.en una pila de metal litio, el contenido de litio es como máximo de 1 g;
+2.en una batería de metal litio o de aleación de litio, el contenido total de litio es como máximo de 2 g;
+3.en el caso de pilas de ion litio, la capacidad nominal no supera 20 Wh;
+4.en el caso de baterías de ion litio, la capacidad nominal no supera 100 Wh; y
+5.cada pila o batería es del tipo que probadamente satisface las condiciones de cada una de las pruebas que figuran en el Manual de pruebas y criterios de las Naciones Unidas, Parte III, Subsección 38.3;
+(d)si el equipo contiene gases para expulsar colorante o tinta, se permiten únicamente los cartuchos de gas y los recipientes pequeños que contienen gas cuya capacidad no supera 50 mL y que no contienen constituyente alguno sujeto a esta Reglamentación aparte de aquellos de la División 2.2. La liberación del gas no debe causar molestias o incomodidad extremas a los miembros de la tripulación que les impidan desempeñar correctamente las funciones asignadas. En caso de activación accidental, todos los efectos peligrosos deben limitarse al equipo y no producir ruido extremo; y
+(e)el transporte de equipo de seguridad que presente defectos o daños está prohibido.
+Las palabras “sin restricciones” (not restricted) y el número de disposición especial deben incluirse en la descripción de la sustancia en la guía aérea según se requiere en 8.2.6, cuando se haya emitido una guía aérea.

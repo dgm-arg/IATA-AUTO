@@ -1,0 +1,16 @@
+A41 Los dispositivos de permeación que contienen mercancías peligrosas usadas para calibrar los aparatos de monitorio de la calidad del aire, no están sujetos a esta Reglamentación cuando se transportan como carga, siempre y cuando cumplan los siguientes requisitos:
+(a)cada dispositivo debe estar construido de material compatible con las mercancías peligrosas que contiene;
+(b)la cantidad total de mercancías peligrosas en cada dispositivo está limitada a 2 mL y el dispositivo no debe alcanzar el estado líquido a 55°C;
+(c)cada elemento de permeación debe ser colocado en embalaje interior tubular sellado, altamente resistente a los impactos, hecho de plástico o de un material equivalente. El embalaje interior debe contener suficiente material absorbente, capaz de absorber completamente el contenido del dispositivo. El cierre del embalaje interior debe mantenerse en su lugar en forma segura mediante alambre, cinta, u otro medio, igualmente eficaz;
+(d)cada embalaje interior debe estar contenido dentro de un embalaje secundario construido de metal o plástico que tenga un grosor mínimo de 1,5 mm. El embalaje secundario debe ser sellado herméticamente;
+(e)el embalaje secundario debe ser embalado en forma segura en un embalaje exterior resistente. El bulto, después de haber sido terminado, debe ser capaz de soportar, sin romperse o experimentar filtraciones del embalaje interior, y sin una reducción significativa de su eficiencia:
+1.las siguientes caídas libres sobre una superficie rígida, no elástica, plana y horizontal desde una altura de 1,8 m:
+—una caída plana sobre el fondo;
+—una caída plana sobre la tapa;
+—una caída plana sobre el lado más largo;
+—una caída plana sobre el lado más corto; y
+—una caída en una esquina, en la intersección de tres aristas, y
+2.una fuerza aplicada a la superficie de la tapa durante 24 horas, equivalente al peso total de bultos idénticos, apilados hasta una altura de 3 m (incluyendo la muestra de prueba).
+Nota:
+Cada una de las pruebas señaladas más arriba puede ser realizada en un bulto diferente pero de idénticas características.
+(f)el peso bruto del bulto terminado no debe exceder de 30 kg.

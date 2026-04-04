@@ -1,0 +1,8 @@
+A144 El equipo respiratorio de protección (PBE) que contenga pequeños generadores de oxígeno químicos para el uso de los miembros de la tripulación de vuelo, puede transportarse en aviones de pasajeros de acuerdo con la instrucción de embalaje 565, en las siguientes condiciones:
+(a)el PBE debe ser servible (no haber sido utilizado), y contenido en el embalaje interior original del fabricante que no haya sido abierto (es decir, dentro de una bolsa sellada y un contenedor protector);
+(b)el PBE puede ser consignado, solamente por o en nombre de un operador en el caso de que un PBE se haya inutilizado o haya sido utilizado, y haya la necesidad de reemplazar tales artículos, para completar el número de PBEs requeridos en un avión de acuerdo con los requisitos de navegabilidad aérea, y con las regulaciones operacionales pertinentes;
+(c)un máximo de 2 PBEs puede estar contenido en un bulto;
+(d)la declaración “Air crew Protective Breathing Equipment (smoke hood) in accordance with Special Provision A144” (Equipo respiratorio de protección para tripulación aérea (capucha para el humo) de acuerdo con la disposición especial A144) se debe:
+1.incluir en la declaración del expedidor de mercancías peligrosas;
+2.marcar en forma adyacente al nombre apropiado de envío en el bulto.
+Si se satisfacen las condiciones mencionadas, los requisitos de la disposición especial A1 no se aplican. Todos los otros requisitos relativos a los generadores químicos de oxígeno deben aplicarse, excepto que la etiqueta de manipulación “Avión de carga solamente” no debe mostrarse y la limitación de la aeronave en la Declaración del Expedidor puede reflejar "Avión de pasajeros y carga".

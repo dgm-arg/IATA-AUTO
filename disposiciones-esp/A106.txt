@@ -1,0 +1,6 @@
+A106 Esta entrada puede aplicarse solamente al caso de muestras de químicos tomadas para análisis en conexión con la implementación de la Convención sobre Armas Químicas.
+Estas muestras pueden transportarse en un avión de pasajeros o avión de carga siempre que, por un lado, se haya otorgado una aprobación previa por la autoridad apropiada del Estado de origen o del Director General de la Organización para la Prohibición de Armas Químicas y, por otro lado, que las muestras cumplan los requisitos previstos en la instrucción de embalaje 623 del Suplemento de la instrucciones técnicas.
+Se supone que la sustancia reúne los criterios del grupo de embalaje I para la División 6.1. No se requiere etiqueta de peligro secundario.
+Una copia de los documentos de aprobación que muestre las limitaciones de cantidad y los requisitos de embalaje debe acompañar al envío.
+Nota:
+El transporte de sustancias bajo esta descripción debe respetar con una cadena de custodia y procedimientos de seguridad, especificados por la Organización para la Prohibición de Armas Químicas.

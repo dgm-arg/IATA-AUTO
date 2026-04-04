@@ -1,0 +1,4 @@
+A161 (338) Cada cartucho para pilas de combustible transportado bajo esta entrada y diseñado para contener un gas licuado inflamable debe:
+(a)ser capaz de soportar, sin filtración ni rompimiento, una presión de al menos dos veces la presión de equilibro del contenido a 55°C;
+(b)no contener más de 200 mL de gas licuado inflamable cuya presión de vapor no debe superar los 1 000 kPa a 55°C; y
+(c)superar la prueba en baño de agua caliente prescrita en 6.4.4.1.

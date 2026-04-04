@@ -1,0 +1,6 @@
+A212  UN 2031, Ácido nítrico, salvo el fumante rojo con más del 20% y menos del 65% de ácido nítrico para utilizarlo en aparatos de esterilización únicamente, puede transportarse en aviones de pasajeros independientemente de la indicación de “prohibido” en las columnas I/J de la Tabla 4.2, siempre y cuando:
+(a)cada embalaje interior contenga no más de 30 mL;
+(b)cada embalaje interior esté contenido en un embalaje intermedio estanco sellado con material absorbente suficiente para contener el contenido del embalaje interior;
+(c)los embalajes intermedios estén embalados de manera segura en un embalaje exterior de un tipo permitido según la instrucción de embalaje 855 que satisfaga los requisitos de idoneidad del grupo de embalaje I de 6.3;
+(d)la cantidad máxima de ácido nítrico en el bulto no sobrepase 300 mL; y
+(e)se haga referencia a la disposición especial A212 en la declaración del expedidor según se requiere en 8.1.6.9.4, paso 9, (a).

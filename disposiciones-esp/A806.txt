@@ -1,0 +1,1 @@
+A806 Los números de clase o división de peligro secundario deben mostrarse en la declaración del expedidor cuando un artículo contiene más de una mercancía peligrosa o cuando las mercancías peligrosas tienen peligros secundarios mostrados en la Tabla 4.2. La asignación a una clase o división primaria o secundaria debe determinarse según lo establecido en 3.12.5 y 3.12.6.

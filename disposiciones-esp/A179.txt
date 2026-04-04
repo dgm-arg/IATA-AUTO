@@ -1,0 +1,1 @@
+A179 Para UN 3077, independientemente de las cantidades netas máximas especificadas en las columnas J y L de la Lista de mercancías peligrosas (Tabla 4.2), se permite utilizar recipientes intermedios para graneles (RIG) con una cantidad neta máxima que no supere 1 000 kg, según se establece en la instrucción de embalaje 956.

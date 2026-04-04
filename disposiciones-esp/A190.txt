@@ -1,0 +1,26 @@
+A190 (373) Los detectores de radiación de neutrones que contengan gas de trifluoruro de boro pueden ser transportados según esta entrada siempre y cuando:
+(a)los detectores de radiación por encima de 1 g de trifluoruro de boro y los sistemas detectores de radiación que contengan dichos detectores de radiación de neutrones entre sus componentes podrán transportarse en aviones de carga según todos los requisitos aplicables estipulados en esta Reglamentación, independientemente de las indicaciones de “prohibido” en las columnas K/L de la Tabla 4.2, siempre y cuando se cumplan las siguientes condiciones:
+1.cada detector de radiación cumpla con las condiciones siguientes:
+(i)la presión en cada detector de radiación de neutrones no debe superar los 105 kPa absolutos a 20°C;
+(ii)la cantidad de gas no exceda los 13 g por detector;
+(iii)cada detector debe ser fabricado según un programa de garantía de calidad registrado;
+Nota:
+La aplicación de la norma ISO 9001:2008 con este fin se considerará válida.
+(iv)cada detector de radiación de neutrones debe estar fabricado con metal soldado y metal de cobre soldado a los conjuntos de alimentación directa de cerámica. Debe tener una presión mínima de rotura de 1 800 kPa, tal y como se ha demostrado en la prueba de clasificación del tipo de diseño; y
+(v)cada detector debe ser sometido a una prueba según la norma de impermeabilidad a 1 x 10-10 cm3/s antes del llenado.
+2.los detectores de radiación que se consideren como componentes individuales; para fines de transporte, cumplan las condiciones siguientes:
+(i)deben ser embalados en un revestimiento plástico intermedio sellado con suficiente material absorbente o adsorbente para absorber o adsorber todo el contenido de gas;
+(ii)deben ser empacados en un embalaje exterior rígido capaz de resistir una prueba de caída desde 1,8 m sin que se produzcan fugas de gas en los detectores;
+(iii)la cantidad total de gas contenida en cada detector por embalaje exterior no debe exceder los 52 g.
+3.todo sistema completo de detectores de radiación de neutrones que conste de detectores como los descritos en el renglón (a) sea transportado como sigue:
+(i)los detectores deben estar contenidos dentro de un revestimiento externo sellado;
+(ii)el revestimiento debe contener suficiente material absorbente o adsorbente para absorber o adsorber todo el contenido de gas;
+(iii)el sistema completo debe estar empacado en un embalaje exterior rígido capaz de resistir una prueba de caída desde 1.8 m sin que se produzcan fugas a menos que revestimiento exterior del sistema ofrezca una protección equivalente.
+4.el bulto debe estar marcado con las etiquetas de peligro “Gas tóxico” y “Corrosivo” independientemente de que no se mencione el uso de etiquetas en la columna D de la Tabla 4.2.
+5.no se requiere la inclusión de un número de Instrucción de embalaje en la declaración del expedidor. Todo transporte, según esta disposición especial, debe ser anotado en la declaración del expedidor
+6.si se cumplen las condiciones anteriores, no se aplican los requisitos de la Disposición Especial A2.
+(b)detectores de radiación de neutrones que contengan no más de 1 g de trifluoruro de boro, incluidos aquellos con juntas de cristal para soldadura, no están sujetos a esta Reglamentación, siempre y cuando cumplan las siguientes condiciones:
+1.cumplen los requisitos del párrafo (a)1. y están embalados de conformidad con el párrafo (a)2.
+2.los sistemas de detección de radiación conteniendo dichos detectores no están sujetos a esta Reglamentación siempre y cuando cumplan sean embalados según el párrafo (a)3.
+3.las palabras “Sin restricciones” (Not Restricted) y el número de Disposición Especial deben estar incluidos en la descripción de la sustancia de la guía aérea, como se estipula en 8.2.6 cuando se emite una guía aérea
+4.si se cumplen las condiciones anteriores, no se aplican los requisitos de la Disposición Especial A2.

@@ -1,0 +1,11 @@
+A129 (252) Las soluciones concentradas calientes de nitrato de amonio pueden transportarse bajo esta entrada siempre y cuando:
+(a)la solución no contenga más de un 93% de nitrato de amonio;
+(b)la solución contenga al menos un 7% de agua; (c) la solución no contenga más del 0,2% de material combustible;
+(c)la solución no contenga compuestos clorados en cantidades tales que el nivel de ión de cloruro supere el 0,02%;
+(d)el pH de una solución acuosa al 10% de la sustancia se sitúa entre 5 y 7, medido a 25ºC;
+(e)la temperatura máxima de transporte permitida de la solución es de 140ºC.
+Las soluciones concentradas calientes de nitrato de amonio no están sujetas a esta Reglamentación cuando se transportan como carga, siempre y cuando:
+(a)la solución no contenga más del 80% de nitrato de amonio;
+(b)la solución no contenga más del 0,2% de material combustible;
+(c)el nitrato de amonio permanezca en solución en todas las condiciones de transporte; y
+(d)la solución no cumple los criterios de ninguna otra clase o división.

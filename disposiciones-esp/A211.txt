@@ -1,0 +1,12 @@
+A211 Los recipientes de pequeña capacidad que contienen gas (tóxico, comburente y corrosivo) o los cartuchos de gas (toxico, comburente y corrosivo) para su utilización en aparatos de esterilización únicamente, cuando contienen:
+(a)UN 1067 ― Dióxido de nitrógeno; u
+(b)UN 1660 ― Óxido nítrico comprimido
+pueden transportarse en aeronaves de pasajeros y de carga indepen dientemente de la indicación de “prohibido” en las columnas I a L de la Tabla 4.2, siempre y cuando:
+(a)la capacidad en agua de los recipientes o cartuchos de gas no sea superior a 30 mL;
+(b)los recipientes o cartuchos de gas estén diseñados de manera que la presión de estallido no sea menos de cuatro veces la presión en el cartucho/recipiente a 55°C;
+(c)los recipientes o cartuchos de gas estén embalados en un embalaje intermedio sellado compatible con material absorbente capaz de contener el contenido del cartucho/recipiente de gas
+(d)los embalajes intermedios estén embalados de manera segura en un embalaje exterior de un tipo permitido según la instrucción de embalaje 203 que satisfaga los requisitos de idoneidad del grupo de embalaje I de 6.3;
+(e)la capacidad en agua total de todos los recipientes o cartuchos de gas en un bulto no sobrepase 300 mL;
+(f)los bultos lleven etiquetas de peligro señalando los peligros de “gas tóxico”, “comburente” y “corrosivo”; y
+(g)se haga referencia a la disposición especial A211 en la declaración del expedidor según se requiere en 8.1.6.9.4, paso 9, (a).
+Cuando se cumplen las condiciones anteriores, no se aplican los requisitos de la disposición especial A2.

@@ -1,0 +1,12 @@
+A154 (≈376) Por seguridad, está prohibido transportar pilas o baterías de ion litio, metal litio o ion sodio identificadas como defectuosas o que puedan generar peligro de calor, fuego o cortocircuito (p. ej., las que se devuelven al fabricante por motivos de seguridad, o las pilas o baterías que no pueden ser diagnosticadas como dañadas o defectuosas antes del transporte).
+Las pilas o baterías de ion litio, las pilas o baterías de metal litio y las pilas o baterías de ion sodio que se identifiquen como dañadas, de forma que no se ajusten al tipo probado según las disposiciones aplicables del Manual de pruebas y criterios están prohibidas para el transporte. Para los propósitos de esta disposición especial, se incluyen, entre otros:
+(a)pilas o baterías que se hayan filtrado o ventilado;
+(b)pilas o baterías que no puedan diagnosticarse antes del transporte; o
+(c)pilas o baterías que hayan sufrido daños físicos o mecánicos.
+Para saber si una pila o batería está defectuosa o dañada, se debe realizar una evaluación con base en los criterios de seguridad del fabricante de la pila, la batería o el producto, o una valoración por parte de un experto técnico que conozca las características de seguridad de la pila o batería. Una evaluación o valoración puede incluir, entre otros, los siguientes criterios:
+(a)peligro agudo, como fugas de gas, fuego o electrolitos;
+(b)uso o mal uso de la pila o batería;
+(c)indicios de daño físico, como deformación o cambio de color del exterior de la pila o batería;
+(d)protección contra cortocircuitos externos e internos, tales como medidas de voltaje o aislamiento;
+(e)condición de la celda o características de seguridad de la batería; o
+(f)daños a los componentes de seguridad internos, como el sistema de gestión de la batería.

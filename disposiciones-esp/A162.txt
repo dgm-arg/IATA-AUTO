@@ -1,0 +1,31 @@
+A162 (339) Los cartuchos para pilas de combustible que contienen hidrógeno en forma de hidruro metálico transportado bajo esta entrada deben tener una capacidad de agua inferior o igual a 120 mL.
+La presión en el cartucho para pilas de combustible no debe superar los 5 MPa a 55°C. El tipo de diseño debe soportar, sin filtración ni rompimiento, una presión que sea dos veces la presión de diseño del cartucho a 55°C o 200 kPa mayor que la presión de diseño del cartucho a 55°C, la que sea superior. La presión a la que se debe realizar esta prueba se indica en la prueba de caída y en la prueba cíclica de hidrógeno como “presión mínima de rompimiento del caparazón”.
+Los cartuchos para pilas de combustible deben rellenarse de acuerdo con los procedimientos facilitados por el fabricante. El fabricante debe facilitar la siguiente información con cada cartucho para pilas de combustible:
+(a)los procedimientos de inspección que se deben realizar antes del llenado inicial y antes del rellanado del cartucho para pilas de combustible;
+(b)las precauciones de seguridad y peligros potenciales que se deben tener en cuenta;
+(c)el método para determinar cuándo se ha alcanzado la capacidad establecida;
+(d)el rango de presión mínimo y máximo;
+(e)el rango de temperatura mínimo y máximo; y
+(f)cualquier otro requisito que deba cumplirse para el llenado inicial y el rellanado, incluyendo el tipo de equipo que debe utilizarse para el llenado inicial y el rellenado.
+Los cartuchos para pilas de combustible deben estar diseñados y fabricados de forma que evite que el combustible se derrame en condiciones normales de transporte. Cada tipo de diseño de cartucho, incluyendo los cartuchos integrados en una pila de combustible, deben estar sujetos a las siguientes pruebas y superarlas:
+Prueba de caída
+Una caída de 1,8 m sobre una superficie inflexible en cuatro posiciones diferentes:
+(a)verticalmente, sobre el extremo que contiene el conjunto de la válvula de apagado;
+(b)verticalmente, sobre el extremo opuesto al conjunto de la válvula de apagado;
+(c)horizontalmente, sobre un vértice de acero con un diámetro de 38 mm, con el vértice de acero en posición boca arriba; y
+(d)en un ángulo de 45°, sobre el extremo que contiene el conjunto de la válvula de apagado.
+No debe haber ninguna filtración, que se determina mediante la aplicación de una solución de pompas de jabón u otros medios equivalentes sobre todas las posibles ubicaciones de la filtración, cuando el cartucho está cargado en su presión de carga establecida. A continuación, el cartucho para pilas de combustible debe presurizarse hidrostáticamente hasta su destrucción. La presión de rompimiento registrada deberá superar el 85% de la presión mínima de rompimiento del caparazón.
+Prueba de fuego
+Se debe someter un cartucho para pilas de combustible llenado con hidrógeno hasta la capacidad establecida a una prueba de resistencia al fuego.
+Se considerará que el diseño del cartucho, que puede incluir una función de ventilación integrada, ha superado la prueba de fuego si:
+(a)la presión interna se descarga a una presión manométrica de cero sin la ruptura del cartucho; o
+(b)el cartucho soporta el fuego durante un mínimo de 20 minutos sin sufrir una ruptura.
+Prueba cíclica de hidrógeno
+El propósito de esta prueba es garantizar que no se superan los límites de tensión del diseño del cartucho para pilas de combustibles durante su uso. El cartucho para pilas de combustible debe someterse a un ciclo de no más del 5% de la capacidad de hidrógeno establecida hasta no menos del 95% de la capacidad de hidrógeno establecida y volver de nuevo a no más del 5% de la capacidad de hidrógeno establecida. Para la carga se utilizará la presión de carga establecida y se deberán conservar las temperaturas dentro del rango de temperaturas de funcionamiento. El proceso debe continuar durante al menos 100 ciclos.
+A continuación de la prueba cíclica, se debe cargar el cartucho para pilas de combustible y medir el volumen de agua desplazado por el cartucho. Se considera que el diseño del cartucho ha superado la prueba cíclica de hidrógeno si el volumen de agua desplazado por el cartucho sometido al ciclo no supera el volumen de agua desplazado por un cartucho no sometido al ciclo cargado al 95% de la capacidad y presurizado al 75% de su presión mínima de rompimiento del caparazón.
+Prueba de filtración de producción
+Se debe probar cada cartucho para pilas de combustible en busca de filtraciones a 15°C ± 5°C, estando presurizado a su presión de carga establecida. No debe haber ninguna filtración, que se determina mediante la aplicación de una solución de pompas de jabón u otros medios equivalentes sobre todas las ubicaciones posibles de filtración.
+Cada cartucho para pilas de combustible debe marcarse permanentemente con la siguiente información:
+(a)la presión de carga establecida en megapascales (MPa);
+(b)el número de serie del fabricante de los cartuchos para pilas de combustible o un número de identificación único; y
+(c)la fecha de expiración basada en la duración máxima del servicio (año de cuatro dígitos; mes de dos dígitos).

@@ -1,0 +1,3 @@
+A215 Para UN 3077 y UN 3082, el nombre técnico puede ser un nombre mostrado en negrita en la Columna B de la Tabla 4.2, siempre y cuando este nombre no incluya “n.e.p.” o una “★”. Se debe usar el nombre que describa más apropiadamente a la sustancia o mezcla, p. ej.:
+UN 3082, Sustancia líquida peligrosa para el medio ambiente, n.e.p. (Pintura)
+UN 3082, Sustancia líquida peligrosa para el medio ambiente, n.e.p. (Productos de perfumería)

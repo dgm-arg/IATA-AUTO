@@ -1,0 +1,5 @@
+A225  UN 3538, Artículos que contienen gases no inflamable, no tóxicos, n.e.p., pueden transportarse en aeronaves de pasajeros y de carga, independientemente de la indicación de “prohibido” en las Columnas I/J y K/L de la Tabla 4.2, siempre y cuando:
+(a)con la excepción de pilas o baterías de litio que cumplan con la Sección II de la Instrucción de Embalaje 967 o la Sección II de la Instrucción de Embalaje 970, según corresponda, la única mercancía peligrosa contenida en el artículo es una de la División 2.2, gas sin peligro secundario, pero excluyendo gases licuados refrigerados o gases prohibidos en aeronaves de pasajeros;
+(b)los artículos están embalados según la Packing Instruction 222; y
+(c)el transporte según esta disposición especial debe anotarse en la Declaración del Expedidor.
+Se aplican todas las demás disposiciones de esta Reglamentación. Si se cumplen las condiciones anteriores, no se aplican los requisitos de la Disposición Especial A2.

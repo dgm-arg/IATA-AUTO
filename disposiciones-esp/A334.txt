@@ -1,0 +1,16 @@
+A334 En los casos en que es imposible utilizar otras formas de transporte (incluyendo aviones de carga), las pilas o baterías de ion litio o ion sodio pueden transportarse en aviones de pasajeros con aprobación previa de la autoridad que corresponda del Estado de origen, del Estado del operador y del Estado de destino, según las condiciones por escrito establecidas por dichas autoridades, siempre y cuando se cumpla lo siguiente con respecto a tipos y cantidades:
+(a)las cantidades de pilas o baterías de metal litio (UN 3090) están limitadas a:
+1.hasta 2 baterías con un contenido de litio de más de 0,3 g pero menos de 2 g por batería; o
+2.hasta 8 pilas con un contenido de litio de más de 0,3 g pero menos de 1 g por pila; o
+3.hasta 2,5 kg de pilas o baterías con un contenido de litio menor que 0,3 g por pila o batería; y
+(b)las cantidades de pilas o baterías de ion litio o ion sodio están limitadas a:
+1.hasta 2 baterías con una capacidad nominal superior a 2,7 Wh pero menor que 100 Wh por batería; o
+2.hasta 8 pilas con una capacidad nominal superior a 2,7 Wh pero menor que 20 Wh por pila; o
+3.hasta 2,5 kg de pilas o baterías con una capacidad nominal menor que 2,7 Wh por pila o batería.
+Al considerarse una aprobación, deberían tenerse en cuenta, como mínimo, los criterios siguientes para mitigar los riesgos que representan los sucesos en que pilas o baterías de litio o pilas o baterías de ion sodio producen calor, humo o fuego dentro de un bulto ya sea a nivel de la pila, la batería o del bulto:
+(a)no se permite ningún desprendimiento de llamas fuera del bulto;
+(b)la temperatura en la superficie externa del bulto no puede sobrepasar aquella que encendería el material de embalaje adyacente o que produciría embalamiento térmico en las baterías o pilas de los bultos adyacentes;
+(c)ningún fragmento puede salir del bulto y el bulto debe mantener su integridad estructural;
+(d)la cantidad de vapor inflamable emitida debe ser menor que la cantidad de gas que al mezclarse con el aire y encenderse pueda causar una pulsación de presión capaz de expulsar los paneles de sobrepresión del compartimiento de carga del avión o de producir daños en el revestimiento del compartimiento de carga del avión; y
+(e)cuando el embalaje o el sobrembalaje se expone a fuego exterior (p.ej., prueba de resistencia de penetración de la llama de un quemador de aceite durante cinco minutos) o a un ambiente de temperatura elevada (p.ej., prueba de resistencia térmica en horno), todos los efectos peligrosos generados por embalamiento térmico de la pila o batería de litio o pila o batería de ion sodio deben quedar contenidos en el bulto.
+La información y documentación adecuadas acerca de los criterios 1 a 5 debe proporcionarse a la autoridad que corresponda del Estado que otorga la aprobación, cuando se solicita.

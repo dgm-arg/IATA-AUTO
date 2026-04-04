@@ -1,0 +1,1 @@
+A165 Esta entrada podrá usarse únicamente si los resultados de la Serie de Pruebas 6(d) de la Parte I del Manual de Pruebas y Criterios de las Naciones Unidas han demostrado que cualesquiera efectos peligrosos que se deriven del funcionamiento quedan limitados dentro del bulto (ver 3.1.4.3).

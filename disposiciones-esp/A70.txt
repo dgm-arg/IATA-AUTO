@@ -1,0 +1,14 @@
+A70 Los motores o maquinaria de combustión interna o con pila de combustible que se transportan por separado o incorporados en vehículos, máquinas u otros aparatos, cuyos depósitos de combustible nunca hayan contenido combustible y cuyos sistemas de combustible estén completamente vacíos o estén propulsados por un combustible que no cumpla los criterios de clasificación de ninguna clase o división, y que no tengan baterías ni otros materiales peligrosos, no están sujetos a esta Reglamentación cuando se transportan como carga o como equipaje (ver 2.3.5.12), siempre y cuando:
+(a)para motores de combustible líquido:
+1.el motor utiliza un combustible líquido que no cumple los criterios de clasificación de ninguna clase o división; o
+2.el depósito de combustible del vehículo, máquina o aparato nunca ha contenido combustible o el depósito de combustible ha sido vaciado y purgado de vapores y se han tomado las medidas adecuadas para anular los peligros;
+☞
+3.el expedidor le ha proporcionado al operador la documentación escrita o electrónica declarando que el procedimiento de lavado y purga se ha realizado; y
+4.todo el sistema de combustible del motor está libre de líquidos que están sujetos a esta Reglamentación y las tuberías de combustible están selladas, tapadas o conectadas de forma segura al motor y al vehículo, máquina o aparato.
+(b)para motores de combustión interna de gas inflamable o pilas de combustible:
+1.todo el sistema de combustible debe haber sido vaciado, purgado y rellenado con un gas o líquido no inflamable para anular los peligros;
+2.la presión final del gas no inflamable usado para rellenar el sistema no debe superar los 200 kPa a 20 °C;
+3.el expedidor ha hecho arreglos previos con el operador; y
+4.el expedidor ha proporcionado al operador la documentación electrónica o por escrito que asegure que se han llevado a cabo los procedimientos de limpieza, purga y relleno y se ha probado y verificado que el contenido final del motor no es inflamable.
+Múltiples motores para los que se aplique esta disposición especial podrían ser embarcados en un dispositivo unitario de carga, siempre y cuando el expedidor haya hecho arreglos previos con el operador (es) para cada envío.
+Cuando se transporta como carga y se utiliza esta disposición especial, la expresión “not restricted” (sin restricciones) y el número de disposición especial deben incluirse en la descripción de las mercancías en la guía aérea según se requiere en 8.2.6, cuando se haya emitido una guía aérea.

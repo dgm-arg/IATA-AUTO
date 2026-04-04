@@ -1,0 +1,33 @@
+A201 Si otras formas de transporte (incluido el transporte en aviones de carga) son imposibles, las pilas o baterías de litio y de ion sodio pueden transportarse como Clase 9 (UN 3480, UN 3090 u UN 3551) en aviones de pasajeros, con la aprobación previa de la autoridad del Estado de origen, del Estado del operador y del Estado de destino, según las condiciones por escrito establecidas por dichas autoridades, siempre y cuando los tipos y cantidades se ajusten a lo siguiente:
+(a)para las pilas o baterías de metal litio:
+1.un máximo de 2 baterías con un contenido de litio superior a 0,3 g pero no más de 2 g por batería; o
+2.un máximo de 8 pilas con un contenido de litio superior a 0,3 g pero no más de 1 g por pila; o
+3.un máximo de 2,5 kg de pilas y/o baterías con un contenido de litio no superior a 0,3 g por pila o batería; o
+(b)para las pilas o baterías de ion litio:
+1.un máximo de 2 baterías con una capacidad nominal (Wh) superior a 2,7 Wh pero no superior a 100 Wh por batería; o
+2.un máximo de 8 pilas con una capacidad nominal superior a 2,7 Wh pero no superior a 20 Wh por pila; o
+3.un máximo de 2,5 kg de pilas y/o baterías con una capacidad nominal no superior a 2,7 Wh por pila o batería.
+(c)para las pilas o baterías de ion sodio:
+1.un máximo de 2 baterías con una capacidad nominal (Wh) superior a 2,7 Wh pero no superior a 100 Wh por batería; o
+2.un máximo de 8 pilas con una capacidad nominal superior a 2,7 Wh pero no superior a 20 Wh por pila; o
+3.un máximo de 2,5 kg de pilas y/o baterías con una capacidad nominal no superior a 2,7 Wh por pila o batería.
+Si otras formas de transporte (incluido el transporte en aviones de carga) son imposibles y ocurre una necesidad médica urgente, se puede transportar un envío de baterías de litio como Clase 9 (UN 3480 u UN 3090) en aviones de pasajeros, con la aprobación previa de la autoridad del Estado de origen y del operador, bajo las siguientes condiciones:
+(a)el expedidor debe proporcionar una copia del resumen de la prueba, como se especifica en 3.9.2.6.1 (g);
+(b)el envío no debe contener más de 4 baterías;
+(c)para baterías de ion litio:
+1.el ratio de vatios-hora de cada batería no debe exceder los 100 Wh; y
+2.las baterías deben prepararse según la instrucción de embalaje 965, Sección IA.
+(d)para baterías de metal litio
+1.el contenido agregado de litio de cada batería no debe exceder los 2 g; y
+2.las baterías deben prepararse según la instrucción de embalaje 968, Sección IA.
+Cuando otros Estados (que no sean el Estado de origen, el Estado del operador o el Estado de destino) hayan notificado una variación que requiere aprobación previa para los envíos efectuados según esta disposición especial, debe obtenerse además la aprobación de esos Estados, según corresponda. Se aplican los requisitos de marcado y etiquetado de la Sección 7 para la Clase 9 (UN 3090 u UN 3480), baterías de metal litio y baterías de ion litio. Al envío debe adjuntarse una copia del documento de aprobación, indicando las limitaciones de cantidad.
+El transporte de acuerdo con esta disposición especial debe anotarse en la declaración del expedidor.
+Si el transporte no puede cumplir con esta disposición, los Estados interesados pueden otorgar una dispensa respecto de la prohibición de transportar baterías de metal litio o de ion litio en aviones de pasajeros según 1.2.6.
+Las autoridades que otorguen aprobaciones o dispensas amparadas en esta disposición especial deben suministrar una copia de la misma al responsable de la División de Seguridad de Carga Aérea, en un lapso de tres meses a partir de la emisión, por email, a la dirección siguiente: CSS@icao.int, Fax: +1 514-954-6077, o por correo, a la dirección postal siguiente:
+Responsable, División de Seguridad de Carga Aérea
+Organización de Aviación Civil Internacional
+999 Robert Bourassa Boulevard
+Montréal (Québec) H3C 5H7
+CANADÁ
+Nota:
+Material de orientación para procesar las aprobaciones o dispensas de la prohibición del transporte de baterías de litio puede consultarse en la Parte S-1;4 del Suplemento de las Instrucciones Técnicas de la OACI, ver también la disposición especial A334.

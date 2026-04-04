@@ -1,0 +1,12 @@
+A19 (225) Los extintores de los que trata esta entrada pueden incluir cartuchos de accionamiento instalados (cartuchos de accionamiento de la División 1.4C o 1.4S), sin cambiar su clasificación en la División 2.2, siempre y cuando la cantidad total de explosivos deflagrantes (propulsores) no exceda de 3,2 g por cada extintor.
+Nota:
+Las “disposiciones aplicables en el Estado de fabricación” significa las disposiciones aplicables en el Estado de fabricación o las aplicables en el Estado de utilización.
+Los extintores deben ser fabricados, sometidos a pruebas, aprobados y etiquetados según las disposiciones en vigor en el país donde se fabricaron. Algunos de los extintores a los que se refiere esta disposición son:
+(a)extintores portátiles para manipulación y funcionamiento manual;
+Nota:
+Los extintores se pueden considerar portátiles aun cuando algunos componentes que sean necesarios para su adecuado funcionamiento, como mangueras y boquillas, se desacoplen temporalmente, siempre y cuando no se comprometa la seguridad de los contenedores presurizados del agente extintor y los extintores continúen siendo identificados como extintores portátiles.
+(b)extintores para instalación en aeronaves;
+(c)extintores sobre ruedas para manipulación manual;
+(d)equipo o maquinaria de extinción sobre ruedas, unidades o plataformas transportadas, accionadas por ruedas, semejantes a (pequeños) remolques; y
+(e)extintores compuestos por un tambor de presión y un equipo no enrollables; para cuya carga y descarga se requiere un montacargas de horquilla o una grúa.
+Los cilindros que contengan gases para su uso en los mencionados extintores o en instalaciones fijas de extinción de incendios deben cumplir los requisitos de 6.4 y todos los requisitos aplicables a las mercancías peligrosas pertinentes cuando esos cilindros se transporten por separado.

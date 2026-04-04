@@ -1,0 +1,11 @@
+A202 (378) Los detectores de radiación que contienen este gas en cilindros no recargables que no cumplan los requisitos de 6.4 y la instrucción de embalaje 200 pueden presentarse para el transporte con arreglo a esta entrada si se cumplen las siguientes condiciones:
+(a)la presión de servicio de cada recipiente no es superior a 50 bar;
+(b)la capacidad del cilindro no es superior a 12 L;
+(c)cada cilindro tiene una presión mínima de estallido por lo menos tres veces superior a la presión de servicio cuando está provisto de un dispositivo de descompresión, y por lo menos cuatro veces superior a la presión de servicio cuando no cuenta con tal dispositivo;
+(d)cada cilindro está fabricado con material que no se fragmenta en caso de ruptura;
+(e)cada detector está fabricado bajo un programa de aseguramiento de calidad registrado;
+Nota:
+La norma ISO 9001:2008 puede aplicarse con este propósito.
+(f)los detectores se transportan en embalajes exteriores resistentes. El bulto completo debe poder resistir una prueba de caída desde 1,2 m sin que se rompa el detector ni el embalaje exterior. El equipo que contiene un detector debe embalarse en un embalaje exterior resistente a menos que el detector quede protegido de forma equivalente por el equipo en que está instalado; y
+(g)el transporte de acuerdo con esta disposición especial debe señalarse en la declaración del expedidor.
+Los detectores de radiación, incluidos los detectores contenidos en sistemas de detección de radiación, no están sujetos a ningún otro requisito de las presentes Reglamentación si cumplen los requisitos establecidos de (a) a (f) indicados arriba y la capacidad de los cilindros que los contienen no es superior a 50 mL.

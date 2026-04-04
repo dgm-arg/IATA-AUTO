@@ -1,0 +1,4 @@
+A160 (337) Los bultos del Tipo B(U) y Tipo B(M) no deben contener actividades superiores a las siguientes:
+(a)para el material radiactivo de baja dispersión; según esté autorizado para el diseño del bulto como se especifique en el certificado de aprobación;
+(b)para materiales radiactivos en forma especial: 3 000 A1 o 100 000 A2, cualquiera que sea la cantidad menor; o
+(c)para el resto de materiales radiactivos: 3 000 A2.

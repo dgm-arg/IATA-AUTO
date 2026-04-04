@@ -1,0 +1,16 @@
+A187 (362) Esta entrada se aplica a líquidos, pastas o polvos presurizados con un propulsante que cumpla la definición de gas en 3.2.1.1 y 3.2.1.2(a) o (b).
+Nota:
+Un producto químico a presión en un generador de aerosoles debe transportarse con arreglo a lo dispuesto en UN 1950.
+Se aplicarán las siguientes disposiciones:
+(a)el producto químico a presión debe clasificarse en función de las características de peligro de los componentes en los diferentes estados:
+1.el propulsante;
+2.el líquido; o
+3.el sólido.
+(b)Si alguno de los componentes de (a), que puede ser una sustancia pura o una mezcla, debe clasificarse como inflamable, el producto químico a presión debe clasificarse como inflamable en la División 2.1. Los componentes inflamables son líquidos y mezclas de líquidos inflamables, sólidos y mezclas de sólidos inflamables o gases y mezclas de gases inflamables que cumplen los siguientes criterios:
+1.un gas inflamable es un gas que satisface los criterios expuestos en 3.2.2.1 en esta Reglamentación;
+2.un líquido inflamable es un líquido que tiene un punto de inflamación no superior a 93°C;
+3.un sólido inflamable es un sólido que satisface los criterios expuestos en 3.4.1.1 en esta Reglamentación;
+(c)los gases de la División 2.3 y los gases con un peligro secundario de la División 5.1 no se utilizarán como propulsantes en productos químicos a presión;
+(d)cuando los componentes líquidos o sólidos se clasifiquen como mercancías peligrosas de la División 6.1, grupos de embalaje II o III, o la Clase 8, grupos de embalaje II o III, se asignarán al producto químico a presión un peligro secundario de la División 6.1 o la Clase 8 y el número UN apropiado. Los componentes clasificados en la División 6.1, grupo de embalaje I o la Clase 8, grupo de embalaje I, no deben utilizarse para el transporte bajo este nombre apropiado de envío;
+(e)asimismo, las sustancias químicas a presión con componentes que cumplen las propiedades de: Clase 1, explosivos; Clase 3, explosivos líquidos insensibilizados; División 4.1, sustancias autorreactivas y explosivos sólidos insensibilizados; División 4.2, sustancias con propensión a la combustión espontánea; División 4.3, sustancias que, en contacto con agua, emiten gases inflamables; División 5.1, sustancias oxidantes; División 5.2, peróxidos orgánicos; División 6.2, sustancias infecciosas o Clase 7, material radiactivo, no deben utilizarse para el transporte bajo este nombre apropiado de envío.
+(f)se prohíbe el transporte aéreo de sustancias químicas a presión que contengan componentes no autorizados para el tranporte en aviones de pasajeros o de carga (Columnas I a L de la Tabla 4.2).

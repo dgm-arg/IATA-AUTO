@@ -1,0 +1,5 @@
+A224  UN 3548, Artículos que contienen mercancías peligrosas diversas, n.e.p., pueden transportarse en aeronaves de pasajeros y de carga, independientemente de la indicación de “prohibido” en las Columnas I/J y K/L de la Tabla 4.2, siempre y cuando:
+(a)con la excepción de pilas o baterías de litio que cumplan con la Sección II de la Instrucción de Embalaje 967 o la Sección II de la Instrucción de Embalaje 970, según corresponda, la única mercancía peligrosa contenida en el artículo es una sustancia peligrosa para el medio ambiente;
+(b)los artículos están embalados según la Instrucción de Embalaje 975; y
+(c)el transporte según esta disposición especial debe anotarse en la Declaración del Expedidor.
+Se aplican todas las demás disposiciones de esta Reglamentación. Si se cumplen las condiciones anteriores, no se aplican los requisitos de la Disposición Especial A2.

@@ -1,0 +1,7 @@
+A232 (407) Los dispositivos de dispersión de agentes extintores de incendios son artículos que contienen una sustancia pirotécnica, que están destinados a dispersar un agente extintor de incendios (o aerosol) cuando se activan, y que no contienen ninguna otra mercancía peligrosa. Estos artículos, tal como están embalados para el transporte, deben cumplir los criterios de la División 1.4S, cuando se someten a ensayo de conformidad con la serie de pruebas 6(c) de la sección 16 de la parte 1 del Manual de Pruebas y Criterios de las Naciones Unidas. El dispositivo debe transportarse con los medios de activación retirados o equipado con al menos dos medios independientes para evitar su activación accidental.
+Los dispositivos de dispersión de agentes extintores sólo deben asignarse a la Clase 9, UN 3559, si se cumplen las siguientes condiciones adicionales:
+(a)el dispositivo cumple los criterios de exclusión de 3.1.7.4, letras b), c) y d);
+(b)el supresor debe considerarse seguro para espacios normalmente ocupados en cumplimiento de normas internacionales o regionales (p. ej., NFPA2010);
+(c)el artículo debe embalarse de forma que, cuando se active, la temperatura del exterior del bulto no supere los 200°C;
+(d)esta entrada debe utilizarse únicamente con la aprobación de la autoridad nacional que corresponda del Estado de fabricación.
+Esta entrada no se aplica al número UN 3268 Dispositivos de seguridad de iniciación eléctrica, descritos en la Disposición Especial A115.

@@ -1,0 +1,1 @@
+A116 Un generador de oxígeno químico, cuando contenga un dispositivo activador explosivo, únicamente debe ser transportado bajo esta entrada cuando esté excluido de la Clase 1 de acuerdo con 3.1.1.1(b) de esta Reglamentación.

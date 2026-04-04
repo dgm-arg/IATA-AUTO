@@ -1,0 +1,1 @@
+A185 (360) A las baterías de litio instaladas en unidades de transporte de carga, diseñadas solamente para proporcionar energía externa a la unidad de transporte, deben asignárseles UN 3556 Vehículo propulsado por batería de ion litio u UN 3557 Vehículo propulsado por batería de metal litio u UN 3558 Vehículo propulsado por batería de ion sodio.
