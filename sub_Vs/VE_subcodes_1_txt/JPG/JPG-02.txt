@@ -1,0 +1,6 @@
+JPG-02
+La tasa de dosis máxima en cualquier punto de la superficie exterior de bultos, sobrembalajes o contenedores
+de carga no debe superar los 2 mSv/h, incluso si están siendo transportados de forma exclusiva (ver de 10.5.3
+a 10.5.7). ■ Indicates that the item relates entirely to Radioactive shipments.
+
+

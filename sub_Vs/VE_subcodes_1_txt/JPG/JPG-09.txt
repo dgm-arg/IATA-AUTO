@@ -1,0 +1,6 @@
+JPG-09
+Las etiquetas deben fijarse en los dos lados opuestos del exterior de los dispositivos unitarios de carga (ULD)
+que contengan material radiactivo (ver 10.7.2). ■ Indicates that the item relates entirely to Radioactive
+shipments.
+
+

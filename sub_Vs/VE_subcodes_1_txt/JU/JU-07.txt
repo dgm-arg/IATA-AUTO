@@ -1,0 +1,7 @@
+JU-07
+No se aceptará el transporte de mercancías peligrosas en consolidación. Excepción: •Consolidación con
+únicamente una guía aérea hija; •Consolidaciones con más de una guía aérea hija que contengan ID 8000
+(artículos de consumo); •Consolidaciones con más de una guía aérea hija que contengan UN 1845 (hielo seco)
+cuando se utilice como refrigerante para mercancías no peligrosas.
+
+

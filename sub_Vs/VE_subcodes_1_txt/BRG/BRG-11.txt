@@ -1,0 +1,6 @@
+BRG-11
+Los pasajeros y a la tripulación tienen prohibido llevar como equipaje de mano dispositivos electrónicos
+portátiles para fumar que funcionen con baterías cuando viajen de otros Estados a Brasil. ■ Addition of a new
+item. Indicates that the item relates to a battery.
+
+

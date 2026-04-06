@@ -1,0 +1,7 @@
+KE-04
+El expedidor de las siguientes baterías debe declarar claramente que el estado de carga no supera el 30% de
+su capacidad nominal en la Declaración del Expedidor, en la sección "Información adicional para la
+manipulación": • UN 3480, Baterías de ion litio de la IE 965 • UN 3551, Baterías de ion sodio de la IE 976 ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

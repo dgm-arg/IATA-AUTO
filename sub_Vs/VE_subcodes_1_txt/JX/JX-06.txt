@@ -1,0 +1,5 @@
+JX-06
+División 6.2 no se aceptará el transporte de sustancias infecciosas de la categoría A. ■ Change to an item. ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

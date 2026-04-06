@@ -1,0 +1,11 @@
+FRG-09
+Además de la disposición especial A88, excepto los envíos que incluyan embalajes no sujetos a la Sección 6,
+como se muestra mediante la Instrucción de Embalaje 910 del Suplemento a las Instrucciones Técnicas de la
+OACI, UN 3090, UN 3091, UN 3480, UN 3481, UN 3551 y UN 3552 que contengan pilas de litio no sometidas a
+las pruebas ONU 38.3 o prototipos de baterías que contengan pilas de litio no certificadas ONU 38.3 deben
+embalarse dentro de un bidón de ONU (Aluminio/Fibra/Otro Metal/Plástico/Acero), con el fin de alcanzar un
+nivel de seguridad equivalente con respecto a la prueba T1 (simulación de altitud) exigida en el Manual de
+pruebas y criterios de la ONU). Los demás requisitos de la Instrucción de Embalaje 910 del Suplemento a las
+Instrucciones Técnicas de la OACI permanecen inalterados.
+
+

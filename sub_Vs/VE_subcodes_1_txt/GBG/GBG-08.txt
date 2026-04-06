@@ -1,0 +1,9 @@
+GBG-08
+En el caso de explosivos de la Clase 1 que deban transportarse en virtud de una exención o de autorizaciones
+bajo las Disposiciones Especiales A1 y A2 concedidas por la CAA del Reino Unido, la NEQ total de todos los
+explosivos de la Clase 1 que se transporten en un vuelo cualquiera deberá indicarse en el documento de
+transporte (Declaración del expedidor) en la casilla de "Información de manipulación adicional" o en una
+declaración relacionada con medidas para el transportista. Esto se añade a los requisitos de 8.1.6.9.2(i). Este
+requisito no aplica cuando los explosivos de la División 1.4S sean los únicos explosivos transportados.
+
+

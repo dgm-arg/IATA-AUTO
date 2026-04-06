@@ -1,0 +1,5 @@
+ETG-04
+El operador debe ser responsable de coordinar con el expedidor y con el consignatario para devolver al estado
+de origen, cualquier mercancía peligrosa que quede sin reclamar, que esté dañada o que tenga filtraciones.
+
+

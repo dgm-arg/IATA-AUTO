@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IATA-AUTO</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    tr.selected td { background-color: #0d6efd !important; color: #fff !important; }
+    tr.selected a { color: #fff !important; }
+    tbody tr { cursor: pointer; }
+  </style>
 </head>
 <body>
   <div class="container py-5">
@@ -21,6 +26,7 @@
     </div>
 
     <div id="results"></div>
+    <div id="embalaje-detail"></div>
   </div>
 
   <script type="module" src="supabase.js"></script>

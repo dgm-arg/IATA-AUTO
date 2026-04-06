@@ -1,0 +1,6 @@
+ITG-03
+Las solicitudes para las aprobaciones de material radiactivo en forma especial, bultos de Tipo B y Tipo C y los
+bultos que contienen material fisionable deberían enviarse a la dirección de la ISIN que se muestra en ITG-02.
+■ Indicates that the item relates entirely to Radioactive shipments.
+
+

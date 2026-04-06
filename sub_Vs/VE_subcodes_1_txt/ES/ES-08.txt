@@ -1,0 +1,6 @@
+ES-08
+No se aceptarán declaraciones del expedidor escritas a mano. Los siguientes campos pueden
+borrarse/completarse manualmente: •Limitaciones de las aeronaves •Tipo de envío •Peso Las alteraciones o
+enmiendas escritas a mano son aceptadas según se describe en 8.1.2.6.1.
+
+

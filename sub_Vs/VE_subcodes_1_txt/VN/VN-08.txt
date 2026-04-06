@@ -1,0 +1,5 @@
+VN-08
+Clase 8 — UN 2794 Baterías húmedas, llenas de ácido no serán aceptadas para el transporte. (Se permite
+COMAT). ■ Change to an item. ■ Indicates that the item relates entirely to Radioactive shipments.
+
+

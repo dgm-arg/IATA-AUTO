@@ -1,9 +1,3 @@
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-const SUPABASE_URL = 'https://scakbheehumidaqkssxp.supabase.co'
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNjYWtiaGVlaHVtaWRhcWtzc3hwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1NTY3MzEsImV4cCI6MjA4OTEzMjczMX0.URekPbhlh21jWwclgszTOn0DLeJE2Km0jSajuLIgfi0'
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 const HEADER_LABELS = {
   'rev-sym': 'Rev-Sym',
@@ -36,6 +30,107 @@ const PDF_PATHS = {
 
 const INVALID_VALUES = new Set(['prohibido', 'nan', '—', '', null, undefined])
 
+const EMBALAJE_COLS = ['APCCL Emb', 'APC Emb', 'AC Emb']
+let embalajesMap = null
+
+async function loadEmbalajes() {
+  if (embalajesMap) return embalajesMap
+  const res = await fetch('embalajes_codigos.json')
+  const arr = await res.json()
+  embalajesMap = Object.fromEntries(arr.map(e => [String(e.instruccion), e]))
+  return embalajesMap
+}
+
+async function fetchSubcode(type, code) {
+  const prefix = code.split('-')[0]
+  const folder = type === 'estados'
+    ? `sub_vs/VE_subcodes_1_txt/${prefix}`
+    : `sub_vs/VO_subcodes_txt/${prefix}`
+  const res = await fetch(`${folder}/${code}.txt`)
+  if (!res.ok) return null
+  return { code, text: await res.text() }
+}
+
+async function buscarArchivos(instruccion, resultDiv) {
+  const lookup = await loadEmbalajes()
+  const entry = lookup[instruccion]
+  if (!entry) return
+
+  resultDiv.innerHTML = '<p class="text-muted small mt-2">Cargando...</p>'
+
+  const [estadosResults, operadoresResults] = await Promise.all([
+    Promise.all(entry.variaciones_estados.map(c => fetchSubcode('estados', c))),
+    Promise.all(entry.variaciones_operadores.map(c => fetchSubcode('operadores', c)))
+  ])
+
+  const renderGroup = (results, title) => {
+    const found = results.filter(Boolean)
+    if (found.length === 0) return ''
+    return `
+      <p class="fw-semibold mt-3 mb-1">${title}</p>
+      ${found.map(r => `
+        <div class="border rounded p-2 mb-2">
+          <p class="fw-semibold small mb-1">${r.code}</p>
+          <pre class="small text-muted mb-0" style="white-space:pre-wrap">${r.text.trim()}</pre>
+        </div>
+      `).join('')}
+    `
+  }
+
+  resultDiv.innerHTML = renderGroup(estadosResults, 'Variaciones Estados') +
+                        renderGroup(operadoresResults, 'Variaciones Operadores')
+}
+
+async function showEmbalajes(row, container) {
+  const lookup = await loadEmbalajes()
+  const headers = [...container.querySelectorAll('thead th')].map(th => th.textContent.trim())
+  const cells = [...row.querySelectorAll('td')]
+
+  const codes = [...new Set(
+    EMBALAJE_COLS
+      .map(label => {
+        const idx = headers.indexOf(label)
+        return idx >= 0 ? cells[idx]?.textContent.trim() : null
+      })
+      .filter(v => v && v !== '—')
+  )]
+
+  const detail = document.getElementById('embalaje-detail')
+  const results = codes.map(code => lookup[code]).filter(Boolean)
+
+  if (results.length === 0) {
+    detail.innerHTML = '<p class="text-center text-muted mt-3">No embalaje data found for this row.</p>'
+    return
+  }
+
+  detail.innerHTML = results.map(r => `
+    <div class="card mt-3 p-3">
+      <h6 class="mb-3">Instrucción <strong>${r.instruccion}</strong></h6>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="fw-semibold mb-1">Variaciones Operadores</p>
+          <p class="text-muted">${r.variaciones_operadores.join(', ')}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="fw-semibold mb-1">Variaciones Estados</p>
+          <p class="text-muted">${r.variaciones_estados.join(', ')}</p>
+        </div>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-sm btn-outline-secondary" data-instruccion="${r.instruccion}">
+          Buscar archivos
+        </button>
+        <div class="subcode-results"></div>
+      </div>
+    </div>
+  `).join('')
+
+  detail.querySelectorAll('button[data-instruccion]').forEach(btn => {
+    const resultDiv = btn.nextElementSibling
+    btn.addEventListener('click', () => buscarArchivos(btn.dataset.instruccion, resultDiv))
+  })
+}
+
 function isInvalid(val) {
   if (val === null || val === undefined) return true
   return INVALID_VALUES.has(String(val).toLowerCase().trim())
@@ -60,7 +155,7 @@ function renderTable(rows) {
     return
   }
 
-  const columns = Object.keys(rows[0]).slice(2)
+  const columns = Object.keys(rows[0]).slice(1)
 
   const headers = columns.map(col => {
     const label = HEADER_LABELS[col] || col
@@ -87,22 +182,39 @@ function renderTable(rows) {
       </table>
     </div>
   `
+
+  container.querySelector('tbody').addEventListener('click', e => {
+    const row = e.target.closest('tr')
+    if (!row) return
+    const prev = container.querySelector('tr.selected')
+    if (prev) prev.classList.remove('selected')
+    if (prev !== row) {
+      row.classList.add('selected')
+      showEmbalajes(row, container)
+    } else {
+      document.getElementById('embalaje-detail').innerHTML = ''
+    }
+  })
+}
+
+let tablaOnu = null
+
+async function loadTablaOnu() {
+  if (tablaOnu) return tablaOnu
+  const res = await fetch('tabla_onu.json')
+  tablaOnu = await res.json()
+  return tablaOnu
 }
 
 async function fetchRows(value) {
-  const { data, error } = await supabase
-    .from('onu2')
-    .select('*')
-    .eq('onu', String(value))
-
-  if (error) {
-    console.error('Error fetching data:', error.message)
-    document.getElementById('results').innerHTML = `<p class="text-center text-danger">Error: ${error.message}</p>`
-    return
-  }
-
-  renderTable(data)
+  const data = await loadTablaOnu()
+  const rows = data.filter(row => String(row.onu) === String(value))
+  renderTable(rows)
 }
+
+document.getElementById('numInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('searchBtn').click()
+})
 
 document.getElementById('searchBtn').addEventListener('click', () => {
   const value = document.getElementById('numInput').value

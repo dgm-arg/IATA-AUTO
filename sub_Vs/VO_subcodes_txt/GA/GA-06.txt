@@ -1,0 +1,6 @@
+GA-06
+Todos los embalajes combinados conteniendo mercancías peligrosas líquidas en los grupos de embalaje I, II o
+III deben contener suficiente material absorbente que pueda absorber el contenido total de todos los embalajes
+interiores. ■ Indicates that the item relates entirely to Radioactive shipments.
+
+

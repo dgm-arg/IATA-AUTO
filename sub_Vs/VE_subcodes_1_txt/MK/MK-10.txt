@@ -1,0 +1,6 @@
+MK-10
+Todas las etiquetas de peligro deben incluir el texto que indique el nombre del peligro. Este texto debe
+aparecer claramente en inglés en la mitad inferior de la etiqueta, además de la clase o número de división o
+grupo de compatibilidad, tal como se describe en 7.2.2.4.
+
+

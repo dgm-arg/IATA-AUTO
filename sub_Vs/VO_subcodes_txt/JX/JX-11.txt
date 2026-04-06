@@ -1,0 +1,5 @@
+JX-11
+Los expedidores deben indicar el número UN en la guía aérea para los bultos de cantidad exceptuada. ■
+Change to an item. Indicates that the item relates to a battery.
+
+

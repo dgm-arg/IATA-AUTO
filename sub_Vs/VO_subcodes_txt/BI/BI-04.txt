@@ -1,0 +1,6 @@
+BI-04
+Cuando son transportadas por pasajeros y tripulación, se prohíben las baterías de ion litio, las baterías de
+metal litio o los cargadores de baterías sin ninguna marca clara de Watts por hora, del contenido de metal litio,
+o cuando el promedio de Watt por hora no puede calcularse. Indicates that the item relates to a battery.
+
+

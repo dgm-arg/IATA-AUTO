@@ -1,0 +1,9 @@
+WN-04
+Las siguientes restricciones aplican a las mercancías peligrosas transportadas por pasajeros o la tripulación
+que se permiten en 2.3: •hornillos para acampada y contenedores de combustible que hayan contenido un
+combustible líquido inflamable (ver 2.3.2.5); •mochila de rescate para avalancha que contenga artificios de
+pirotecnia o gas comprimido (ver 2.3.4.3); •cilindros de oxígeno gaseoso o de aire para uso médico (ver
+2.3.4.1); •motores de combustión interna nuevos o usados (ver 2.3.5.12); •equipo de monitoreo de agentes
+químicos (ver 2.3.4.4). ■ Change to an item.
+
+

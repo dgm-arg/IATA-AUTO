@@ -1,0 +1,6 @@
+PM-03
+La guía aérea para mercancías peligrosas en “Cantidades exceptuadas” debe mostrar el número de la UN
+aplicable además de los requisitos de 2.6.8.2. ■ Change to an item. ■ Indicates that the item relates entirely to
+Radioactive shipments.
+
+

@@ -1,0 +1,7 @@
+FRG-04
+Una aeronave cuyas superficies internas hayan sido contaminadas por materiales radiactivos está sujeta a la
+autorización de la ASNR. Esta autorización debe anotarse en el registro de mantenimiento de la aeronave. La
+DGAC debe ser informada de dicha contaminación y de la autorización antes de volver a utilizar la aeronave. ■
+Change to an item. ■ Indicates that the item relates entirely to Radioactive shipments.
+
+

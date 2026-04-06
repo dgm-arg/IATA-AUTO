@@ -1,0 +1,5 @@
+CF-04
+Únicamente el material radiactivo Categoría I-Blanco y Categoría II-Amarillo se aceptará para el transporte. ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

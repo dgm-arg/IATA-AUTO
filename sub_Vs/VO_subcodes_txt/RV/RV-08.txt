@@ -1,0 +1,6 @@
+RV-08
+UN 3556, Vehículo propulsado por batería de ion litio, UN 3557, Vehículo propulsado por batería metal litio y
+UN 3558, Vehículo propulsado por batería de ion sodio no serán aceptados para el transporte como carga.
+Indicates that the item relates to a battery.
+
+

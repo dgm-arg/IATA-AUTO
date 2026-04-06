@@ -1,0 +1,6 @@
+NH-10
+UN 3480, baterías de ion litio (Sección IA y Sección IB), el expedidor debe indicar claramente en la declaración
+del expedidor de mercancías peligrosas que las baterías de ion litio tienen un estado de carga no superior a
+30%. Ejemplo: baterías de ion litio con un estado de carga no superior a 30%.
+
+

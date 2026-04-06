@@ -1,0 +1,5 @@
+KC-11
+Las mercancías peligrosas en cantidades limitadas no se aceptarán para el transporte (ver 2.7 y las
+Instrucciones de Embalaje “Y”). Excepción: Los Artículos de consumo (ID 8000, IE Y963) serán aceptados.
+
+

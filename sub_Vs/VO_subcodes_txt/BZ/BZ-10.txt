@@ -1,0 +1,5 @@
+BZ-10
+Las baterías de litio preparadas según la Sección I/IA de la IE 965 hasta la 970 y la Sección IB de la IE 968 no
+se aceptarán para el transporte.
+
+

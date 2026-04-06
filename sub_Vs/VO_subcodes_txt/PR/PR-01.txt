@@ -1,0 +1,10 @@
+PR-01
+Sólo las siguientes mercancías peligrosas de Clase 1 — Explosivos de la División 1.4S serán consideradas
+aceptables por Philippine Airlines para el transporte aéreo (ver las Instrucciones de Embalaje [–] enumeradas
+después de cada sustancia): Número UN— Descripción UN 0012 — Cartuchos para armas con proyectil inerte
+[130] UN 0012 — Cartuchos para armas pequeñas [130] UN 0014 — Cartuchos para herramientas, sin carga
+[130] UN 0014 — Cartuchos para armas vacíos [130] UN 0014 — Cartuchos para armas pequeñas vacíos
+[130] UN 0044 — Cebos del tipo cápsula [133] UN 0055 — Cartuchos vacíos con fulminante [136] UN 0405 —
+Cartuchos de señales [135] UN 0456 — Detonadores, eléctricos [131]
+
+

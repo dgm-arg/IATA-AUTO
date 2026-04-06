@@ -1,0 +1,6 @@
+D5-06
+Clase 7, material, radiactivo de Categoría I-Blanca, Categoría II-Amarilla, III-Amarilla, material fisionable y
+bultos exceptuados no se aceptarán para el transporte (ver 10.5.8, 10.5.13 y 10.10.2). ■ Change to an item.
+Indicates that the item relates to a battery.
+
+

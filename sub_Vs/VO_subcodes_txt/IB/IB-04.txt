@@ -1,0 +1,7 @@
+IB-04
+A menos que haya sido específicamente aprobado por Iberia, los pasajeros y la tripulación tienen un límite por
+persona de 4 baterías de litio de repuesto con un máximo de 100 Wh. Las baterías de repuesto se limitan
+únicamente al transporte en ‘equipaje de mano’ en la cabina, (ver 2.3.5.9). Indicates that the item relates to a
+battery.
+
+

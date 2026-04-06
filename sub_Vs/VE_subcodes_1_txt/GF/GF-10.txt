@@ -1,0 +1,7 @@
+GF-10
+Se aceptará el transporte de materiales radiactivos de Clase 7 de las Categorías I, II y III siempre que el índice
+de transporte (TI) de un bulto o de un grupo de bultos no sea superior a 3,0 para aviones de fuselaje estrecho y
+de 8,0 para aviones de fuselaje ancho. Esta restricción se aplica al TI total por aeronave.No se aceptará
+material radiactivo en bulto exceptuado (ver 10.3.11.1 ).
+
+

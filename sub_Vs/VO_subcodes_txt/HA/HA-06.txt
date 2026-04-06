@@ -1,0 +1,5 @@
+HA-06
+HA acepta los envíos de UN 3481, UN 3091 y UN 3552 únicamente cuando estén embalados según la Sección
+II de las siguientes Instrucciones de Embalaje: 966, 967, 969, 970, 977 y 978.
+
+

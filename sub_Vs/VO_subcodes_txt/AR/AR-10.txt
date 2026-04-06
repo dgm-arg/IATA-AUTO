@@ -1,0 +1,11 @@
+AR-10
+Debe proporcionarse una Hoja de Datos de Seguridad (SDS) o una carta de la empresa debidamente firmada
+para todas las clases de mercancías peligrosas, excepto para la Clase 7, dióxido de carbono, sólido (hielo
+seco) (UN 1845), vehículos (UN 3166 y UN 3171) y motores (UN 3528, UN 3529 y UN 3530) y la División 6.2.
+La información contenida debe coincidir con la de las declaraciones de mercancías peligrosas. Puede estar
+escrita en español o inglés y debe corresponder a las mercancías que se pretenden transportar La información
+debe incluir el número UN, el grupo de embalaje, si corresponde, el nombre apropiado del envío y la
+información de transporte relevante. Nota: Para envíos de baterías de litio, ver AR-13. ■ Change to an item.
+Indicates that the item relates to a battery.
+
+

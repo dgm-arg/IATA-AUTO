@@ -1,0 +1,5 @@
+PKG-02
+En todas las etiquetas de peligro debe aparecer un breve texto indicativo de la naturaleza del peligro en inglés
+(ver 7.2.2.3, 7.2.2.4 y 10.7.2).
+
+

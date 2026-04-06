@@ -1,0 +1,5 @@
+MF-06
+El correo aéreo que contenga mercancías peligrosas no será aceptado para el transporte (ver 2.4 y 10.2.2).
+Indicates that the item relates to a battery.
+
+

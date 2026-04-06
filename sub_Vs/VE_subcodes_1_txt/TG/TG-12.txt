@@ -1,0 +1,5 @@
+TG-12
+UN 3356, Generador químico de oxígeno, no será aceptado para el transporte. ■ Change to an item. ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

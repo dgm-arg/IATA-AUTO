@@ -1,0 +1,9 @@
+BR-15
+Las mercancías peligrosas a cuyos destinos finales EVA Air no vuele con sus propios aviones (off-line station)
+se aceptarán a bordo de vuelos BR cuando la plantilla de reserva de la estación de origen haya realizado
+arreglos previos en relación con el seguimiento hasta el destino final. ■ Change to an item. Indicates that the
+item relates to a battery. BR-16 Los vehículos pequeños impulsados por baterías de litio (UN 3556 y UN 3557)
+están prohibidos como equipaje de mano o facturado. Esta prohibición se aplica a, entre otros, Airwheels,
+Solowheels, Balancewheels y Hoverboards.
+
+

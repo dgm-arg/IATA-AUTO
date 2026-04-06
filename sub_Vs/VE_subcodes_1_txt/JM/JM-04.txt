@@ -1,0 +1,7 @@
+JM-04
+Para las baterías de litio cuando están embaladas o contenidas en equipo según la Sección II de las
+instrucciones de embalaje 966, 967, 969 y 970, la cantidad neta de pilas o baterías de ion litio y de pilas o
+baterías de metal litio por bulto debe indicarse en la casilla “Naturaleza y cantidad de mercancías” de la guía
+aérea y ser reportada como carga especial en la NOTOC.
+
+

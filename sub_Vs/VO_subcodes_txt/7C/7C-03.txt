@@ -1,0 +1,6 @@
+7C-03
+Para el transporte en aeronaves de carga, únicamente se aceptarán mercancías peligrosas de las siguientes
+clases: (a) Clase 2 (División 2.1, 2.2); (b) Clase 3 (Grupos de embalaje II, III); (c) Clase 8; y (d) Clase 9.
+Indicates that the item relates to a battery.
+
+

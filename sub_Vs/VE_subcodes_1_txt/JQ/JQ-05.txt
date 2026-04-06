@@ -1,0 +1,5 @@
+JQ-05
+UN 3090, pilas y baterías de metal litio (incluyendo las baterías de aleación de litio) se prohíben para el
+transporte como carga en aeronaves de Jetstar. Indicates that the item relates to a battery.
+
+

@@ -1,0 +1,4 @@
+AR-05
+El material radiactivo no es aceptado para el transporte cuando el índice de transporte exceda 3,0.
+
+

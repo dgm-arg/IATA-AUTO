@@ -1,0 +1,63 @@
+USG-13
+Los operadores deben cumplir todos los requisitos del 49 CFR, Parte 175 (ver USG-01). Estos requisitos
+incluyen, pero no están limitados a lo siguiente: (a) Un bulto preparado según esta Reglamentación para el
+transporte hacia, desde o dentro de los Estados Unidos, no debe ser aceptado a menos que el operador se
+haya asegurado también de que el expedidor ha cumplido con todas las variaciones aplicables de los Estados
+Unidos indicadas en esta Reglamentación (ver 9.1.2). (b) Una copia de los documentos de transporte o una
+imagen electrónica de la misma debe ser mantenida por el operador inicial durante al menos un año después
+de que las mercancías peligrosas sean aceptadas por éste. Cada copia de los papeles del envío debe incluir la
+fecha de aceptación por el operador inicial. La fecha en los papeles dl envío puede ser la fecha en que el
+expedidor notifica al operador aéreo que un envío está listo para el transporte, como está indicado en la guía
+aérea o en el conocimiento del envío, como una alternativa a la fecha en que el envío fue recogido o aceptado
+por el operador. Para los residuos peligrosos, el documento de transporte debe guardarse por tres años una
+vez aceptado por el operador inicial (ver 9.8). (c) En la notificación al piloto al mando se debe enumerar y
+proporcionar la información requerida para aquellos materiales adicionales considerados mercancías
+peligrosas en virtud de la reglamentación de Estados Unidos, según se señala a través de las variaciones de
+los Estados Unidos (ver 9.5.1.1). (d) Excepto para mercancías peligrosas de la Clase 9, UN 0012, UN 0014 u
+UN 0055 que también cumplen los requerimientos de 173.63(b), artículos de UN 3528 u UN 3529, mercancías
+peligrosas en cantidades limitadas o en cantidades exceptuadas, las baterías para aeronaves transportadas
+como piezas de recambio (49 CFR 175.8) y aquellos objetos y sustancias consideradas como mercancías
+peligrosas bajo esta Reglamentación pero que no están sujetas a 49 CFR Partes 171–180, se aplicarán las
+siguientes limitaciones: 1. No más de 25 kg de peso neto pueden ser transportados en una aeronave y además
+de esto, 75 kg de peso neto de un gas no inflamable cuyo transporte esté permitido en un avión de pasajeros
+puede ser cargado en un avión de manera inaccesible; 2. Para el transporte en aviones de carga, las
+siguientes sustancias adicionales están exentas del requerimiento arriba mencionado: (i) UN 0012, UN 0014 u
+UN 0055 que cumplen también los requisitos de 173.63(b); (ii) Class 3 (líquido inflamable), grupo de embalaje
+III (a menos que la sustancia sea además etiquetada como corrosiva); (iii) División 6.1 (tóxicos a menos que la
+sustancia sea también etiquetada para cualquier clase de peligro o división excepto como LIQUIDO
+INFLAMABLE (FLAMMABLE LIQUID); (iv) División 6.2 (sustancias infecciosas); (v) Materiales de la Clase 7
+(radiactivos) que no cumplen la definición de otra clase de peligro; (vi) Clase 9 (varias), mercancías peligrosas
+en cantidades limitadas o mercancías peligrosas en cantidades exceptuadas; (vii) Artículos de UN 3528 u UN
+3529. Notas: 1. Accesible significa, en una aeronave de pasajeros o en una de carga únicamente que cada
+bulto es cargado donde un miembro de la tripulación u otra persona con acceso autorizado puede accede,
+manejar, y cuando el tamaño lo permita, separar los bultos de otra carga durante el vuelo incluyendo un
+contenedor de carga en un compartimento de carga accesible cuando los bultos han sido cargadados en forma
+accesible. Adicionalmente, un bulto es considerado accesible cuando es transportado en una aeronave de
+carga solamentre si cumple: — el compartimento de carga ha sido certificado por FAA como un compartimento
+de aeronave de carga Clase C tal como se define en CFR 25.857(c); o — un contenedor de carga certificado
+por la FAA con sistema de detección y supresión de fuego o humo equivalentes al requerido por la certificación
+de requisitos de compartimentos de carga de Clase C. 2. Inaccesible significa todo otro tipo de configuraciones
+donde se puedan cargar bultos donde un miembro de la tripulación u otro persona con acceso autorizado no
+puede accede, manejar, y cuando el tamaño y el peso lo permitan, separar los bultos de otro cargo durante el
+vuelo, incluyendo un contenedor de carga en un compartimento de carga accesible cuando los bultos han sido
+cargados de forma inaccesible. En la siguiente tabla se muestran los límites impuestos por esta variación:
+Tabla USG-13.A Tabla de cantidad y carga Límite de Cantidad: 25 kg peso neto de Sin Aplicabilidad Prohibido
+mercancías peligrosas más 75 kg de Div. 2.2 por límite compartimento de carga Bultos etiquetados Aeronave
+de pasajeros avión de carga Inaccesible Accesible solamente (CAO) Aeronave de carga-bultos permitidos
+
+Accesible No aplica Inaccesible (Nota 1) en aeronaves de pasajeros (Nota 2) Aeronaves de carga únicamente
+– Inaccesible (Nota 1) No aplica Accesible Bultos etiquetados avión de carga (Nota 2) solamente (CAO) Notas:
+1. Las siguientes sustancias no están sujetas a esta restricción de carga: (i) UN 0012, UN 0014 u UN 0055 que
+cumplen también los requisitos de 173.63(b); (ii) Clase 3 (líquidos inflamables), grupo de embalaje III (a menos
+que la sustancia sea adicionalmente etiquetada como Corrosiva); (iii) División 6.1 (tóxicos) (a menos que la
+sustancia sea adicionalmente etiquetada para cualquier clase de peligro o división excepto como LIQUIDO
+INFLAMABLE); (iv) División 6.2 (sustancias infecciosas); (v) Clase 7 (radiactivos) materiales que no cumplen la
+definición de otra clase de peligro; (vi) Clase 9 y mercancías peligrosas en cantidades limitadas o cantidades
+exceptuada; (vii) Artículos de UN 3528 u UN 3529. 2. En aeronaves de carga únicamente, paquetes que
+requieran ser cargados en una posición considera como accesible incluyendo las localizadas en Clase C del
+compartimento de carga. (e) Los operadores deben cumplir los requisitos de informe de incidentes del 49 CFR
+171.15, 171.16 y los informes de discrepancias bajo 175.31. Nota: Pueden descargarse copias del formulario
+de informe de incidentes y guías para ser completadas desde:
+http://www.phmsa.dot.gov/hazmat/incident-reports
+
+

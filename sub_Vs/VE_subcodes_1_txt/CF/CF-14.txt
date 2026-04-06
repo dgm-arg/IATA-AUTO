@@ -1,0 +1,9 @@
+CF-14
+El expedidor debe facilitar un número de teléfono de emergencia de 24 horas de una persona/agencia que
+conozca los peligros, las características y las medidas que deben adoptarse en caso de accidente o incidente
+en relación con (cada una de) las mercancías peligrosas transportadas. Este número de teléfono, incluido el
+código de país y de área, precedido de las palabras “Número de 24 horas” o una abreviatura de estas
+palabras, debe incluirse en la Declaración del Expedidor de Mercancías Peligrosas, preferiblemente en la
+casilla “Información de manipulación adicional” (Additional Handling Information) (ver 8.1.6.11 y 10.8.3.11).
+
+

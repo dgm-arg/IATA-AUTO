@@ -1,0 +1,7 @@
+FZ-09
+Para cualquier mercancía peligrosa que se acepte para el transporte desde los Emiratos Árabes Unidos, se
+debe agregar el número de Entidad de Mercancías Peligrosas “GCAA-DG-CERT #” en el espacio de
+“Información adicional para la manipulación” de la guía aérea (p. ej., GCAA-DG -CERT # 111). ■ Change to an
+item. Indicates that the item relates to a battery.
+
+

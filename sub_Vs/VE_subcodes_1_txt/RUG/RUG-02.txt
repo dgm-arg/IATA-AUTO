@@ -1,0 +1,10 @@
+RUG-02
+Un operador que planifique el transporte de mercancías peligrosas de consecuencias graves indicadas en
+1.7.3.1 a, desde, dentro de o en tránsito por el territorio de la Federación Rusa no aceptará dichas mercancías
+para su transporte sin la confirmación previa del aeropuerto (o del agente de manipulación en tierra) de que las
+mencionadas mercancías se pueden manejar en el territorio de la Federación Rusa, ni tampoco sin la
+confirmación de la preparación del consignatario para la aceptación de dichas mercancías (si las mercancías
+se transportan al territorio de la Federación Rusa). ■ Indicates that the item relates entirely to Radioactive
+shipments.
+
+

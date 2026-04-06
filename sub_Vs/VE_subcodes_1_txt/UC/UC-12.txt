@@ -1,0 +1,6 @@
+UC-12
+Los envíos de UN 3090, baterías de metal litio, preparados según la Sección IA o IB de la IE 968, no deben
+tener un peso neto total superior a 140 kg, y cualquier sobrembalaje no debe tener un peso neto total superior
+a 70 kg.
+
+

@@ -1,0 +1,7 @@
+LS-02
+Cuando sean transportadas por pasajeros o tripulación, las baterías de ion litio, las baterías de metal litio y los
+bancos de energía que no indiquen claramente el ratio de vatio-hora o el contenido de metal litio o en los
+cuales el ratio de vatio-hora no se pueda determinar fácilmente de otro modo, están prohibidos. ■ Change to
+an item. Indicates that the item relates to a battery.
+
+

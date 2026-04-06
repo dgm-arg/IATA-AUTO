@@ -1,0 +1,5 @@
+RH-08
+UN 3551 Las pilas y baterías de ion sodio no se aceptarán para el transporte como carga. Esto se aplica a la
+Instrucción de Embalaje 976.
+
+

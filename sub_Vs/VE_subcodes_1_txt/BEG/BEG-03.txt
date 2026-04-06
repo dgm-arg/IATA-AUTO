@@ -1,0 +1,51 @@
+BEG-03
+Las siguientes sustancias están definidas como “sustancias explosivas” y están sujetas a las condiciones de la
+Variación BEG-02 (ver las Instrucciones de Embalaje [–] enumeradas después de cada sustancia): Número
+UN— Descripción UN 1204 — Solución de nitroglicerina en alcohol con un 1% o menos de nitroglicerina [Y341,
+371] UN 1310 — Picrato amónico humidificado con un mínimo del 10% de agua por peso [451] UN 1320 —
+Dinitrofenol humidificado con un mínimo del 15% de agua por peso [451] UN 1321 — Dinitrofenolatos
+humidificados con un mínimo del 15% de agua por peso [451] UN 1322 — Dinitroresorcinol humidificado con
+un mínimo del 15% de agua por peso [451] UN 1336 — Nitroguanidina humidificada con un 20% o más de
+agua por peso [451] UN 1336 — Picrita humidificada con un 20% o más de agua por peso [451] UN 1337 —
+Nitroalmidón humidificado con un 20% o más de agua por peso [451] UN 1344 — Trinitrofenol humidificado
+con un 30% o más de agua por peso [451] UN 1347 — Picrato de plata humidificado con un 30% o más de
+agua por peso [–] UN 1348 — Dinitro-o-cresolato de sodio humidificado con un 15% o más de agua por peso
+[451] UN 1349 — Picramato sódico humidificado con un 20% o más de agua por peso [451] UN 1354 —
+Trinitrobenceno humidificado con un 30% o más de agua por peso [451] UN 1355 — Ácido trinitrobenzoico
+humidificado con un 30% o más de agua por peso [451] UN 1356 — Trinitrotolueno humidificado con un 30% o
+más de agua por peso [451] UN 1357 — Nitrato de urea humidificado con un 20% o más de agua por peso
+[451] UN 1517 — Picramato de circonio humidificado con un 20% o más de agua por peso [451] UN 1571 —
+Acida de bario humidificada con un mínimo del 50% de agua por peso [451] UN 2059 — Nitrocelulosa en
+solución inflamable con un 12,6% o menos de nitrógeno por peso seco y un 55% o menos de nitrocelulosa
+[351, 361, Y341, 353, 364, Y344, 355, 366] UN 2555 — Nitrocelulosa con agua con un 25% o más de agua por
+peso [452, 453] UN 2556 — Nitrocelulosa con alcohol con un 25% o más de alcohol por peso y un 12,6% o
+menos de nitrógeno por peso seco [452, 453] UN 2557 — Nitrocelulosa en mezcla sin plastificante, sin
+pigmento con un 12,6% o menos de nitrógeno por peso seco [452, 453] UN 2557 — Nitrocelulosa en mezcla
+sin plastificante, con pigmento con un 12,6% o menos de nitrógeno por peso seco [452, 453] UN 2557 —
+Nitrocelulosa en mezcla con plastificante, sin pigmento con un 12,6% o menos de nitrógeno por peso seco
+[452, 453] UN 2557 — Nitrocelulosa en mezcla con plastificante, con pigmento con un 12,6% o menos de
+nitrógeno por peso seco [452, 453] UN 2852 — Sulfuro de dipicrilo humidificado con un mínimo del 10% de
+agua por peso [452] UN 2907 — Dinitrato de isosorbida en mezcla con un 60% o más de lactosa, manosa,
+almidón o fosfato hidrógeno calcio [Y441, 445, 448] UN 3064 — Solución de nitroglicerina en alcohol con un
+5% o menos pero con más del 1% de nitroglicerina [371] UN 3268 — Dispositivos de seguridad, [961] UN 3317
+— 2-amino-4,6-dinitrofenol humedecido con un 20% o más de agua por peso [451] UN 3319 — Nitroglicerina
+en mezcla, desensibilizada, sólida, n.e.p.★ con más del 2% pero no más del 10% de nitroglicerina por peso
+[499] UN 3343 — Nitroglicerina en mezcla, desensibilizada, líquida, inflamable, n.e.p.★ con un máximo del
+30% de nitroglicerina por peso [–] UN 3344 — Tetranitrato de pentaeritrita en mezcla, insensibilizada, sólido,
+n.e.p.★ con más del 10% pero no más del 20% de PETN por peso [–] UN 3357 — Nitroglicerina en mezcla,
+desensibilizada, líquida, n.e.p.★ con un máximo del 30% de nitroglicerina por peso [–] UN 3364 — Ácido
+pícrico humidificado con el 10% o más de agua en peso [451] UN 3364 — Trinitrofenol, humidificado con el
+10% o más pero menos del 30% de agua en peso [451] UN 3365 — Cloruro de picrilo, humidificado con el 10%
+o más de agua por peso [451] UN 3365 — Trinitroclorobenceno, humidificado con el 10% o más de agua por
+peso [451] UN 3366 — TNT, humidificado con 10% o más, pero menos del 30%, en peso, de agua [451] UN
+3366 — Trinitrotolueno, humidificado con 10% o más, pero menos del 30%, en peso, de agua [451] UN 3367
+— Trinitrobenceno, humidificado con el 10% o más pero menos del 30% de agua por peso [451] UN 3368 —
+Ácido trinitrobenzoico, humidificado con el 10% o más agua pero menos del 30% de agua en peso [451] UN
+3369 — Dinitro-o-cresolato de sódico, humidificado con 10% o más, pero menos del 15%, en peso, de agua
+[451] UN 3370 — Nitrato de urea, humidificado con 10% o más, pero menos del 20% en peso, de agua [451]
+UN 3379 — Explosivo desensibilizado, líquido, n.e.p.★ [–] UN 3380 — Explosivo desensibilizado, sólido,
+
+n.e.p.★ [–] UN 3474 — 1-Hydroxybenzotriazol monohydratado [451] ■ Indicates that the item relates entirely to
+Radioactive shipments.
+
+

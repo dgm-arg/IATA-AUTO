@@ -1,0 +1,6 @@
+B0-04
+Cuando se solicite, el expedidor debe proporcionar una hoja de datos de seguridad (SDS) que incluya el
+número UN, el nombre de envío que corresponda, el grupo de embalaje (cuando corresponda) y toda
+información relevante adicional a la clasificación de clase/peligro y al transporte por aeronave.
+
+

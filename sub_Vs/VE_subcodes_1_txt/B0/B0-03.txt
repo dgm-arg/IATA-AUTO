@@ -1,0 +1,7 @@
+B0-03
+Para los envíos de UN 3556 Vehículo propulsado por batería de ion litio y UN 3557 Vehículo propulsado por
+batería de metal litio, se requiere la marca adicional "Contiene baterías de litio" (Contains Lithium batteries). El
+marcado debe cumplir con los requisitos establecidos en 7.1.4.4.1 de la DGR y situarse cerca de la marca de
+nombre del envío que corresponda.
+
+

@@ -1,0 +1,56 @@
+USG-12
+En los envíos hacia o desde los Estados Unidos o dentro de dicho territorio, inclusive en tránsito, la información
+de respuestas de emergencia, tal y como se describe más abajo, debe ser provista respecto de todas las
+mercancías peligrosas a excepción de los materiales magnetizados (UN 2807) y las mercancías peligrosas
+para las cuales, en virtud de 49 CFR, no se exija la presentación de la declaración del expedidor de transporte
+de mercancías peligrosas (documento de transporte). Número de teléfono: La declaración del expedidor de
+mercancías peligrosas requerida por esta Reglamentación debe incluir un número de teléfono de atención
+permanente para emergencias (que incluya el código de área, y los números telefónicos de localidades fuera
+de los Estados Unidos, el código de acceso internacional o el signo “+” [más], código del país y la ciudad que
+se necesiten para realizar la llamada desde los Estados Unidos), para su uso en caso de que se produzca un
+incidente relacionado con las mercancías peligrosas. Este teléfono estará bajo la supervisión permanente,
+durante el transporte de las mercancías peligrosas e incluso durante el almacenamiento relacionado con dicho
+transporte, de una persona que: 1. tenga conocimiento de los peligros y las características de las mercancías
+peligrosas que se transportan; 2. disponga de una amplia respuesta de emergencia e información para la
+mitigación de accidentes relacionados con las mercancías peligrosas; o 3. tenga acceso inmediato a la
+persona que posea tal conocimiento e información. No se requiere un teléfono para respuestas de emergencia
+para mercancías peligrosas en cantidades limitadas, tal y como se describe en 2.7, ni para los materiales
+descritos adecuadamente con los nombres apropiados de envío Equipo accionado por batería, Vehículo
+accionado por batería, Dióxido de carbono, sólido, Bagazo de ricino hojuelas, harina o semillas Artículos de
+consumo, hielo seco, Harina de pescado estabilizada, Desechos de pescado estabilizados Motores de
+combustión interna, vehículos accionados por gases inflamables o líquido inflamable, Harina de krill (Grup. De
+Emb. III), Máquinas refrigeradoras, Vehículo accionado por gas inflamable y Vehículo accionado por líquido
+inflamable. Medios de cumplimiento: El número de teléfono debe ser el de la persona que ofrece las
+mercancías peligrosas para transportar o el número de una agencia u organización con capacidad para
+proporcionar la información detallada concerniente a la mercancía peligrosa y que acepte la responsabilidad de
+hacerlo. Una persona que ofrezca una mercancía peligrosa para su transporte y que indique el número de
+teléfono de una agencia u organización debe asegurar que dicha agencia u organización haya recibido la
+información actual sobre el material antes de ofrecerlo para su transporte. Requisitos de documentación: El
+número de teléfono debe indicarse en la declaración del expedidor de mercancías peligrosas y su propósito se
+ha de identificar claramente, p. ej. “EMERGENCY CONTACT: . . .”, de una de las siguientes formas: 1.
+inmediatamente a continuación de la descripción de las mercancías peligrosas enumeradas en la declaración
+del expedidor; o 2. si únicamente un número se aplica para cada una de las mercancías peligrosas
+enumeradas en la declaración del expedidor, la información puede indicarse en una sola ubicación destacada,
+siempre que el número sea identificado como el número de teléfono para respuestas de emergencia.
+Información para respuestas de emergencia: La información para respuestas de emergencia relativa a las
+mercancías peligrosas que están siendo transportadas debe estar inmediatamente disponible durante todo el
+tiempo que estén presentes las mercancías peligrosas. Esta información debe ser adecuada para utilizarla
+como respuesta en accidentes e incidentes, incluyendo un incidente durante las operaciones terrestres y debe
+incluir como mínimo: 1. la descripción de las mercancías peligrosas enumeradas según lo estipulado en
+8.1.6.9.1, Primera secuencia, de esta Reglamentación; 2. peligros inmediatos para la salud; 3. peligros de
+fuego o explosión; 4. precauciones inmediatas que deben tomarse en el caso de un accidente o incidente; 5.
+métodos inmediatos para el manejo del fuego; 6. métodos iniciales para el manejo de los derrames y
+filtraciones en ausencia de fuego; y 7. medidas preliminares de primeros auxilios. Idioma: La información debe
+imprimirse en inglés y estar disponible en un lugar distinto al bulto que contiene la mercancía peligrosa y debe
+estar accesible de forma inmediata en caso de incidente. Los métodos para cumplir estos requisitos incluyen,
+pero no están limitados a: 1. incluir la información en la declaración del expedidor de mercancías peligrosas; 2.
+
+ubicar la información en un documento distinto, tal como la hoja de datos de seguridad del material, la cual
+incluye, al menos, toda la información enumerada más arriba; o 3. proporcionar la información para su uso
+junto con la declaración del expedidor de mercancías peligrosas (o a bordo de una aeronave junto con la
+información para el piloto al mando, como se requiere en 9.5 de esta Reglamentación), en un documento por
+separado, como la Guía de respuestas de emergencia de OACI para incidentes en aviones que involucren
+mercancías peligrosas (Doc 9481). Nota: El código de marcado estándar internacional dentro de los Estados
+Unidos es “011”.
+
+

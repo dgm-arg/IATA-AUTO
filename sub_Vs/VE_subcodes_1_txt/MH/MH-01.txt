@@ -1,0 +1,9 @@
+MH-01
+Será necesario hacer arreglos previos para todos los envíos de mercancías peligrosas, tal y como se define en
+la Reglamentación. Las mercancías peligrosas sin reserva serán rechazadas (ver 1.3.2 y 9.1.2). Nota: Todas
+las mercancías peligrosas en forma líquida, si se transportan en una aeronave de cabina angosta, p. ej. un
+B737, se deben empaquetar en embalajes combinados. No se permiten los embalajes únicos. ■ Change to an
+item. ■ Indicates that the item relates entirely to Radioactive shipments. ■ Indicates that the item relates to an
+infectious substance.
+
+

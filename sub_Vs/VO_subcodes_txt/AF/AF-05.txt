@@ -1,0 +1,9 @@
+AF-05
+Para bultos de pila(s) o batería(s) de litio preparados según la Sección II de las Instrucciones de Embalaje 966,
+967, 969 y 970, entregados a granel o en un dispositivo unitario de carga de expedidor (BUP), la guía aérea
+debe mostrar el número de piezas que llevan la marca de batería de litio en la casilla “Naturaleza y cantidad de
+mercancías peligrosas” (Nature and Quantity of Dangerous Goods). En caso de que la guía aérea tenga
+múltiples BUP, se debe indicar el número de piezas que llevan la marca de batería de litio por cada BUP.
+Indicates that the item relates to a battery.
+
+

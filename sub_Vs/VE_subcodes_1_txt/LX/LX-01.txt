@@ -1,0 +1,15 @@
+LX-01
+No se aceptará el transporte de los siguientes artículos o sustancias de Clase 7 (ver 10.4): Número UN—
+Descripción UN 2919 — Material radiactivo, transportado en virtud de arreglos especiales, no fisionable o
+fisionable exceptuado UN 2977 — Material radiactivo, hexafluoruro de uranio, fisionable UN 3321 — Material
+radiactivo, baja actividad específica (BAE–II), no fisionable o fisionable exceptuado UN 3322 — Material
+radiactivo, baja actividad específica (BAE–III), no fisionable o fisionable exceptuado UN 3324 — Material
+radiactivo, baja actividad específica (BAE–II), fisionable UN 3325 — Material radiactivo, baja actividad
+específica (BAE–III) fisionable UN 3326 — Material radiactivo, objetos contaminados en la superficie (OCS–I),
+fisionable UN 3327 — Material radiactivo, bultos del Tipo A, fisionable, no en forma especial UN 3328 —
+Material radiactivo, bultos del Tipo B(U), fisionable UN 3329 — Material radiactivo, bultos del Tipo B(M),
+fisionable UN 3330 — Material radiactivo, bultos del Tipo C, fisionable UN 3331 — Material radiactivo,
+transportado en virtud de arreglos especiales, fisionable UN 3333 — Material radiactivo, bultos del Tipo A,
+fisionable, en forma especial, fisionable ■ Change to an item.
+
+

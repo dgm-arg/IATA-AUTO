@@ -1,0 +1,15 @@
+USG-16
+Los dispositivos de seguridad (incluyendo bolsas de aire, los módulos de bolsas de aire y los pretensores de
+cinturones de seguridad, etc) no pueden ser transportados hacia, desde o dentro de los Estados Unidos, sin
+una previa aprobación de la autoridad que corresponde de los Estados Unidos (ver USG-01), Atención:
+Approvals and Permits Division (PHH-30) (Oficina de Permisos Especiales y Aprobaciones para Materiales
+Peligrosos). Tal aprobación permanecerá válida para transportes subsecuentes, siempre que no haya cambios
+en su composición, diseño o embalaje. El documento de transporte de mercancías peligrosas (declaración del
+expedidor) debe contener el número EX o el código de producto para cada uno de los dispositivos de
+seguridad aprobados, junto con la descripción básica requerida en 8.1.6.9.1. Si se utilizan códigos de producto,
+debe poderse hacer un seguimiento para obtener el número EX específico que está asignado dispositivo de
+seguridad según la autoridad correspondiente en los EE. UU. No es necesario marcar fuera del bulto el número
+EX o el código de producto. Este requisito no se aplica a dispositivos de seguridad asignados a la Clase 9 (UN
+3268) considerando que se han cumplido las disposiciones de 49 CFR 173.166.
+
+

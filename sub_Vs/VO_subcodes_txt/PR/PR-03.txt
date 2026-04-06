@@ -1,0 +1,10 @@
+PR-03
+Los dispositivos electrónicos portátiles, con o sin baterías de litio (como las cámaras, los teléfonos celulares,
+las computadoras portátiles, las tabletas y los drones), no están permitidos en el equipaje facturado cuando
+sean transportados por los pasajeros o la tripulación. No obstante, los PED de gran tamaño que superen las
+limitaciones de tamaño y peso del equipaje de mano y que tengan baterías de litio o sodio extraíbles podrán
+transportarse en el equipaje facturado, siempre y cuando estén protegidos contra daños y que las baterías se
+extraigan y transporten por separado en el equipaje de mano. ■ Change to an item. Indicates that the item
+relates to a battery.
+
+

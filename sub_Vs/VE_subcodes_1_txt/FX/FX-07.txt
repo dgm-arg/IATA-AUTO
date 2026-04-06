@@ -1,0 +1,13 @@
+FX-07
+Esta variación solo se aplica si no se aplica FX-18. No se aceptarán Declaraciones del expedidor escritas a
+mano. Los campos siguientes de la declaración del expedidor se deben rellenar a máquina o computadora:
+•Número de identificación u UN, incluido el prefijo, nombre de envío, clase o división de peligro, división o
+peligro secundario, grupo de embalaje, tipo de embalaje, instrucción de embalaje, autorización, número de
+teléfono de emergencia. Nota: El nombre técnico, cuando se requiere, puede estar escrito a mano. ■ Indicates
+that the item relates entirely to Radioactive shipments. Para los envíos radiactivos, además de los elementos
+indicados arriba, se debe rellenar a máquina o computadora lo siguiente: 1. Radionucleido, Forma especial o
+Forma física y química. Todas las demás anotaciones se pueden escribir a mano Las alteraciones/enmiendas
+a mano en una anotación que se debe escribir a máquina según FX-07 se aceptarán, siempre que dicha
+alteración o enmienda sea legible y lleve la misma firma que consta en la declaración del expedidor.
+
+

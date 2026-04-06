@@ -1,0 +1,5 @@
+RH-07
+UN 3480, Pilas y baterías de ion litio, no se aceptarán para el transporte como carga. Esto aplica a la Sección
+IA y la Sección IB de la Instrucción de Embalaje 965. Indicates that the item relates to a battery.
+
+

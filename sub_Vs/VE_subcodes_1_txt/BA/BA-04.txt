@@ -1,0 +1,7 @@
+BA-04
+A menos que haya sido específicamente aprobado por British Airways, los pasajeros y la tripulación tienen un
+límite de 4 baterías de litio de repuesto con un máximo de 100 Wh por persona. Las baterías de repuesto se
+limitan al transporte en ‘equipaje de mano’ en la cabina únicamente, (ver 2.3.5.9). Indicates that the item
+relates to a battery.
+
+

@@ -1,0 +1,6 @@
+NO-05
+No se aceptarán a los expedidores dispositivos unitarios de carga (ULD) que contengan mercancías peligrosas
+que no sean ID 8000, artículos de consumo, y UN 1845 hielo seco cuando se use como refrigerante para otras
+mercancías peligrosas. ■ Change to an item.
+
+

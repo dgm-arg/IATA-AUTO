@@ -1,0 +1,11 @@
+O3-01
+El expedidor debe proporcionar un número de teléfono para respuestas de emergencia con atención las 24
+horas de una persona o agencia que conozca los peligros, las características y las acciones por tomarse en
+caso de un accidente o incidente relacionado con cada una de las mercancías peligrosas que se transportan.
+Este número de teléfono, que debe incluir los códigos de país y de área, precedido de las palabras “Número de
+24 horas” o una abreviatura de estas palabras, debe incluirse en la Declaración del Expedidor de Mercancías
+Peligrosas, preferiblemente en la casilla “Información de manipulación adicional” (Additional Handling
+Information) (ver 8.1.6.11 y 10.8.3.11). El número de teléfono para emergencias, con atención las 24 horas, no
+es necesario para envíos que no requieren una declaración del expedidor para mercancías peligrosas.
+
+

@@ -1,0 +1,54 @@
+FX-02
+(a) Excepto por UN 1230 — Metanol y cantidades exceptuadas (EQ), las sustancias con un peligro primario o
+secundario de la División 6.1 del Grupo de Embalaje I o II deben ser preparadas de la siguiente manera:
+•Envíos con origen y destino dentro de los EE. UU., incluidos Puerto Rico y los territorios de los EE. UU.: ya
+sea en un embalaje de especificación UN que cumpla con los estándares de rendimiento del grupo de
+embalaje I, un embalaje con permiso especial (SP) US DOT, o preparado según 49 CFR 173.13. •Envíos con
+origen o destino fuera de los EE. UU.: en un embalaje de especificación UN que cumpla con los estándares de
+rendimiento del grupo de embalaje I para el transporte internacional (envíos con origen o destino fuera de los
+EE. UU.). Nota: Los peligros secundarios de la División 6.1 sin grupo de embalaje no están sujetos a FX-02a.
+(b) El peligro de toxicidad por inhalación (PIH) con peligro de la zona “A” (referencia 49 CFR 173.133 por
+zonas) o cualquier sustancia de Clase 2 con una etiqueta de peligro primario o secundario de toxicidad no será
+aceptada para el transporte. (c) Difenilos policlorados: Los siguientes materiales de la Clase 9, si se sabe o se
+sospecha que contienen PCBs, deben embalarse como sigue — para los líquidos: embalajes interiores de
+metal IP3 o IP3A con material absorbente utilizado para rellenar todo el espacio disponible; para los sólidos:
+cualquier embalaje interior según lo permitido en la instrucción de embalaje correspondiente. El embalaje
+exterior debe ser un bidón de acero 1A2, una caja de plástico 4H2, USA DOT-SP 8249, DOT-SP 9168 o
+DOT-SP 11248 (ver las Instrucciones de Embalaje [–] enumeradas después de cada sustancia): Número UN—
+Descripción UN 2315 — Difenilos policlorados, líquidos [964] UN 3077 — Sustancia peligrosa para el medio
+ambiente, sólida, n.e.p.★ [956, Y956] UN 3082 — Sustancia peligrosa para el medio ambiente, líquida, n.e.p.★
+[964, Y964] UN 3432 — Difenilos policlorados, sólidos [956] (d) Las mercancías peligrosas de la División 4.3 se
+deben presentar de la siguiente manera: Los envíos nacionales dentro de los EE. UU. •bajo una instrucción de
+embalaje “Y” de cantidad limitada; •según 49 CFR 173.13; o • usando un permiso especial DOT que no
+requiera rotulación para el transporte terrestre. Los envíos que se originen en los EE. UU. y estén destinados a
+una ubicación fuera de los EE. UU. se deben presentar: •bajo una instrucción de embalaje “Y” de cantidad
+limitada; o •entregado en una instalación con personal de FedEx Express que acepte mercancías peligrosas.
+Los envíos que se originen fuera de los EE. UU. y estén destinados a una ubicación en los EE. UU. se deben
+presentar: •bajo una instrucción de embalaje “Y” de cantidad limitada; o •enviados como “hold-for-pickup”, para
+ser recogidos en una instalación con personal de FedEx Express que acepte mercancías peligrosas. (e)
+Independientemente del origen o destino, FedEx Express solo aceptará los números de UN que se enumeran
+a continuación cuando los embalajes cumplan con 49 CFR 173.302 (f), 173.304 (f) y con los requisitos de
+resistencia térmica y penetración de llamas DOT31FP, según lo prescrito en 49CFR Parte 178 Apéndices D y
+E (ver USG-18). El embalaje debe ser de especificación UN que cumpla con los estándares de desempeño del
+Grupo de Embalaje I o II o cumpla los estándares de desempeño de la Categoría I de la especificación 300 de
+la ATA. Además, los bultos exteriores deben estar marcados por el fabricante con la marca de certificación
+adicional “DOT31FP”. Para garantizar el cumplimiento de las variaciones de USG-18 y FX-02 (e), FedEx
+Express no aceptará los UN enumerados en esta variación en sobrembalajes, a menos que se cumpla alguna
+de las siguientes condiciones: •cada marca de certificación DOT31FP del bulto exterior está visible para su
+inspección por parte del expedidor; o •la declaración del expedidor contiene la declaración de cumplimiento
+adicional: “Este envío está preparado según USG-18 y FX-02(e)”; o •el sobrembalaje está marcado en
+cumplimiento de DOT31FP (“DOT31FP compliant”). Número UN— Descripción UN 1072 — Oxígeno,
+comprimido [200] UN 1070 — Óxido nitroso [200] UN 2451 — Trifluoruro de nitrógeno [200] UN 3156 — Gas
+comprimido, oxidante, n.e.p. ★ [200] UN 3157 — Gas licuado, oxidante, n.e.p. ★ [200] UN 3356 — Generador
+de oxígeno, químico [565] (f) Las siguientes mercancías peligrosas pueden enviarse dentro de los EE. UU. y
+Puerto Rico según la edición actual del Título 49 del Código de Regulaciones Federales (49 CFR): •Material
+magnetizado; •Embalaje con permiso especial; • Sustancia líquida peligrosa para el medio ambiente, n.e.p.
+para bultos no a granel*; •Sustancia sólida peligrosa para el medio ambiente, n.e.p. para bultos no a granel*;
+
+•Envíos que contengan alcohol etílico en pequeñas cantidades según se define en 49 CFR 173.150 (g)*; •
+Algunos permisos especiales del Departamento de Transporte (DOT) de los EE. UU. que han sido aprobados
+para el transporte aéreo. *Los envíos que contienen líquidos bajo la excepciones 49 CFR también deben
+cumplir con las disposiciones generales de embalaje de la IATA en 5.0.2.4.1 y 5.0.2.8. ■ Indicates that the item
+relates entirely to Radioactive shipments.
+
+

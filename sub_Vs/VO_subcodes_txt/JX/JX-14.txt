@@ -1,0 +1,7 @@
+JX-14
+Las mercancías peligrosas transferidas a/desde otros operadores no serán aceptadas para el transporte,
+excepto UN 2807 (Material magnetizado), UN 3166 (Vehículo), UN 3528 (Motor), UN 3530 (Motor), Baterías de
+litio UN 3481/UN 3091) Sección II (ELI/ELM), Baterías de ion sodio (UN 3552) Sección II (ELI), y cierta(s)
+clase(s) o división(es) con una aprobación previa de la sede central de STARLUX.
+
+

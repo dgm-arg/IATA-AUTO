@@ -1,0 +1,6 @@
+BZ-09
+Las mercancías peligrosas ofrecidas para el transporte bajo una dispensa o aprobación estatal (p. ej., las que
+se requieren por la Disposición especial A1, A2, y A106) no se aceptarán para el transporte. Indicates that the
+item relates to a battery.
+
+

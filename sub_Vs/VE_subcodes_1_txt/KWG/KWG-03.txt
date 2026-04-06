@@ -1,0 +1,5 @@
+KWG-03
+Cualquier envío de mercancías peligrosas con anotación n.e.p.* debe estar acompañado de una Hoja de Datos
+de Seguridad del Material (MSDS)/hoja de datos de seguridad (SDS).
+
+

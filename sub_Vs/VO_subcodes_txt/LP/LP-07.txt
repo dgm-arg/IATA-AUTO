@@ -1,0 +1,6 @@
+LP-07
+Las sustancias fisionables definidas en 10.3.7 se aceptarán únicamente tras revisión y aprobación previas por
+parte del Comité Técnico de Mercancías Peligrosas de LATAM Airlines Group (ver LP-01). Indicates that the
+item relates to a battery.
+
+

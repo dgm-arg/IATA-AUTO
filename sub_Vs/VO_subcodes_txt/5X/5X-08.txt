@@ -1,0 +1,28 @@
+5X-08
+Baterías de litio o ion sodio: Los siguientes requisitos y limitaciones se aplican a los envíos de baterías: •Para
+facilitar un transporte eficiente de los envíos entregados sin una guía aérea IATA, UPS requiere que los bultos
+de baterías de litio o ion sodio, UN 3481, UN 3091 u UN 3552, preparados y marcados/etiquetados según la
+Sección II de la instrucción de embalaje pertinente, también deben estar marcados con la información
+apropiada en la etiqueta de dirección o adyacente a la marca de la batería (7.1.5.5), para permitir que UPS
+identifique el tipo de envío cuando se transfiera a las compañías aéreas asociadas; p. ej.: —I.E. 966-II —I.E.
+967-II —I.E. 969-II —I.E. 970-II —I.E. 977-II —I.E. 978-II De forma alternativa, dicha información puede
+incluirse en un documento accesible en el exterior del bulto. La marca adicional se aplica a bultos con origen o
+destino fuera de los 48 estados contiguos de los EE. UU. y Puerto Rico. • No se aceptan envíos de baterías de
+litio o ion sodio restauradas, o baterías de litio o ion sodio restauradas y embaladas o contenidas en equipos, a
+menos que estén específicamente aprobadas por el Departamento de Mercancías Peligrosas (SDF) de UPS
+Air. Refiérase a 5X-09 para conocer el proceso de aprobación. •Los envíos de baterías de litio o ion sodio en
+cualquier servicio aéreo de UPS (incluyendo UPS Small Package, UPS Air Freight o UPS Air Cargo Services)
+que requieren el uso de las disposiciones especiales A88, A99, A183 o A331 deben tener aprobación previa
+del Departamento de Mercancías Peligrosas (SDF) de UPS Air. Refiérase a 5X-09 para conocer el proceso de
+aprobación. • Para el servicio UPS Small Package, los envíos de UN 3171, Vehículo accionado por batería, UN
+3556, Vehículo propulsado por batería de ion litio, UN 3557, Vehículo propulsado por batería de metal litio, UN
+3558, Vehículo propulsado por batería de ion sodio, únicamente se aceptarán bajo las siguientes condiciones:
+—El bulto está limitado a un peso bruto máximo de 30 kg. —No se acepta como “Avión de carga solamente”
+(CAO). • Los envíos de UN 3171, Vehículo accionado por batería, UN 3556, Vehículo propulsado por batería
+de ion litio, UN 3557, Vehículo propulsado por batería de metal litio, UN 3558, Vehículo propulsado por batería
+de ion sodio que contienen baterías defectuosas o dañadas, no son aceptados por UPS. Más información
+sobre el envío de baterías mediante UPS puede obtenerse en: https://www.ups.com/us/en/support/shipping-su
+pport/shipping-special-care-regulated-items/hazardous-materials- guide/how-to-ship-batteries.page ■ Change
+to an item. Indicates that the item relates to a battery.
+
+

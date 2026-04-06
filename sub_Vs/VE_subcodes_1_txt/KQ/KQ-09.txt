@@ -1,0 +1,11 @@
+KQ-09
+Para las baterías de ion litio/metal litio y las baterías de ion sodio embaladas o contenidas en un equipo según
+la Sección II de las Instrucciones de Embalaje 966, 967, 969, 970 y 978, número de bultos que contienen
+baterías de ion litio/metal lito o ion sodio y la cantidad neta por bulto debe incluirse en la casilla “Naturaleza y
+cantidad de mercancías” (Nature and quantity of Goods) de la guía aérea y ser reportadas como Carga
+Especial en la NOTOC. Cuando se embala como sobrembalaje, el número de bultos dentro del sobrembalaje
+que contienen baterías de ion litio/metal litio o baterías de ion sodio, según la Sección II, debe indicarse en la
+casilla «Naturaleza y cantidad de las mercancías» de la guía aérea. ■ Change to an item. Indicates that the
+item relates to a battery.
+
+

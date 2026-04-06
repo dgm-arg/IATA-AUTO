@@ -1,0 +1,5 @@
+DR-05
+Cada pasajero puede llevar no más de 2 bancos de energía con un ratio de vatio-hora que no supere los 100
+Wh. ■ Change to an item. Indicates that the item relates to a battery.
+
+

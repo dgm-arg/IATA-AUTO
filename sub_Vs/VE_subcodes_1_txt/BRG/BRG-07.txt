@@ -1,0 +1,5 @@
+BRG-07
+Cuando los documentos o la información mencionados en 9.8 se conserven de forma electrónica o en un
+sistema informático deben poder reproducirse de forma impresa.
+
+

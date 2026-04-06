@@ -1,0 +1,8 @@
+FX-08
+Cuando se requiera una declaración del expedidor, se deberán entregar tres (3) copias de ésta por cada envío
+en la ubicación de origen. Como mínimo, dos de las copias deben tener la trama diagonal impresa en color rojo
+de arriba a abajo en los márgenes izquierdo y derecho. Cuando un envío consista en más de un bulto externo
+o sobrembalaje, el expedidor debe colocar una copia adicional en blanco y negro de la Declaración del
+Expedidor en cada bulto externo o sobrembalaje adicional en el envío.
+
+

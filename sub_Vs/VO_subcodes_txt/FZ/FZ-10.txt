@@ -1,0 +1,6 @@
+FZ-10
+Los vehículos con batería solo deberán ser aceptados de empresas cuando sean nuevos y estén en su
+embalaje original sin abrir. Los vehículos usados, dañados o reacondicionados de particulares, revendedores y
+terceros no deberán ser aceptados. ■ Change to an item. Indicates that the item relates to a battery.
+
+

@@ -1,0 +1,6 @@
+KC-05
+Para envíos de la Sección II de las Instrucciones de Embalaje 966, 967, 969 y 970, el número de bultos (a
+menos que sean los únicos bultos dentro del envío) debe agregarse en la casilla “Naturaleza y cantidad de
+mercancías peligrosas” (Nature and Quantity of Dangerous Goods) de la guía aérea.
+
+

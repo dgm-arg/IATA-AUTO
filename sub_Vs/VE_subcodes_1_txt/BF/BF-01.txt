@@ -1,0 +1,6 @@
+BF-01
+Sólo se acepta para su transporte el material radiactivo de Categoría I-Blanca (código IMP RRW, ver B.2.2.4)
+donde la tasa de dosis máxima en cualquier punto de cualquier superficie externa de un bulto o sobrembalaje
+no exceda 0,005 mSv/h.
+
+

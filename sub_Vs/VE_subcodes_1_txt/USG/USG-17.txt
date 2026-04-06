@@ -1,0 +1,5 @@
+USG-17
+Los expedidores y operadores deben cumplir los requisitos de seguridad prescritos en 49 CFR Parte 172,
+Subparte I, como sea aplicable (ver 1.7).
+
+

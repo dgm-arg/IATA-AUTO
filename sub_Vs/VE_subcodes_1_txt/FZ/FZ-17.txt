@@ -1,0 +1,7 @@
+FZ-17
+A solicitud, el expedidor o el agente de ofertas de envíos de material magnetizado UN 2807 deben tener
+evidencia documental disponible para demostrar que la intensidad del campo magnético cumple con los
+criterios de aceptación especificados en la Instrucción de Embalaje 953. ■ Addition of a new item. Indicates
+that the item relates to a battery.
+
+

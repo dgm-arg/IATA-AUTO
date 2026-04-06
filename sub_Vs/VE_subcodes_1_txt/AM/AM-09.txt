@@ -1,0 +1,18 @@
+AM-09
+Las mercancías que pertenecen a esta Clase 9 no serán aceptadas para el transporte, con la excepción de los
+productos siguientes (Excepción: COMAT, partes y suministros): UN 1845 — Dióxido de carbono, sólido (hielo
+seco) UN 2071 — Abonos a base de nitrato amónico UN 2807 — Materiales Magnetizados UN 3072 —
+Elementos salvavidas, no autoinflables UN 3077 — Sustancia peligrosa para el medio ambiente, solida,
+n.e.p.★ UN 3082 — Sustancia peligrosa para el medio ambiente, líquida, n.e.p.★ Indicates that the item relates
+to a battery. UN 3091 — Baterías de metal litio contenidas en equipo Indicates that the item relates to a battery.
+UN 3091 — Baterías de metal litio embaladas con equipo UN 3166 — Vehículo propulsado por líquido
+inflamable UN 3245 — Microorganismos modificados genéticamente UN 3245 — Organismos modificados
+genéticamente UN 3268 — Dispositivos de seguridad UN 3316 — Equipos químicos UN 3316 — Botiquín de
+urgencia UN 3334 — Líquidos regulados para la aviación, n.e.p. UN 3335 — Sólidos regulados para la
+aviación, n.e.p. UN 3363 — Mercancías peligrosas en aparatos UN 3363 — Mercancías peligrosas en
+maquinaria Indicates that the item relates to a battery. UN 3481 — Baterías de ion litio contenidas en equipo
+Indicates that the item relates to a battery. UN 3481 — Baterías de ion litio embaladas con equipo UN 3530 —
+Motor de combustión interna ID 8000 — Artículos de consumo ■ Indicates that the item relates to an infectious
+substance.
+
+

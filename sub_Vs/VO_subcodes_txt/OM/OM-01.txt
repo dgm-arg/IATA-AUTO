@@ -1,0 +1,6 @@
+OM-01
+Será necesario hacer arreglos previos para todos los envíos de mercancías peligrosas, tal y como se define en
+la Reglamentación sobre mercancías peligrosas de la IATA. Las mercancías peligrosas sin reserva serán
+rechazadas (ver 1.3.2 y 9.1.2).
+
+

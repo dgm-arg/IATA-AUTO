@@ -1,0 +1,70 @@
+USG-04
+A continuación se describen las sustancias sujetas a requisitos adicionales para el transporte aéreo hacia,
+desde o dentro de los Estados Unidos. Los requisitos adicionales de III se aplican también a los operadores
+estadounidenses que operan fuera de EE. UU. (ver 1.3.1): I. Sustancias peligrosas: Cuando una sustancia,
+incluidas sus mezclas y soluciones, enumerada en el Apéndice A de 49 CFR 172.101 se va a transportar en un
+bulto en el que la cantidad neta de la sustancia iguala o supera la cantidad declarable (RQ) indicada para la
+sustancia en el Apéndice A, dicha sustancia, mezcla o solución se considerará una sustancia peligrosa, a
+menos que: •sea un producto del petróleo que sea lubricante o combustible; o •esté en una concentración
+inferior a la que se muestra en la Tabla siguiente basada en el RQ especificado para el material: Concentración
+por peso RQ Kilogramos Porcentaje PPM 45,4 0,2 2000,0 4,54 0,02 200,0 0,45 0,002 20,0 Para mezclas de
+radionucleidos, ver la nota 7 del Apéndice A de 49 CFR 172.101. Las sustancias peligrosas, con excepción de
+aquellas que sean consideradas residuos peligrosos como están definidos en la Sección II más abajo, deben
+cumplir los siguientes requisitos: (a) Para una sustancia peligrosa considerada como mercancía peligrosa
+según esta Reglamentación en lugar de los nombres apropiados de envío de “Sustancias peligrosas para el
+medio ambiente, líquidas, n.e.p.” o “Sustancias peligrosas para el medio ambiente, sólidas, n.e.p.”: 1. a menos
+que ya se haya incluido en el nombre de envío requerido y excepto para los materiales radiactivos de la Clase
+7, el nombre de la sustancia peligrosa se mostrará entre paréntesis, asociado a la descripción de mercancías
+peligrosas en la declaración del expedidor y al nombre apropiado de envío en el marcado del bulto. Si el
+material contiene dos o más sustancias peligrosas, al menos dos sustancias peligrosas deben ser
+identificadas, incluyendo las dos con la cantidad declarable (RQs) más baja; y 2. las letras “RQ” se escribirán
+en la declaración del expedidor, ya sea antes o después de la descripción básica y en asociación con el
+nombre apropiado de envío que debe marcarse sobre el bulto. (b) Para las sustancias peligrosas que no
+corresponda a ninguna otra definición de mercancías peligrosas según esta Reglamentación: 1. la sustancia
+peligrosa se enviará según la descripción de mercancía peligrosa básica “UN 3082, Sustancias peligrosas para
+el medio ambiente, líquidas, n.e.p., Clase 9, III” o “UN 3077, Sustancias peligrosas para el medio ambiente,
+sólidas, n.e.p., Clase 9, III”, según corresponda, y según los requisitos de esta Reglamentación que se
+apliquen al envío de mercancías bajo esta descripción; 2. excepto por 5.0.2.9 el bulto debe reunir todos los
+Requisitos generales de embalaje aplicables de la Subsección 5.0 de esta Reglamentación que se aplicarían a
+las mercancías peligrosas del grupo de embalaje III; 3. las letras “RQ” se escribirán en la declaración del
+expedidor, ya sea antes o después de la descripción básica y en asociación con el nombre apropiado de envío
+que debe marcarse sobre el bulto; y 4. el nombre de la sustancia peligrosa debe mostrarse entre paréntesis,
+asociado con la descripción de las mercancías peligrosas en la declaración del expedidor, y con el nombre
+apropiado de envío marcado en el bulto. Si el material contiene dos o más sustancias peligrosas, al menos dos
+sustancias peligrosas deben ser identificadas, incluyendo las dos con la cantidad reportable (RQs) más baja.
+Nota: La lista de sustancias peligrosas y la RQ aplicable según se muestra en el Apéndice A para 49 CFR
+172.101 está disponible vía Internet en:
+https://www.phmsa.dot.gov/sites/phmsa.dot.gov/files/docs/172_101_appa.pdf II. Desecho peligroso. Un
+desecho peligroso es cualquier material que esté sujeto a los requisitos del manifiesto de desechos peligros
+exigido por la Agencia de Protección Medioambiental (EPA) de los Estados Unidos especificados en 40 CFR,
+Parte 262. Se aplicarán los siguientes requisitos al transporte de residuos peligrosos: (a) Para un residuo
+peligroso considerado mercancía peligrosa según esta Reglamentación, en lugar de los nombres de envío
+adecuados de Sustancias peligrosas para el medio ambiente, líquidas, n.e.p. o Sustancias peligrosas para el
+medio ambiente, sólidas, n.e.p.: 1. la palabra “Desecho” (Waste) debe preceder al nombre apropiado de envío
+en la declaración del expedidor y en el marcado de los bultos; y 2. los requisitos de 49 CFR 172.205, con
+respecto al manifiesto de residuos peligrosos, se aplican aquí. (b) Para los residuos peligrosos que no
+correspondan a ninguna otra definición de mercancías peligrosas según esta Reglamentación: 1. el residuo
+
+peligroso será enviado según la descripción de mercancía peligrosa básica “UN 3082, Residuos peligrosos
+para el medio ambiente, líquidos, n.e.p., Clase 9, III” o “UN 3077, Residuos peligrosos para el medio ambiente,
+sólidos, n.e.p., Clase 9, III”, según sea apropiado, y según los requisitos de esta Reglamentación que se
+apliquen al envío de mercancías según esta descripción; 2. el bulto debe reunir todos los Requisitos generales
+de embalaje aplicables de la Subsección 5.0 de esta Reglamentación que se aplicarían a las mercancías
+peligrosas del grupo de embalaje III; 3. los requisitos de 49 CFR 172.205 con respecto al manifiesto de
+residuos peligrosos se aplican; y 4. para aquellos residuos peligrosos que cumplan la definición de sustancia
+peligrosa, las letras “RQ” y el nombre de la sustancia peligrosa entre paréntesis, se mostrarán asociados con la
+descripción básica de la declaración del expedidor y con las marcas de los bultos. Notas: 1. Dentro de los
+Estados Unidos, los residuos peligrosos solo podrán ser transportados por operadores que hayan obtenido de
+la “Environmental Protection Agency” (EPA) un número de identificación de operador de desechos. 2. La
+asignación de sustancias descrita anteriormente en I y II para UN 3077 y UN 3082 está según la disposición
+especial A97 de esta Reglamentación. 3. La lista de residuos peligrosos y la RQ aplicable según se muestra en
+el Apéndice A del 49 CFR 172.101 está disponible vía Internet en
+https://www.phmsa.dot.gov/international-program/49-cfr-172101-appendix III. Otros materiales. Los materiales
+que no están sujetos a los mismos requisitos de esta Reglamentación pero que cumplen la definición de clase
+de peligro en 49 CFR Partes 171–180 deben transportarse según dicha Reglamentación. Nota editorial: La
+“descripción básica” consiste en cuatro elementos: número UN, nombre apropiado de envío, clase/división
+(peligro secundario), y cuando sea necesario, el grupo de embalaje. Las letras “RQ” deben aparecer ya sea
+antes o después de estos elementos de descripción básicos. p. ej.: RQ, UN 1790, Hydrofluoric acid, 8, II o UN
+1790, Hydrofluoric acid, 8, II, RQ.
+
+

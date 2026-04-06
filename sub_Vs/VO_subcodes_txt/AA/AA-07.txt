@@ -1,0 +1,7 @@
+AA-07
+Para los sólidos de la División 4.3, los embalajes deben cumplir con los estándares de prueba de bultos del
+grupo de embalaje I, los requisitos adicionales de embalaje 49 CFR 173.13, y deben estar marcados con la
+siguiente declaración: “This package conforms to 49 CFR 173.13” (Este bulto cumple con 49 CFR 173.13). ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

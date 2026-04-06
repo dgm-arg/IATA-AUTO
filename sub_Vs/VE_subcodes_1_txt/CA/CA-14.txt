@@ -1,0 +1,16 @@
+CA-14
+Cada pasajero y miembro de la tripulación puede transportar no más de 8 baterías de repuesto en total.
+Incluidas en el total de ocho baterías de repuesto se encuentran: •no más de 2 baterías de ion litio con una
+capacidad nominal en vatios hora superior a 50 Wh pero no superior a 100 Wh o 2 baterías de metal litio, con
+un contenido de metal de litio superior a 1 g pero no superior a 2 g; Notas: 1. No se permiten más de dos
+bancos de energía. 2. Están prohibidas las baterías de ion litio, las baterías de metal litio o los bancos de
+energía sin marcas claras de la capacidad nominal o del contenido de metal de litio o donde la capacidad
+nominal en vatios hora no se puede calcular. 3. Los dispositivos médicos tales como concentradores de
+oxígeno portátiles (POC), cuyo uso se permite a bordo, están especificados en los manuales o documentos
+pertinentes de Air China. El número de baterías de repuesto para los dispositivos mencionados más arriba
+también deberá cumplir con las regulaciones de los manuales o documentos pertinentes de Air China. •el
+número permitido de baterías de litio de repuesto para las sillas de ruedas u otras ayudas motrices está
+incluido en el total de 8 baterías de repuesto, y se debe cumplir con todos los requisitos pertinentes para las
+sillas de ruedas u otras ayudas motrices. ■ Change to an item. Indicates that the item relates to a battery.
+
+

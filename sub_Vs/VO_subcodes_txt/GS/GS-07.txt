@@ -1,0 +1,5 @@
+GS-07
+Las baterías de ion litio contenidas en dispositivos electrónicos portátiles no serán aceptadas en el equipaje
+facturado si el ratio vatio-hora excede los 100 Wh. Indicates that the item relates to a battery.
+
+

@@ -1,0 +1,5 @@
+3U-04
+UN 3480, baterías de ion litio (Sección IA y Sección IB) preparadas según la IE 965 y UN 3090, baterías de
+metal litio (Sección IA y Sección IB) preparadas según la IE 968, no se aceptan como carga.
+
+

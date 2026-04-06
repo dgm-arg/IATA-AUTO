@@ -1,0 +1,6 @@
+RU-01
+Está prohibido transportar bultos que contienen mercancías peligrosas de peligro primario de la Clase 8,
+etiquetadas como “Avión de carga solamente” (Cargo Aircraft Only) en la plataforma inferior del avión.
+Indicates that the item relates to a battery.
+
+

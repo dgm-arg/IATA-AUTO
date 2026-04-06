@@ -1,0 +1,6 @@
+BR-18
+Las baterías de litio preparadas según la Sección I/IA de las Instrucciones de Embalaje 965 a 970 y la Sección
+IB de la Instrucción de Embalaje 965 y 968 no serán aceptadas para el transporte (ver IE 965 e IE 968).
+Indicates that the item relates to a battery.
+
+

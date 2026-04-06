@@ -1,0 +1,7 @@
+DR-04
+Las sillas de ruedas que funcionan con baterías u otras ayudas de movilidad similares que funcionan con
+baterías de ion litio se aceptarán en el equipaje de pasajeros únicamente cuando la(s) batería(s) estén
+específicamente diseñadas para ser removidas y las baterías removidas no superen los 300 Wh. Indicates that
+the item relates to a battery.
+
+

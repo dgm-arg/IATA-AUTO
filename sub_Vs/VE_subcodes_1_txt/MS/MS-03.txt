@@ -1,0 +1,6 @@
+MS-03
+El expedidor/agente debe proporcionar la ficha de datos de seguridad, previa solicitud, la cual debe incluir la
+información del transporte, o una declaración en papel con membrete de la empresa que confirme la
+clasificación y en la cual esté ASUMIENDO PLENA RESPONSABILIDAD (ver 8.0.1 y 8.3).
+
+

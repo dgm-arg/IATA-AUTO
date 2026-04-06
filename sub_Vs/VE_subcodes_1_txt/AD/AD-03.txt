@@ -1,0 +1,6 @@
+AD-03
+Los dispositivos unitarios de carga (ULD) o los contenedores de carga que contienen mercancías peligrosas
+descritas en 9.1.4 no serán aceptados salvo si han sido preparados por personal de Azul, o por empresas que
+trabajan en nombre de Azul.
+
+

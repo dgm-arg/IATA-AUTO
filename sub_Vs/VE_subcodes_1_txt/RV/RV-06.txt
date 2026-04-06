@@ -1,0 +1,6 @@
+RV-06
+Para envíos de la Sección II de las Instrucciones de Embalaje 966, 967, 969, 970, 977 y 978 se debe agregar
+el número de bultos (a menos que sean los únicos bultos del envío) en la casilla “Nature and Quantity of
+Goods” (Naturaleza y cantidad de mercancías) de la guía aérea. Indicates that the item relates to a battery.
+
+

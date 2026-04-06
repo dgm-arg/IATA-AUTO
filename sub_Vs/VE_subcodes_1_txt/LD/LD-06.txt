@@ -1,0 +1,6 @@
+LD-06
+Además de los requisitos de 8.2.5, se deben indicar los números de las Naciones Unidas de todos los envíos
+de mercancías peligrosas en cantidades exceptuadas en la guía aérea (conocimiento del envío). Indicates that
+the item relates to a battery.
+
+

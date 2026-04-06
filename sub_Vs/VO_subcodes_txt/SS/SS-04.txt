@@ -1,0 +1,6 @@
+SS-04
+Para los envíos de UN 3171 propulsados por baterías de litio, Corsair International requiere la marca adicional,
+“Contains Lithium Batteries”. La marca debe cumplir con los requisitos indicados en 7.1.4.4.1 y debe colocarse
+cerca de la marca del nombre apropiado de envío.
+
+

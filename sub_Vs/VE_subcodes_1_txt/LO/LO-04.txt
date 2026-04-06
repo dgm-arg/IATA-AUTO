@@ -1,0 +1,7 @@
+LO-04
+La batería de ion litio extraída del dispositivo de ayuda a la movilidad no debe superar los 300 Wh (solo se
+permite una pieza) o, en el caso de dispositivos de ayuda a la movilidad con dos baterías, cada batería
+extraída no debe superar los 160 Wh. Además, si se quitan las baterías, cada tipo de batería se deberá extraer
+de acuerdo con las instrucciones del fabricante. ■ Addition of a new item.
+
+

@@ -1,0 +1,6 @@
+CA-13
+UN 3480, baterías de ion litio (Sección IA y Sección IB) preparadas de acuerdo con la IE 965, UN 3090,
+baterías de metal litio (Sección IA y Sección IB) preparadas de acuerdo con la IE 968 no se aceptan como
+carga. Indicates that the item relates to a battery.
+
+

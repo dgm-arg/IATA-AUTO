@@ -1,0 +1,21 @@
+TU-04
+Los siguientes objetos y sustancias no son aceptados para el transporte (ver las Instrucciones de Embalaje [–]
+enumeradas después de cada sustancia): Número UN— Descripción UN 1003 — Aire refrigerado líquido [202]
+UN 1043 — Fertilizante en solución amoniacal [200] UN 1724 — Aliltriclorisilano, estabilizado [876] UN 1732 —
+Pentafluoruro de antimonio [855] UN 1747 — Butiltriclorosilano [876] UN 1753 — Clorofeniltriclorosilano [876]
+UN 1762 — Ciclohexeniltriclorosilano [876] UN 1763 — Ciclohexiltriclorosilano [876] UN 1769 —
+Difeniltriclosorilano [876] UN 1771 — Dodeciltriclorosilano [876] UN 1781 — Hexadeciltriclorosilano [876] UN
+1784 — Hexiltriclorosilano [876] UN 1792 — Monocloruro de yodo [863] UN 1796 — Ácido nitrante en mezcla
+[854, 855] UN 1799 — Noniltriclorosilano [876] UN 1800 — Octadeciltriclorosilano [876] UN 1801 —
+Octiltriclorosilano [876] UN 1802 — Ácido perclórico [855] UN 1806 — Pentacloruro de fósforo [863] UN 1808
+— Tribromuro de fósforo [855] UN 1809 — Tricloruro de fósforo [–] UN 1810 — Oxicloruro de fósforo [–] UN
+1816 — Propiltriclorosilano [876] UN 1826 — Ácido nitrante agotado en mezcla [854, 855] UN 1832 — Ácido
+sulfúrico agotado [855] UN 1837 — Cloruro de triofosforilo [855] UN 1906 — Sedimentos ácidos [855] UN 1912
+— Cloruro de metilo y cloruro de metileno en mezcla [200] UN 1939 — Oxibromuro de fósforo [863] UN 2028
+— Bombas fumígenas no explosivas [866] UN 2031 — Ácido nítrico [854, Y840, 851, 855] UN 2073 —
+Amoníaco en solución [200] UN 2435 — Etil fenil dioclorosilano [876] UN 2691 — Pentabromuro de fósforo
+[863] UN 2799 — Triodiclorofenilfosfina [855] Los siguientes objetos y sustancias de la Clase 9 no son
+aceptables para el transporte: Número UN— Descripción UN 2211 — Perlas poliméricas expansibles [957] UN
+2590 — Asbesto blanco [958]
+
+

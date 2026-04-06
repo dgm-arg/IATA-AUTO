@@ -1,0 +1,6 @@
+SU-02
+Las pilas y baterías de litio, embaladas con o contenidas en un equipo, conforme a la Sección II de las
+Instrucciones de Embalaje 966, 967, 969 y 970 tienen que ser reportadas como Carga Especial (Special Load)
+en la NOTOC.
+
+

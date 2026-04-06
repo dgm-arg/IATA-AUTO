@@ -1,0 +1,59 @@
+5X-01
+Servicio de Small Package (bultos pequeños): ■ Change to an item. Servicio de Small Package – Todas las
+ubicaciones: Los envíos de mercancías peligrosas por el servicio de Small Package de UPS se aceptan por
+contrato únicamente, según el actual Centro de Recursos de Materiales Peligrosos. Los usuarios pueden
+contactar a su recurso de Desarrollo de Negocios o referirse al siguiente sitio web: Sitio web:
+https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardousmaterials-guide.page Para obtener información sobre la aceptación y las limitaciones específicas de los
+números UN/ID, revise y descargue las Tablas de Químicos de Mercancías Peligrosas de UPS en el siguiente
+sitio Web: https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardo
+us-materials- guide/hazardous-material-service-definition/dangerous-goods-chemical-tables.page Cuando se
+envían bultos que requieren la declaración del expedidor de mercancías peligrosas de la IATA, los embalajes
+combinados deben utilizarse para los envíos que cumplan las disposiciones para aviones de pasajeros. Los
+embalajes únicos únicamente se pueden utilizar para los envíos aprobados de “Avión de carga solamente”
+(Cargo Aircraft Only). No más de tres diferentes mercancías peligrosas compatibles pueden estar contenidas
+en un embalaje exterior (5.0.2.11). Los expedidores deben procesar sus envíos utilizando una solución de
+envío compatible con UPS junto con un software de preparación de envíos de mercancías
+peligrosas/materiales peligrosos. Los expedidores deben utilizar la versión actual de WorldShip proporcionada
+por UPS, comprar un software de terceros aprobado o utilizar un sistema similar. El uso de una solución de
+envío compatible con UPS garantiza que la documentación requerida del expedidor, ya sean los documentos
+de envío DOT de EE. UU. o las declaraciones de DG para la IATA, se generen por computadora y los datos del
+envío se dirijan electrónicamente a UPS para cada bulto individual. Los bultos que contienen hielo seco como
+refrigerante para mercancías no peligrosas están limitados a 150 lb or 68 kg de peso bruto en todo el mundo.
+Los bultos que contienen hielo seco como refrigerante para mercancías peligrosas están limitados a 66 lb o 30
+kg de peso bruto en todo el mundo. Se aceptan todas las mercancías peligrosas permitidas en cantidades
+exceptuadas. Las restricciones de clase/división de UPS no se aplican a las mercancías peligrosas en
+cantidades exceptuadas. Si necesita asistencia, contacte a su recurso de Desarrollo de Negocios. Servicio de
+paquetes pequeños – Origen o destino fuera de EE. UU.: Los usuarios pueden encontrar información completa
+sobre el servicio de paquetes pequeños de mercancías peligrosas internacionales, incluyendo las limitaciones
+específicas por bulto, publicado en nuestro centro de recursos: Sitio web:
+https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardousmaterials-guide.page Los requisitos del contrato se aplican a mercancías peligrosas que requieren una
+declaración del expedidor de mercancías peligrosas de IATA, así como a UN 3373 sustancias biológicas
+Categoría B, hielo seco y cantidades exceptuadas. Si necesita asistencia, contacte a su recurso de Desarrollo
+de Negocios. Los bultos de mercancías peligrosas de origen o destino fuera de EE. UU. no deben exceder los
+30 kg de peso bruto por bulto. En el siguiente sitio Web se muestra una lista aprobada de Países o Territorios
+autorizados como orígenes y destinos. Consulte las listas de códigos postales donde corresponda para
+conocer limitaciones adicionales: Sitio web:
+https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardousmaterials-guide/hazardous-material-service-definition/approved-country-list.page Las siguientes
+clases/divisiones de mercancías peligrosas están prohibidas en el servicio internacional de paquetes pequeños
+de UPS: •Clase 1 (Explosivos) •División 2.3 (Gas tóxico) •División 4.2 (Combustión espontánea) •División 4.3
+(Peligroso cuando se moja) •División 5.2 (Peróxido orgánico) ■ Change to an item. •División 6.1 — Sustancias
+que requieren una etiqueta de “Tóxico”, salvo aquellas asignadas al Grupo de Embalaje III, deben mostrar la
+marca “PGIII” junto a la etiqueta de “Tóxico”. —Los envíos de UN 1230, Metanol (aceptados únicamente dentro
+de Europa) no requieren la marca “PGIII”. —Los envíos de UN 3506, Mercurio contenido en objetos
+manufacturados, únicamente se aceptarán si los bultos no requieren ni muestran una etiqueta de peligro
+
+secundario “Tóxico”. Ver la Disposición Especial A191 de la IATA. ■ Indicates that the item relates to an
+infectious substance. •División 6.2 (Sustancias infecciosas, Categoría A) ■ Change to an item. ■ Indicates that
+the item relates entirely to Radioactive shipments. •Clase 7 — Sustancias que requieren una etiqueta
+“Radiactiva” Blanca-I, Amarilla-II, Amarilla-III o Fisionable están prohibidas, a menos que se aprueben con
+carácter excepcional. —También se prohíben los envíos de bultos exceptuados de material radiactivo (excepto
+entre EE. UU. y Canadá). •Clase 9 — Los envíos de material magnetizado UN 2807, que cumplen la
+Instrucción de Embalaje 953 se limitan a los lugares de origen y destino dentro de la red internacional de
+mercancías peligrosas de UPS (IDG). Una lista de lugares de origen y destino autorizados para IDG pueden
+encontrarse en el siguiente enlace: https://www.ups.com/us/en/support/shipping-support/shipping-special-careregulated-items/hazardous-materials- guide/hazardous-material-service-definition/approved-country-list.page.
+Además, tales envíos deben ser etiquetados según la Instrucción de Embalaje 953 y documentados en uno de
+los modos siguientes: —Identificados como “Material magnetizado” en la casilla de referencia de bulto de la
+etiqueta de envío UPS, o —Acompañado de un documento escrito, fijado directamente en el exterior del bulto
+o dentro de un sobre resellable fijado al bulto, que identifique el contenido como “Material magnetizado”.
+
+

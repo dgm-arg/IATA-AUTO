@@ -1,0 +1,10 @@
+LH-09
+Solo se aceptarán como carga los vehículos pequeños propulsados por baterías de ion litio y de ion sodio de
+las categorías UN 3171, UN 3556, UN 3557 y UN 3558 Los vehículos pequeños incluyen e-bikes, motocicletas,
+sillas de ruedas, scooters o carritos de golf. Los envíos deben indicar “Avión de carga solamente” (Cargo
+Aircraft Only) en la Declaración del Expedidor y los bultos deben llevar la etiqueta “Avión de carga solamente”
+(Cargo Aircraft Only). No deberá superarse la altura máxima de 1,60 m. No se aceptarán automóviles que
+funcionen con baterías ni vehículos más grandes que funcionen con baterías. Indicates that the item relates to
+a battery.
+
+

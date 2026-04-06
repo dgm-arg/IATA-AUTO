@@ -1,0 +1,6 @@
+UU-07
+Los monitores de agentes químicos que contienen materiales radiactivos transportados por algún miembro del
+personal de la Organización para la Prohibición de Armas Químicas (OPAQ) están prohibidos para fines de
+transporte en la red Austral (2.3.4.4).
+
+

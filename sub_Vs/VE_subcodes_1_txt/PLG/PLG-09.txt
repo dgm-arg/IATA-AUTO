@@ -1,0 +1,10 @@
+PLG-09
+Transporte de materiales radiactivos: 1. material radiactivo fisionable, correspondiente a la definición en
+10.3.7.1 en cantidades que excedan los límites especificados en 10.3.7.2; o 2. Material radiactivo: •en un bulto
+Tipo B(U) que contiene más de 3.000 A1 o 3.000 A2 o 1.000 TBq, lo que sea menor; o •en un bulto Tipo B(M);
+or •en un bulto Tipo C que contiene más de 3.000 A1 o 3.000 A2 o 1.000 TBq, lo que sea menor; o •bajo los
+términos de un arreglo especial; requiere notificación, con al menos 14 días de anticipación, de la Agencia
+Nacional de Energía Atómica. La información debería enviarse por correo electrónico a la dirección: email:
+airnotification@paa.gov.pl ■ Indicates that the item relates entirely to Radioactive shipments.
+
+

@@ -1,0 +1,9 @@
+MH-13
+La Hoja de Datos de Seguridad (SDS) deberá ser presentada para las mercancías peligrosas, excepto las
+mercancías peligrosas de la Clase 7, vehículos, mercancías peligrosas en aparatos o maquinaria y motores, ID
+8000, material magnetizado, dióxido de carbono sólido (hielo seco) y División 6.2. La SDS debe estar escrita
+en inglés. La SDS debe incluir el número UN, el nombre apropiado de envío y otra información concerniente al
+transporte aéreo (ver 8.0.1 y 8.3) en los casos en que la SDS no esté disponible, la declaración de mercancías
+peligrosas (DG) será suficiente. ■ Change to an item.
+
+

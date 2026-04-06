@@ -1,0 +1,7 @@
+CI-01
+Las siguientes mercancías peligrosas no se aceptan para el transporte como carga en vuelos de pasajeros de
+China Airlines: 1. Clase 1 a Clase 8, excepto aquellas que no necesitan una declaración de mercancías
+peligrosas (DGD) por parte del expedidor. 2. UN 3556, UN 3557 y UN 3558. 3. UN 3091, UN 3481 y UN 3552,
+de acuerdo con la Sección I de la instrucción de embalaje correspondiente (RLI y RLM)
+
+

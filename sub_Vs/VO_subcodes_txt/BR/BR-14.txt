@@ -1,0 +1,5 @@
+BR-14
+División 6.2, sustancias infecciosas de la Categoría A, deben cargarse en “Aviones de carga solamente”
+(Cargo Aircraft Only) (ver 9.1.5 y 9.3.4).
+
+

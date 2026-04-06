@@ -1,0 +1,6 @@
+OZ-02
+Para las mercancías peligrosas en consolidaciones, el expedidor debe incluir el número de la guía aérea
+madre después del número de la guía aérea, separándolos por “ / ” en la declaración del expedidor. (ver 1.3.3,
+8.1.2.4, 8.1.6.3, 9.1.8 y 10.8.1.5).
+
+

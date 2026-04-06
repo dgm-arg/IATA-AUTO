@@ -1,0 +1,9 @@
+MF-09
+En el caso del equipaje facturado que contenga baterías de litio instaladas, si la energía nominal de la batería
+supera los 2,7 Wh, pero no supera los 100 Wh, los pasajeros deberán retirar la batería del equipaje. La batería
+extraída debe llevarse a la cabina y guardarse en el bolsillo del respaldo del asiento o en una pieza de equipaje
+de mano guardada debajo del asiento (antideslizante y fijada de forma segura). Los pasajeros tienen prohibido
+llevar baterías de litio con una energía nominal superior a 100 Wh, ni como artículo de mano ni como equipaje
+facturado.
+
+

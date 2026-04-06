@@ -1,0 +1,5 @@
+RH-06
+UN 3090 Las pilas y baterías de metal litio no se aceptarán para su transporte como carga. Esto se aplica a la
+Sección IA y Sección IB de la Instrucción de Embalaje 968. Indicates that the item relates to a battery.
+
+

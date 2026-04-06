@@ -1,0 +1,6 @@
+PU-05
+Se prohíbe el transporte de baterías de litio y dispositivos que funcionen con baterías de litio cuando estén
+dañados y/o reacondicionados, sean objeto de una retirada de seguridad o cuando el fabricante haya
+detectado que la batería de litio presenta un defecto de seguridad.
+
+

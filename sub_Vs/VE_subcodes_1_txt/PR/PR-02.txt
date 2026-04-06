@@ -1,0 +1,6 @@
+PR-02
+Los hornillos para acampada y los contenedores de combustible se prohíben para el transporte por los
+pasajeros, en el equipaje de mano, en el equipaje facturado y en la persona (ver 2.3.2.5). ■ Change to an item.
+Indicates that the item relates to a battery.
+
+

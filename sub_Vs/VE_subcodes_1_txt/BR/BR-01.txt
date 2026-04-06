@@ -1,0 +1,7 @@
+BR-01
+Las mercancías peligrosas que requieran una etiqueta de Avión de carga solamente (Cargo Aircaft Only) no
+serán aceptadas, excepto por: (a) División 2.2 Gas no inflamable, no tóxico sin un peligro secundario; (b) Clase
+3 Líquido inflamable, grupo de embalaje II o III sin un peligro secundario; (c) Clase 9, Mercancías peligrosas
+varias. Para las baterías de litio, refiérase a BR-18. (ver 9.3.4).
+
+

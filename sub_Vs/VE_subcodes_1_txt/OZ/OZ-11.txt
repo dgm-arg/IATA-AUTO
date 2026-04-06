@@ -1,0 +1,6 @@
+OZ-11
+UN 3480, baterías de ion litio, Sección IB, el expedidor debe indicar claramente que el estado de carga (SoC)
+no excede el 30% de su capacidad nominal en la casilla “Additional Handling Information” (“información
+adicional para la manipulación”) de la declaración del expedidor.
+
+

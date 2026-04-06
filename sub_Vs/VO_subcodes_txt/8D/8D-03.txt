@@ -1,0 +1,5 @@
+8D-03
+División 6.2, Sustancias infecciosas, no se aceptan para el transporte. ■ Change to an item. ■ Indicates that
+the item relates entirely to Radioactive shipments.
+
+

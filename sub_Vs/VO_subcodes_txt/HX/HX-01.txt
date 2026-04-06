@@ -1,0 +1,5 @@
+HX-01
+No se aceptará el transporte de mercancías peligrosas en cantidades exentas (ver 2.6). ■ Change to an item.
+■ Indicates that the item relates entirely to Radioactive shipments.
+
+

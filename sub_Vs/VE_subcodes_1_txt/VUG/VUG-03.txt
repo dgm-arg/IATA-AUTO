@@ -1,0 +1,9 @@
+VUG-03
+Si ocurriese una emergencia de vuelo estando dentro de espacio aéreo de Vanuatu, el piloto al mando deberá
+informar a la unidad de servicios de tráfico aéreo oportuna, para informar a las autoridades del aeródromo de
+cualquier mercancía peligrosa que haya a bordo. La información debe incluir el peligro principal, los peligros
+secundarios para los cuales es necesario etiquetas y la cantidad y ubicación a bordo de dichas mercancías
+peligrosas. Si la situación lo permite, la información también debe incluir el nombre apropiado de envío, clase o
+división y, en el caso de la Clase 1, el grupo de compatibilidad (ver 9.5.1.3).
+
+

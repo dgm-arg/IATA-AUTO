@@ -1,0 +1,15 @@
+SX-02
+No se requiere un teléfono de emergencia de atención las 24 horas para los envíos que no requieran una
+declaración del expedidor de mercancías peligrosas. Número UN— Description UN 2919 — Material radiactivo,
+transportado en virtud de arreglos especiales, no fisionable o fisionable exceptuado UN 2977 — Material
+radiactivo, hexafluoruro de uranio, fisionable UN 3321 — Material radiactivo, baja actividad específica (BAE-ll),
+no fisionable o fisionable exceptuado UN 3322 — Material radiactivo, baja actividad específica (BAE-lll), no
+fisionable o fisionable exceptuado UN 3324 — Material radiactivo, baja actividad específica (BAE-ll), fisionable
+UN 3325 — Material radiactivo, baja actividad específica (BAE-lll), fisionable UN 3326 — Material radiactivo,
+objetos contaminados en la superficie (OCS-l u OCS-ll), fisionable UN 3327 — Material radiactivo, bulto del
+Tipo A, fisionable, no en forma especial UN 3328 — Material radiactivo, bulto del Tipo B(U), fisionable UN 3329
+— Material radiactivo, bulto del Tipo B(M), fisionable UN 3330 — Material radiactivo, bulto del Tipo C, fisionable
+UN 3331 — Material radiactivo, transportado en virtud de arreglos especiales, fisionable UN 3332 — Material
+radiactivo, bulto del Tipo A, forma especial, fisionable Indicates that the item relates to a battery.
+
+

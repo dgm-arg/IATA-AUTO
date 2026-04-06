@@ -1,0 +1,5 @@
+AM-01
+Los Explosivos de la Clase 1 no serán aceptados para el transporte, excepto para la Clase 1.4S (y Cartuchos
+de accionamiento UN 0323 como COMAT) (ver 5.1).
+
+

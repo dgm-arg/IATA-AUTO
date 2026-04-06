@@ -1,0 +1,5 @@
+E9-01
+Las mercancías peligrosas en consolidaciones no serán aceptadas para el transporte (ver 1.3.3 y 9.1.8). ■
+Indicates that the item relates to an infectious substance.
+
+

@@ -1,0 +1,6 @@
+CI-03
+Cuando las mercancías peligrosas se consolidan con más de una guía aérea hija, todas las guías aéreas hijas
+deberían contener las mercancías peligrosas que requieran una Declaración del Expedidor de Mercancías
+Peligrosas (DGD).
+
+

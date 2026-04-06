@@ -1,0 +1,11 @@
+BRG-10
+Los pasajeros y la tripulación no están autorizados a transportar dispositivos electrónicos portátiles que
+contengan baterías de litio como equipaje facturado hacia, desde o dentro de Brasil, a menos que: se tomen
+medidas para evitar la activación involuntaria y proteger los dispositivos de posibles daños; y los dispositivos
+estén completamente apagados (no en modo de reposo o hibernación), excepto los dispositivos portátiles de
+rastreo electrónico que funcionen con baterías, que podrán transportarse cuando estén intencionalmente
+activos si las baterías no superan: para las baterías de metal litio, un contenido de litio de 0,3 gramos; para las
+baterías de ion litio, un valor en vatios-hora de 2,7 Wh). ■ Addition of a new item. Indicates that the item relates
+to a battery.
+
+

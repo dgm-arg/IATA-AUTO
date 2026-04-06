@@ -1,0 +1,5 @@
+RH-01
+Las mercancías peligrosas en cantidades exceptuadas no se aceptarán para su transporte (ver 2.6). ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

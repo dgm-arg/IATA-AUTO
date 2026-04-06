@@ -1,0 +1,5 @@
+HA-03
+Las sustancias infecciosas de la División 6.2 no son aceptadas para el transporte. ■ Change to an item. ■
+Indicates that the item relates entirely to Radioactive shipments.
+
+

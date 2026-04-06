@@ -1,0 +1,6 @@
+DR-02
+Las sillas de ruedas que funcionan con baterías u otras ayudas de movilidad similares que funcionan con
+baterías húmedas no derramables están prohibidas para ser transportadas en el equipaje de pasajeros.
+Indicates that the item relates to a battery.
+
+

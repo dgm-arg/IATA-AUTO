@@ -1,0 +1,9 @@
+D5-07
+El transporte de Vehículos Eléctricos (carros/automóviles) bajo UN 3556, UN 3557 o UN 3558, con una
+masa/peso de 100 kg o más y Vehículos Eléctricos Híbridos (VEH) bajo UN 3166 con una masa/peso de 100
+kg o más, debe ser enviado con una capacidad de batería indicada o un rango de batería indicado "llave en
+mano" no superior al 15%. Esto debe indicarse en la Declaración del Expedidor para Mercancías Peligrosas,
+añadiendo la afirmación "la indicación de carga del vehículo es del 15% o menos" en la casilla de "Información
+adicional de manipulación". ■ Change to an item.
+
+

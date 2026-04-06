@@ -1,0 +1,6 @@
+AM-13
+Para fines de marcado y documentación para vuelos internacionales, el inglés debe utilizarse además del
+idioma indicado por las variaciones de estado del lugar de origen, tránsito y destino. Para vuelos nacionales,
+debe utilizarse el idioma español, además del inglés.
+
+

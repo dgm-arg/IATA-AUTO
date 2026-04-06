@@ -1,0 +1,6 @@
+PKG-01
+El idioma inglés deberá ser utilizado para el marcado de los bultos y sobrembalajes. Sin embargo, si el idioma
+del Estado de origen se debe utilizar, ambos idiomas deberán ser escritos lado a lado de forma que se
+aprecien correctamente (ver 7.1.3.3 y 10.7.1).
+
+

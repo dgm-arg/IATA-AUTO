@@ -1,0 +1,5 @@
+UA-04
+No se aceptan mercancías peligrosas con más de un peligro secundario. ■ Change to an item. Indicates that
+the item relates to a battery.
+
+

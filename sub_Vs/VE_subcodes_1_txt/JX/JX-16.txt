@@ -1,0 +1,7 @@
+JX-16
+Para UN 3480, UN 3481, UN 3551, UN 3556, UN 3557 (solo baterías recargables) y UN 3558, los expedidores
+deben indicar claramente que las baterías tienen un estado de carga (SoC) que no excede el 30% o una
+capacidad de batería no superior al 25%, preferiblemente en la sección “Información adicional para la
+manipulación” de la DGD.
+
+

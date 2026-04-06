@@ -1,0 +1,7 @@
+JW-01
+Todas las etiquetas de peligro deben incluir el texto que indique la naturaleza del peligro. Este texto debe
+aparecer en inglés en forma prominente en la mitad inferior de la etiqueta tal como se describe en 7.2.2.4. Si el
+Estado de origen requiere que el texto esté en otro idioma distinto al inglés, a ambos idiomas se les deberá dar
+la misma importancia (ver Figura 7.3.B, Figura 7.3.W, Figura 7.4.A y 10.7.7).
+
+

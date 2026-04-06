@@ -1,0 +1,16 @@
+USG-18
+Un bulto que contenga oxígeno comprimido, UN 1072, gas comprimido comburente, n.e.p., UN 3156; gas
+licuado comburente, n.e.p., UN 3157; trifluoruro de nitrógeno, UN 2451; y óxido nitroso, UN 1070 debe
+embalarse según lo requerido en 49 CFR 173.302(f) y 173.304(f) y colocarse en un embalaje exterior que
+cumple los requisitos de penetración de llamas y resistencia térmica como se prescribe en Apéndice D y E del
+49 CFR Parte 178. Este requisito no se aplica a los cilindros que contienen oxígeno comprimido para uso
+médico que se transporta según USG-15. Un generador químico de oxígeno (definido en 49 CFR 171.8) solo
+se puede transportar en un avión de carga, tal como se indica en 49 CFR 173.168. No está permitido
+transportar un generador químico de oxígeno UN 3356 en aviones de pasajeros, a menos que la autoridad
+competente de los Estados Unidos lo apruebe (ver USG-01). Un generador químico de oxígeno UN 3356 que
+se transporte con un medio de iniciación acoplado debe ser clasificado y aprobado por la autoridad competente
+de los Estados Unidos (ver USG-01) según los procedimientos especificados en 49 CFR 173.56. Esto incluye
+los generadores de oxígeno instalados en equipos respiratorios de protección, transportados según la
+disposición especial A144 de esta Reglamentación.
+
+

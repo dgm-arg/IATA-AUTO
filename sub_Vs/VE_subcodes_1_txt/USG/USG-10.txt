@@ -1,0 +1,36 @@
+USG-10
+Los siguientes requisitos o limitaciones adicionales se aplican al transporte de material radiactivo hacia, desde
+o dentro de los Estados Unidos (ver 9.1, 10.3.4, 10.5 y 10.8.1.2): (a) El material radiactivo, distinto al que está
+contenido en bultos exceptuados, no podrá ser ofrecido para el transporte a bordo de aviones de pasajeros a
+menos que dicho material radiactivo esté destinado al uso en investigaciones, o incidentalmente al tratamiento
+o diagnosis médica. La declaración del expedidor para material radiactivo distinto del contenido en embalajes
+exceptuados a bordo de un avión de pasajeros, debe contener una certificación que señale que el envío
+contiene material radiactivo destinado a su uso en investigaciones o, incidentalmente, al tratamiento o al
+diagnóstico médico. Sin importar el uso previsto, ninguna persona puede transportar bultos del Tipo B(M) en
+aviones de pasajeros, bultos B(M) ventilados en ninguna aeronave, o material de la Clase 7 líquido pirofórico
+en ninguna aeronave; (b) Ninguna persona puede transportar a bordo de un avión de pasajeros un bulto o un
+sobrembalaje con un índice de transporte superior a 3,0; (c) Ninguna persona puede ofrecer plutonio a bordo
+de una aeronave, a menos que: 1. el plutonio esté contenido en un dispositivo médico diseñado para
+aplicaciones humanas individuales; 2. la actividad específica del material que contenga el plutonio sea inferior
+a 1 Bq/g, 3. el plutonio sea enviado en un único bulto que contenga no más de una cantidad A2 de plutonio en
+cualquier isótopo o forma y sea enviado según las disposiciones aplicables de esta Reglamentación para el
+material radiactivo de la Clase 7, o 4. el plutonio esté específicamente autorizado para su envío por la
+autoridad competente de Estados Unidos. (d) Para un bulto que contenga material radiactivo con una actividad
+superior a: 1. 3 000 × A1; o 2. 3 000 × A2; o 3. 1 000 TBq (27 000 Ci), cualquiera que sea la cantidad menor, la
+anotación “Cantidad controlada para ruta por carretera” (Highway Route Controlled Quantity) debe aparecer en
+la declaración del expedidor; (e) Los bultos que contengan: 1. 3 000 × A1; o 2. 3 000 × A2; o 3. 1 000 TBq (27
+000 Ci), cualquiera que sea la cantidad menor, deben llevar la etiqueta “Material radiactivo, Clase 7, Categoría
+III — Amarilla” (ver 10.5.15 y Tabla 10.5.C). (f) Todos los bultos Tipo B(U), Tipo B(M), Tipo H(U), Tipo H(M) y
+los diseños de bultos Fisibles deben ser certificados por el Departamento de Transporte de los Estados Unidos
+(U.S. Department of Transportation). Los bultos individuales con un índice de seguridad de la criticidad
+superior a 50 y los envíos de bultos con un índice total de seguridad de la criticidad superior a 50 en aviones de
+pasajeros y superior a 100 en aviones de carga, no pueden transportarse hacia, desde o dentro de los Estados
+Unidos a bordo de aviones de pasajeros o de carga sin la aprobación previa de la autoridad competente de los
+Estados Unidos. (ver USG-01). Las solicitudes para la certificación de diseño y aprobaciones deben dirigirse a
+la autoridad competente de los Estados Unidos: U.S. Department of Transportation Atn: Radioactive Materials
+Branch (PHH-23) Office of Hazardous Materials Technology Pipeline and Hazardous Materials Safety
+Administration Washington DC USA 20590-0001 (g) Excepto para los materiales de baja actividad específica y
+los objetos contaminados en la superficie, los límites de actividad para los bultos del Tipo A y Tipo B estarán
+limitados según 49 CFR 173.431.
+
+

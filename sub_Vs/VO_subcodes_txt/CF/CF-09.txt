@@ -1,0 +1,11 @@
+CF-09
+La carga consolidada que contenga mercancías peligrosas no será aceptada para el transporte, excepto en los
+siguientes casos: 1. Solo hay una guía aérea hija para las mercancías consolidadas; 2. La carga consolidada
+de múltiples guías aéreas hija del mismo expedidor y diferentes destinatarios bajo una guía aérea madre solo
+puede contener mercancías peligrosas diversas de la categoría 9 (excluidas UN 3480 y UN 3090); 3. Las
+mercancías peligrosas en la carga consolidada de múltiples guía aéreas hija de diferentes
+expedidores/consignatarios solo pueden ser bienes de consumo ID 8000 y/o productos de perfumería UN 1266
+y/o hielo seco UN 1845 utilizado como refrigerante de carga general y/o Baterías de litio que cumplan con la
+Sección II de las Instrucciones de Embalaje 966, 967, 969, 970.
+
+
