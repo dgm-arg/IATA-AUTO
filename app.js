@@ -47,7 +47,7 @@ async function fetchSubcode(type, code) {
     ? `sub_vs/VE_subcodes_1_txt/${prefix}`
     : `sub_vs/VO_subcodes_txt/${prefix}`
   const res = await fetch(`${folder}/${code}.txt`)
-  if (!res.ok) return null
+  if (!res.ok) return { code, text: null }
   return { code, text: await res.text() }
 }
 
@@ -64,14 +64,17 @@ async function buscarArchivos(instruccion, resultDiv) {
   ])
 
   const renderGroup = (results, title) => {
-    const found = results.filter(Boolean)
-    if (found.length === 0) return ''
+    if (results.length === 0) return ''
     return `
       <p class="fw-semibold mt-3 mb-1">${title}</p>
-      ${found.map(r => `
+      ${results.map(r => r.text !== null ? `
         <div class="border rounded p-2 mb-2">
           <p class="fw-semibold small mb-1">${r.code}</p>
           <pre class="small text-muted mb-0" style="white-space:pre-wrap">${r.text.trim()}</pre>
+        </div>
+      ` : `
+        <div class="border rounded p-2 mb-2 border-warning">
+          <p class="small mb-0 text-warning">⚠️ No se encontró archivo para <strong>${r.code}</strong></p>
         </div>
       `).join('')}
     `
@@ -127,7 +130,13 @@ async function showEmbalajes(row, container) {
 
   detail.querySelectorAll('button[data-instruccion]').forEach(btn => {
     const resultDiv = btn.nextElementSibling
-    btn.addEventListener('click', () => buscarArchivos(btn.dataset.instruccion, resultDiv))
+    btn.addEventListener('click', () => {
+      if (resultDiv.innerHTML && !resultDiv.innerHTML.includes('Cargando')) {
+        resultDiv.innerHTML = ''
+        return
+      }
+      buscarArchivos(btn.dataset.instruccion, resultDiv)
+    })
   })
 }
 
