@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 6: Instrucciones filtradas por ONU (DOM real)</title>
+  <style>
+    body { font-family: monospace; font-size: 13px; padding: 20px; background: #f5f5f5; }
+    #summary { position: sticky; top: 0; background: #222; color: #fff; padding: 12px 20px; font-size: 15px; z-index: 10; border-radius: 6px; margin-bottom: 8px; }
+    #filters { margin-bottom: 12px; display: flex; gap: 8px; }
+    #filters button { padding: 4px 12px; cursor: pointer; border: 1px solid #999; border-radius: 4px; background: #fff; font-family: monospace; }
+    #filters button.active { background: #333; color: #fff; }
+    .pass { color: #2e7d32; }
+    .fail { color: #c62828; font-weight: bold; }
+    .skip { color: #ef6c00; }
+    .line { display: block; }
+    .line.hidden { display: none; }
+    pre { background: #fff; padding: 16px; border-radius: 6px; white-space: pre-wrap; }
+    iframe { width: 100%; height: 400px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+<div id="summary">Cargando iframe...</div>
+<div id="filters">
+  <button class="active" data-f="all">All</button>
+  <button data-f="pass">Pass</button>
+  <button data-f="fail">Fail</button>
+  <button data-f="skip">Skip</button>
+</div>
+<iframe id="app" src="index.html"></iframe>
+<pre id="log"></pre>
+<script>
+const logEl = document.getElementById('log')
+const summaryEl = document.getElementById('summary')
+let pass = 0, fail = 0, skip = 0
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('button')
+  if (!btn) return
+  document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'))
+  btn.classList.add('active')
+  const f = btn.dataset.f
+  logEl.querySelectorAll('.line').forEach(el => {
+    el.classList.toggle('hidden', f !== 'all' && !el.classList.contains(f))
+  })
+})
+
+function log(msg, cls) {
+  const span = document.createElement('span')
+  span.className = 'line ' + (cls || '')
+  span.textContent = msg + '\n'
+  logEl.appendChild(span)
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)) }
+function getDoc() { return document.getElementById('app').contentDocument }
+
+async function waitForEl(fn, timeout = 10000) {
+  const s = Date.now()
+  while (Date.now() - s < timeout) { const el = fn(); if (el) return el; await wait(50) }
+  return null
+}
+
+async function search(onu) {
+  const doc = getDoc()
+  doc.getElementById('results').innerHTML = ''
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  doc.getElementById('numInput').value = onu
+  doc.getElementById('searchBtn').click()
+  await waitForEl(() => doc.querySelector('#results tbody tr') || doc.querySelector('#results p'))
+}
+
+async function clickRow(idx) {
+  const doc = getDoc()
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  const rows = doc.querySelectorAll('#results tbody tr')
+  if (idx >= rows.length) return false
+  rows[idx].querySelector('td').click()
+  await waitForEl(() => doc.querySelector('#embalaje-detail .card') || doc.querySelector('#embalaje-detail p'))
+  await wait(100)
+  return true
+}
+
+function findCard(pi) {
+  for (const card of getDoc().querySelectorAll('#embalaje-detail .card')) {
+    const s = card.querySelector('h6 strong')
+    if (s && s.textContent.trim() === String(pi)) return card
+  }
+  return null
+}
+
+async function run() {
+  await new Promise(r => { document.getElementById('app').onload = r })
+  await wait(500)
+  summaryEl.textContent = 'Cargando datos...'
+
+  const [tablaOnu, instrucciones] = await Promise.all([
+    fetch('tabla_onu.json').then(r => r.json()),
+    fetch('instrucciones_embalaje.json').then(r => r.json()),
+  ])
+
+  // Build ONU -> rows, and for each PI find one ONU+rowIndex to test
+  const byOnu = {}
+  for (const row of tablaOnu) {
+    const onu = String(row.onu)
+    if (!byOnu[onu]) byOnu[onu] = []
+    byOnu[onu].push(row)
+  }
+
+  // For each PI that has instrucciones with un field, we need to test with
+  // an ONU that matches AND an ONU that doesn't match
+  // Collect PI -> [{onu, rowIndex}]
+  const piToOnus = {}
+  for (const [onu, rows] of Object.entries(byOnu)) {
+    for (let ri = 0; ri < rows.length; ri++) {
+      for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
+        const v = String(rows[ri][col] || '')
+        if (v && !['Prohibido', 'nan', '—', ''].includes(v)) {
+          if (!piToOnus[v]) piToOnus[v] = []
+          piToOnus[v].push({ onu, rowIndex: ri })
+        }
+      }
+    }
+  }
+
+  // Only test PIs that have instrucciones
+  const pisToTest = Object.keys(piToOnus).filter(pi => instrucciones[pi]).sort()
+  log(`PIs con instrucciones: ${pisToTest.length}\n`)
+
+  let lastOnu = null
+  let testNum = 0
+
+  for (let i = 0; i < pisToTest.length; i++) {
+    const pi = pisToTest[i]
+    const items = instrucciones[pi]
+    const itemsWithUn = items.filter(it => it.un && it.un.length > 0)
+    const itemsWithoutUn = items.filter(it => !it.un)
+    const entries = piToOnus[pi]
+
+    // Pick first ONU entry
+    const first = entries[0]
+    summaryEl.textContent = `${i + 1}/${pisToTest.length} — PI ${pi} ONU ${first.onu}`
+
+    if (first.onu !== lastOnu) { await search(first.onu); lastOnu = first.onu }
+    const ok = await clickRow(first.rowIndex)
+    if (!ok) { log(`[SKIP] PI ${pi}: fila no existe`, 'skip'); skip++; continue }
+
+    const card = findCard(pi)
+    if (!card) { log(`[SKIP] PI ${pi}: card no encontrada`, 'skip'); skip++; continue }
+
+    // Get all rendered small text-muted paragraphs from this card
+    const renderedTexts = [...card.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim())
+    const renderedHtml = [...card.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML)
+
+    // Check items WITHOUT un: should all appear
+    for (const item of itemsWithoutUn) {
+      const frag = (Array.isArray(item.texto) ? item.texto[0] : item.texto).trim()
+      const found = renderedTexts.some(t => t.includes(frag)) || renderedHtml.some(h => h.includes(frag))
+      if (found) {
+        log(`[PASS] PI ${pi} ONU ${first.onu}: sin "un" -> visible: "${frag.substring(0, 70)}..."`, 'pass'); pass++
+      } else {
+        log(`[FAIL] PI ${pi} ONU ${first.onu}: sin "un" -> FALTA en DOM: "${frag.substring(0, 70)}..."`, 'fail'); fail++
+      }
+    }
+
+    // Check items WITH un
+    const onuNum = parseInt(first.onu, 10)
+    for (const item of itemsWithUn) {
+      const frag = (Array.isArray(item.texto) ? item.texto[0] : item.texto).trim()
+      const shouldShow = item.un.some(u => parseInt(u, 10) === onuNum)
+      const found = renderedTexts.some(t => t.includes(frag)) || renderedHtml.some(h => h.includes(frag))
+
+      if (shouldShow && found) {
+        log(`[PASS] PI ${pi} ONU ${first.onu}: un match -> visible: "${frag.substring(0, 60)}..."`, 'pass'); pass++
+      } else if (shouldShow && !found) {
+        log(`[FAIL] PI ${pi} ONU ${first.onu}: un match -> FALTA en DOM: "${frag.substring(0, 60)}..."`, 'fail'); fail++
+      } else if (!shouldShow && !found) {
+        log(`[PASS] PI ${pi} ONU ${first.onu}: un NO match -> oculto (correcto)`, 'pass'); pass++
+      } else {
+        log(`[FAIL] PI ${pi} ONU ${first.onu}: un NO match -> VISIBLE pero no deberia: "${frag.substring(0, 60)}..."`, 'fail'); fail++
+      }
+    }
+
+    // Cross-check: find a DIFFERENT ONU that uses same PI, test un-filtered items
+    if (itemsWithUn.length > 0 && entries.length > 1) {
+      const other = entries.find(e => e.onu !== first.onu)
+      if (other) {
+        if (other.onu !== lastOnu) { await search(other.onu); lastOnu = other.onu }
+        const ok2 = await clickRow(other.rowIndex)
+        if (ok2) {
+          const card2 = findCard(pi)
+          if (card2) {
+            const texts2 = [...card2.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim())
+            const html2 = [...card2.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML)
+            const onuNum2 = parseInt(other.onu, 10)
+
+            for (const item of itemsWithUn) {
+              const frag = (Array.isArray(item.texto) ? item.texto[0] : item.texto).trim()
+              const shouldShow = item.un.some(u => parseInt(u, 10) === onuNum2)
+              const found = texts2.some(t => t.includes(frag)) || html2.some(h => h.includes(frag))
+
+              if (shouldShow === found) {
+                log(`[PASS] PI ${pi} ONU ${other.onu} (cross): ${shouldShow ? 'visible' : 'oculto'} (correcto)`, 'pass'); pass++
+              } else {
+                log(`[FAIL] PI ${pi} ONU ${other.onu} (cross): ${shouldShow ? 'FALTA' : 'VISIBLE pero no deberia'}: "${frag.substring(0, 50)}..."`, 'fail'); fail++
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  summaryEl.innerHTML = `TEST 6 INSTRUCCIONES (DOM) | ${pass+fail} tests | <span class="pass">${pass} PASS</span> | <span class="fail">${fail} FAIL</span> | <span class="skip">${skip} SKIP</span>`
+}
+
+run().catch(e => log('ERROR: ' + e.message, 'fail'))
+</script>
+</body>
+</html>

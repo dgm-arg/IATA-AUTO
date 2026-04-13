@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integration Tests - IATA-AUTO</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 16px; background: #f5f5f5; }
+    h1 { margin: 0 0 8px 0; font-size: 1.4rem; }
+
+    #controls { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+    #controls button { padding: 6px 16px; font-size: 0.85rem; cursor: pointer; border: 1px solid #999; border-radius: 4px; }
+    #runBtn { background: #0d6efd; color: #fff; border-color: #0d6efd; }
+    #stopBtn { background: #dc3545; color: #fff; border-color: #dc3545; }
+    #controls label { font-size: 0.85rem; }
+
+    #summary {
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      padding: 12px 16px; margin-bottom: 12px; font-size: 0.85rem;
+      position: sticky; top: 0; z-index: 10;
+    }
+    #summary .row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .stat { font-weight: 600; }
+    .stat.pass { color: #198754; }
+    .stat.fail { color: #dc3545; }
+    .stat.skip { color: #6c757d; }
+    #progress-bar { height: 6px; background: #e9ecef; border-radius: 3px; margin-top: 8px; overflow: hidden; }
+    #progress-fill { height: 100%; background: #198754; transition: width 0.2s; width: 0%; }
+    #current-task { margin-top: 6px; color: #555; font-size: 0.8rem; }
+
+    #log-container { max-height: 70vh; overflow-y: auto; }
+    .log-entry { background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; margin-bottom: 4px; padding: 6px 10px; font-size: 0.78rem; font-family: monospace; }
+    .log-entry.pass { border-left: 4px solid #198754; }
+    .log-entry.fail { border-left: 4px solid #dc3545; background: #fff5f5; }
+    .log-entry.info { border-left: 4px solid #0d6efd; }
+    .log-entry.skip { border-left: 4px solid #6c757d; background: #fafafa; }
+    .fail-detail { color: #dc3545; margin-left: 16px; white-space: pre-wrap; }
+
+    iframe { width: 100%; height: 600px; border: 1px solid #ccc; border-radius: 6px; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Integration Tests - IATA-AUTO</h1>
+
+  <div id="controls">
+    <button id="runBtn" onclick="startTests()" style="background:#0d6efd;color:#fff;border-color:#0d6efd;">Run All Tests</button>
+    <button id="stopBtn" onclick="stopTests()" disabled>Stop</button>
+    <label>Delay (ms): <input type="number" id="delayMs" value="100" min="0" max="5000" style="width:60px"></label>
+  </div>
+
+  <div id="summary">
+    <div class="row">
+      <span>Total combos: <span class="stat" id="totalCount">-</span></span>
+      <span>Tested: <span class="stat" id="testedCount">0</span></span>
+      <span class="stat pass">PASS: <span id="passCount">0</span></span>
+      <span class="stat fail">FAIL: <span id="failCount">0</span></span>
+      <span class="stat skip">SKIP: <span id="skipCount">0</span></span>
+      <span>Time: <span class="stat" id="elapsed">0s</span></span>
+    </div>
+    <div id="progress-bar"><div id="progress-fill"></div></div>
+    <div id="current-task">Starting...</div>
+  </div>
+
+  <div id="filters" style="margin-bottom:8px; display:flex; gap:8px;">
+    <button class="active" data-f="all" style="padding:4px 12px; cursor:pointer; border:1px solid #999; border-radius:4px; background:#333; color:#fff; font-family:monospace;">All</button>
+    <button data-f="pass" style="padding:4px 12px; cursor:pointer; border:1px solid #999; border-radius:4px; background:#fff; font-family:monospace;">Pass</button>
+    <button data-f="fail" style="padding:4px 12px; cursor:pointer; border:1px solid #999; border-radius:4px; background:#fff; font-family:monospace;">Fail</button>
+    <button data-f="skip" style="padding:4px 12px; cursor:pointer; border:1px solid #999; border-radius:4px; background:#fff; font-family:monospace;">Skip</button>
+  </div>
+
+  <div id="log-container"></div>
+
+  <iframe id="appFrame" src="index.html" style="width:100%; height:500px; border:1px solid #ccc; border-radius:6px; margin-top:12px;"></iframe>
+
+  <script>
+    // --- Filter buttons ---
+    document.getElementById('filters').addEventListener('click', e => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      document.querySelectorAll('#filters button').forEach(b => { b.style.background = '#fff'; b.style.color = '#000'; });
+      btn.style.background = '#333'; btn.style.color = '#fff';
+      const f = btn.dataset.f;
+      document.querySelectorAll('#log-container .log-entry').forEach(el => {
+        el.style.display = (f === 'all' || el.classList.contains(f)) ? '' : 'none';
+      });
+    });
+
+    // --- State ---
+    let running = false;
+    let stopped = false;
+    let stats = { total: 0, tested: 0, pass: 0, fail: 0, skip: 0 };
+    let startTime = 0;
+    let timerInterval = null;
+
+    // --- Reference data (loaded from JSON files) ---
+    let tablaOnu = null;
+    let embalajesLineas = null;
+    let instruccionesEmbalaje = null;
+    let embalajeTablaClaudeMap = null;
+    let codigosPIMap = null;
+
+    // --- Utilities ---
+    function $(id) { return document.getElementById(id); }
+
+    function updateSummary() {
+      $('testedCount').textContent = stats.tested;
+      $('passCount').textContent = stats.pass;
+      $('failCount').textContent = stats.fail;
+      $('skipCount').textContent = stats.skip;
+      const pct = stats.total > 0 ? ((stats.tested / stats.total) * 100).toFixed(1) : 0;
+      $('progress-fill').style.width = pct + '%';
+      if (stats.fail > 0) $('progress-fill').style.background = '#dc3545';
+    }
+
+    function updateTimer() {
+      const sec = ((Date.now() - startTime) / 1000).toFixed(0);
+      $('elapsed').textContent = sec + 's';
+    }
+
+    function log(type, msg, detail) {
+      const div = document.createElement('div');
+      div.className = 'log-entry ' + type;
+      const prefix = type === 'pass' ? 'PASS' : type === 'fail' ? 'FAIL' : type === 'skip' ? 'SKIP' : 'INFO';
+      div.innerHTML = `<strong>[${prefix}]</strong> ${escapeHtml(msg)}`;
+      if (detail) {
+        div.innerHTML += `<div class="fail-detail">${escapeHtml(detail)}</div>`;
+      }
+      $('log-container').appendChild(div);
+      // Auto-scroll
+      div.scrollIntoView({ block: 'nearest' });
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    function setTask(msg) {
+      $('current-task').textContent = msg;
+    }
+
+    function delay(ms) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+
+    // Wait for a condition to be true, polling every `interval` ms, up to `timeout` ms
+    function waitFor(condFn, timeout, interval) {
+      timeout = timeout || 10000;
+      interval = interval || 50;
+      return new Promise((resolve, reject) => {
+        const start = Date.now();
+        function check() {
+          try {
+            const result = condFn();
+            if (result) return resolve(result);
+          } catch(e) { /* keep polling */ }
+          if (Date.now() - start > timeout) return reject(new Error('waitFor timeout'));
+          setTimeout(check, interval);
+        }
+        check();
+      });
+    }
+
+    // --- Load reference data ---
+    async function loadReferenceData() {
+      setTask('Loading reference JSON files...');
+      const [tablaRes, lineasRes, instrRes, tcRes, codRes] = await Promise.all([
+        fetch('tabla_onu.json'),
+        fetch('embalajes_lineas.json'),
+        fetch('instrucciones_embalaje.json'),
+        fetch('embalajes_tabla_claude.json'),
+        fetch('codigos_tablas-PI.json')
+      ]);
+      tablaOnu = await tablaRes.json();
+      embalajesLineas = await lineasRes.json();
+      instruccionesEmbalaje = await instrRes.json();
+
+      const tcData = await tcRes.json();
+      embalajeTablaClaudeMap = {};
+      for (const e of tcData.instrucciones_embalaje) {
+        embalajeTablaClaudeMap[String(e.codigo)] = e;
+      }
+
+      const codData = await codRes.json();
+      codigosPIMap = {};
+      for (const items of Object.values(codData.embalajes_ONU)) {
+        for (const item of items) {
+          codigosPIMap[item.codigo] = item.descripcion;
+        }
+      }
+
+      log('info', `Loaded reference data. tabla_onu: ${tablaOnu.length} rows, lineas: ${Object.keys(embalajesLineas).length} entries, instrucciones: ${Object.keys(instruccionesEmbalaje).length} entries, tablas: ${Object.keys(embalajeTablaClaudeMap).length} entries, codigos: ${Object.keys(codigosPIMap).length} codes`);
+    }
+
+    // --- Build unique ONU+PI combos from tabla_onu ---
+    function buildCombos() {
+      const INVALID = new Set(['prohibido', 'nan', '\u2014', '', 'undefined', 'null']);
+      // Group rows by ONU
+      const byOnu = {};
+      for (const row of tablaOnu) {
+        const onu = String(row.onu || '').trim();
+        if (!onu) continue;
+        if (!byOnu[onu]) byOnu[onu] = [];
+        byOnu[onu].push(row);
+      }
+
+      // For each ONU, for each row, collect the unique PI codes
+      // Structure: [{onu, rowIndex, piCodes: [...]}, ...]
+      const combos = [];
+      const seenOnuPi = new Set();
+
+      for (const [onu, rows] of Object.entries(byOnu)) {
+        for (let ri = 0; ri < rows.length; ri++) {
+          const row = rows[ri];
+          const codes = [];
+          for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
+            const v = String(row[col] || '').trim();
+            if (!INVALID.has(v.toLowerCase())) {
+              codes.push(v);
+            }
+          }
+          const uniqueCodes = [...new Set(codes)];
+          if (uniqueCodes.length > 0) {
+            // Check if we have new ONU+PI combos
+            const newCodes = uniqueCodes.filter(c => {
+              const key = onu + '|' + c;
+              if (seenOnuPi.has(key)) return false;
+              seenOnuPi.add(key);
+              return true;
+            });
+            if (newCodes.length > 0) {
+              combos.push({ onu, rowIndex: ri, piCodes: uniqueCodes, newPiCodes: newCodes });
+            }
+          }
+        }
+      }
+
+      return { combos, totalUniquePairs: seenOnuPi.size, byOnu };
+    }
+
+    // --- Access iframe document ---
+    function getIframeDoc() {
+      return $('appFrame').contentDocument || $('appFrame').contentWindow.document;
+    }
+    function getIframeWin() {
+      return $('appFrame').contentWindow;
+    }
+
+    // --- Simulate typing + search in iframe ---
+    async function doSearch(onu) {
+      const doc = getIframeDoc();
+      const input = doc.getElementById('numInput');
+      const btn = doc.getElementById('searchBtn');
+      const resultsDiv = doc.getElementById('results');
+      const detail = doc.getElementById('embalaje-detail');
+
+      // Clear previous results and detail so waitFor detects fresh content
+      if (resultsDiv) resultsDiv.innerHTML = '';
+      if (detail) detail.innerHTML = '';
+      input.value = '';
+
+      // Type the ONU
+      input.value = onu;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+
+      // Click search
+      btn.click();
+
+      // Wait for table rows to appear (or "No results" message)
+      await waitFor(() => {
+        return resultsDiv && (resultsDiv.querySelector('tbody tr') || resultsDiv.querySelector('p.text-muted'));
+      }, 15000, 50);
+    }
+
+    // --- Click a specific row and wait for embalaje-detail ---
+    async function clickRow(rowIndex) {
+      const doc = getIframeDoc();
+      const rows = doc.querySelectorAll('#results tbody tr');
+      if (rowIndex >= rows.length) return false;
+
+      // Clear previous selection and detail so we can detect fresh render
+      const prev = doc.querySelector('#results tr.selected');
+      if (prev) prev.classList.remove('selected');
+      const detail = doc.getElementById('embalaje-detail');
+      detail.innerHTML = '';
+
+      const row = rows[rowIndex];
+      // Dispatch click on a <td> within the row so event delegation on tbody picks it up
+      const td = row.querySelector('td');
+      if (td) {
+        td.click();
+      } else {
+        row.click();
+      }
+
+      // Wait for embalaje-detail to populate with a card or a "No embalaje" message
+      await waitFor(() => {
+        return detail.querySelector('.card') || detail.querySelector('p.text-muted');
+      }, 15000, 50);
+
+      return true;
+    }
+
+    // --- TEST 5: linea negrita ---
+    function runTest5(piCode, onu) {
+      const doc = getIframeDoc();
+      const detail = doc.getElementById('embalaje-detail');
+      const cards = detail.querySelectorAll('.card');
+
+      // Find the card for this PI code
+      const card = findCardForPI(cards, piCode);
+      if (!card) return { status: 'skip', msg: `Card for PI ${piCode} not found in detail` };
+
+      const expectedLinea = embalajesLineas[String(piCode)];
+      const boldEl = card.querySelector('p.fw-bold');
+      const hasBold = boldEl && boldEl.textContent.trim().length > 0;
+
+      if (expectedLinea === undefined) {
+        // PI not in lineas json, skip
+        return { status: 'skip', msg: `PI ${piCode} not in embalajes_lineas.json` };
+      }
+
+      if (expectedLinea === '-') {
+        // Should NOT have bold text
+        if (hasBold) {
+          return { status: 'fail', msg: `PI ${piCode}: bold text should NOT be visible (linea is "-"), but found: "${boldEl.textContent.trim()}"` };
+        }
+        return { status: 'pass', msg: `PI ${piCode}: correctly no bold text (linea is "-")` };
+      } else {
+        // Should have bold text matching expectedLinea
+        if (!hasBold) {
+          return { status: 'fail', msg: `PI ${piCode}: bold text MUST be visible. Expected: "${expectedLinea}", but no <p class="fw-bold"> found` };
+        }
+        if (boldEl.textContent.trim() !== expectedLinea.trim()) {
+          return { status: 'fail', msg: `PI ${piCode}: bold text mismatch. Expected: "${expectedLinea}", got: "${boldEl.textContent.trim()}"` };
+        }
+        return { status: 'pass', msg: `PI ${piCode}: bold text correct: "${expectedLinea}"` };
+      }
+    }
+
+    // --- TEST 6: instrucciones filtered by ONU ---
+    function runTest6(piCode, onu) {
+      const doc = getIframeDoc();
+      const detail = doc.getElementById('embalaje-detail');
+      const cards = detail.querySelectorAll('.card');
+      const card = findCardForPI(cards, piCode);
+      if (!card) return { status: 'skip', msg: `Card for PI ${piCode} not found in detail` };
+
+      const items = instruccionesEmbalaje[String(piCode)];
+      if (!items || items.length === 0) {
+        // No instrucciones for this PI - check that no small text-muted paragraphs
+        // (beyond what tablas or other sections produce)
+        return { status: 'pass', msg: `PI ${piCode}: no instrucciones in JSON, skipping detailed check` };
+      }
+
+      const onuNum = parseInt(onu, 10);
+      const errors = [];
+
+      // Get all text-muted paragraphs from the card
+      const allSmallTexts = [...card.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim());
+      // Also gather the innerHTML to handle <br> joined texts
+      const allSmallHtmls = [...card.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML);
+
+      for (const item of items) {
+        // Determine if this item should appear
+        let shouldAppear;
+        if (!item.un) {
+          shouldAppear = true;
+        } else {
+          shouldAppear = item.un.some(u => parseInt(u, 10) === onuNum);
+        }
+
+        // Get the text to search for
+        const textoArr = Array.isArray(item.texto) ? item.texto : [item.texto];
+        // The rendered text joins with <br>, so in the DOM it appears as a single <p>
+        // with text content being the concatenation of lines
+        const textoJoined = textoArr.join('\n');  // textContent separates <br> with newline or nothing
+        // We need to check textContent which may lose the <br> separator
+        // A simpler approach: check that each piece of text is somewhere in the card text
+        const firstFragment = textoArr[0].trim();
+
+        if (shouldAppear) {
+          // Must appear in the card
+          const found = allSmallTexts.some(t => t.includes(firstFragment)) ||
+                        allSmallHtmls.some(h => h.includes(firstFragment));
+          if (!found) {
+            errors.push(`SHOULD appear but missing: "${firstFragment.substring(0, 80)}..." (un: ${item.un ? JSON.stringify(item.un) : 'none'})`);
+          }
+        } else {
+          // Must NOT appear
+          const found = allSmallTexts.some(t => t.includes(firstFragment)) ||
+                        allSmallHtmls.some(h => h.includes(firstFragment));
+          if (found) {
+            errors.push(`Should NOT appear but found: "${firstFragment.substring(0, 80)}..." (un: ${JSON.stringify(item.un)}, onu: ${onu})`);
+          }
+        }
+      }
+
+      if (errors.length > 0) {
+        return { status: 'fail', msg: `PI ${piCode} ONU ${onu}: ${errors.length} instrucciones error(s)`, detail: errors.join('\n') };
+      }
+      return { status: 'pass', msg: `PI ${piCode} ONU ${onu}: all instrucciones correct (${items.length} items checked)` };
+    }
+
+    // --- TEST 7: tablas Spec codes ---
+    function runTest7(piCode, onu) {
+      const doc = getIframeDoc();
+      const detail = doc.getElementById('embalaje-detail');
+      const cards = detail.querySelectorAll('.card');
+      const card = findCardForPI(cards, piCode);
+      if (!card) return { status: 'skip', msg: `Card for PI ${piCode} not found in detail` };
+
+      const tcEntry = embalajeTablaClaudeMap[String(piCode)];
+      if (!tcEntry || !tcEntry.tablas || tcEntry.tablas.length === 0) {
+        return { status: 'pass', msg: `PI ${piCode}: no tablas in JSON, nothing to check` };
+      }
+
+      const errors = [];
+      // Get all text from the card
+      const cardText = card.textContent;
+      const cardHtml = card.innerHTML;
+
+      for (const tabla of tcEntry.tablas) {
+        const specRow = tabla.filas.find(f => f.Tipo === 'Spec.');
+        if (!specRow) continue;
+
+        const rawValues = tabla.encabezados
+          .filter(h => h !== 'Tipo')
+          .map(h => specRow[h])
+          .filter(v => v && v !== '\u2014');
+
+        if (rawValues.length === 0) continue;
+
+        // Reproduce the same logic as renderTablas to build expected lines
+        const expectedLines = [];
+        for (const val of rawValues) {
+          const tokens = val.split(/\s+/);
+          const isCode = tokens.every(t => /^\d/.test(t));
+          if (isCode) {
+            for (const c of tokens) {
+              const desc = codigosPIMap[c];
+              expectedLines.push(desc ? `${c}: ${desc}` : c);
+            }
+          } else {
+            expectedLines.push(val);
+          }
+        }
+
+        // Each expected line must appear somewhere in the card
+        for (const line of expectedLines) {
+          // Check both textContent and innerHTML since <br> joins may affect matching
+          if (!cardText.includes(line) && !cardHtml.includes(line)) {
+            errors.push(`Expected "${line}" not found in card (tabla: ${tabla.titulo})`);
+          }
+        }
+      }
+
+      if (errors.length > 0) {
+        return { status: 'fail', msg: `PI ${piCode}: ${errors.length} tabla spec error(s)`, detail: errors.join('\n') };
+      }
+      return { status: 'pass', msg: `PI ${piCode}: all tabla spec codes verified` };
+    }
+
+    // --- Helper: find the card element for a given PI code ---
+    function findCardForPI(cards, piCode) {
+      for (const card of cards) {
+        const h6 = card.querySelector('h6');
+        if (h6) {
+          const strong = h6.querySelector('strong');
+          const instrText = strong ? strong.textContent.trim() : h6.textContent.trim();
+          if (instrText === String(piCode)) return card;
+        }
+      }
+      return null;
+    }
+
+    // --- Main test runner ---
+    async function startTests() {
+      if (running) return;
+      running = true;
+      stopped = false;
+      $('runBtn').disabled = true;
+      $('stopBtn').disabled = false;
+      $('log-container').innerHTML = '';
+      stats = { total: 0, tested: 0, pass: 0, fail: 0, skip: 0 };
+      startTime = Date.now();
+      timerInterval = setInterval(updateTimer, 1000);
+
+      try {
+        // Load reference data
+        await loadReferenceData();
+
+        // Wait for iframe to be fully loaded
+        setTask('Waiting for iframe to load...');
+        await new Promise((resolve) => {
+          const iframe = $('appFrame');
+          // If already loaded
+          try {
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            if (doc && doc.getElementById('searchBtn')) {
+              resolve();
+              return;
+            }
+          } catch(e) {}
+          iframe.onload = resolve;
+        });
+
+        // Wait a bit more for the module script to initialize
+        await delay(500);
+        await waitFor(() => {
+          try {
+            const doc = getIframeDoc();
+            return doc.getElementById('searchBtn') && doc.getElementById('numInput');
+          } catch(e) { return false; }
+        }, 10000, 100);
+
+        log('info', 'Iframe loaded and ready.');
+
+        // Build all unique ONU+PI combos
+        setTask('Building ONU + PI combinations...');
+        const { combos, totalUniquePairs, byOnu } = buildCombos();
+        stats.total = totalUniquePairs;
+        $('totalCount').textContent = totalUniquePairs;
+        updateSummary();
+        log('info', `Found ${totalUniquePairs} unique ONU+PI combinations across ${combos.length} row entries from ${Object.keys(byOnu).length} ONUs.`);
+
+        // Group combos by ONU for sequential processing
+        const combosByOnu = {};
+        for (const c of combos) {
+          if (!combosByOnu[c.onu]) combosByOnu[c.onu] = [];
+          combosByOnu[c.onu].push(c);
+        }
+
+        const onuKeys = Object.keys(combosByOnu);
+        const delayMs = parseInt($('delayMs').value) || 100;
+
+        for (let oi = 0; oi < onuKeys.length; oi++) {
+          if (stopped) break;
+
+          const onu = onuKeys[oi];
+          const onuCombos = combosByOnu[onu];
+
+          setTask(`[${oi + 1}/${onuKeys.length}] Searching ONU ${onu}...`);
+
+          // Search for this ONU
+          try {
+            await doSearch(onu);
+          } catch (err) {
+            log('fail', `ONU ${onu}: search failed or timed out`, err.message);
+            // Mark all PI codes for this ONU as failed
+            for (const combo of onuCombos) {
+              for (const pi of combo.newPiCodes) {
+                stats.tested++;
+                stats.fail++;
+              }
+            }
+            updateSummary();
+            continue;
+          }
+
+          // Check that rows exist
+          const doc = getIframeDoc();
+          const rows = doc.querySelectorAll('#results tbody tr');
+          if (!rows || rows.length === 0) {
+            log('skip', `ONU ${onu}: no table rows rendered`);
+            for (const combo of onuCombos) {
+              for (const pi of combo.newPiCodes) {
+                stats.tested++;
+                stats.skip++;
+              }
+            }
+            updateSummary();
+            continue;
+          }
+
+          // Click each row that has new PI codes
+          for (const combo of onuCombos) {
+            if (stopped) break;
+
+            setTask(`[${oi + 1}/${onuKeys.length}] ONU ${onu}, row ${combo.rowIndex + 1}, PIs: ${combo.newPiCodes.join(', ')}`);
+
+            // Click the row
+            try {
+              const success = await clickRow(combo.rowIndex);
+              if (!success) {
+                log('skip', `ONU ${onu} row ${combo.rowIndex}: row index out of bounds`);
+                for (const pi of combo.newPiCodes) {
+                  stats.tested++;
+                  stats.skip++;
+                }
+                updateSummary();
+                continue;
+              }
+            } catch (err) {
+              log('fail', `ONU ${onu} row ${combo.rowIndex}: click/detail load failed`, err.message);
+              for (const pi of combo.newPiCodes) {
+                stats.tested++;
+                stats.fail++;
+              }
+              updateSummary();
+              continue;
+            }
+
+            // Wait a small delay for rendering
+            await delay(delayMs);
+
+            // Run tests for each NEW PI code in this row
+            for (const pi of combo.newPiCodes) {
+              if (stopped) break;
+
+              // Test 5
+              const t5 = runTest5(pi, onu);
+              if (t5.status === 'pass') {
+                stats.pass++;
+                log('pass', `T5 ONU=${onu} PI=${pi}: ${t5.msg}`);
+              } else if (t5.status === 'fail') {
+                stats.fail++;
+                log('fail', `T5 ONU=${onu} PI=${pi}: ${t5.msg}`, t5.detail);
+              } else {
+                stats.skip++;
+                log('skip', `T5 ONU=${onu} PI=${pi}: ${t5.msg}`);
+              }
+
+              // Test 6
+              const t6 = runTest6(pi, onu);
+              if (t6.status === 'pass') {
+                stats.pass++;
+                log('pass', `T6 ONU=${onu} PI=${pi}: ${t6.msg}`);
+              } else if (t6.status === 'fail') {
+                stats.fail++;
+                log('fail', `T6 ONU=${onu} PI=${pi}: ${t6.msg}`, t6.detail);
+              } else {
+                stats.skip++;
+                log('skip', `T6 ONU=${onu} PI=${pi}: ${t6.msg}`);
+              }
+
+              // Test 7
+              const t7 = runTest7(pi, onu);
+              if (t7.status === 'pass') {
+                stats.pass++;
+                log('pass', `T7 ONU=${onu} PI=${pi}: ${t7.msg}`);
+              } else if (t7.status === 'fail') {
+                stats.fail++;
+                log('fail', `T7 ONU=${onu} PI=${pi}: ${t7.msg}`, t7.detail);
+              } else {
+                stats.skip++;
+                log('skip', `T7 ONU=${onu} PI=${pi}: ${t7.msg}`);
+              }
+
+              stats.tested++;
+              updateSummary();
+            }
+          }
+        }
+
+        if (stopped) {
+          log('info', 'Tests stopped by user.');
+          setTask('Stopped.');
+        } else {
+          log('info', `All tests complete. ${stats.pass} passed, ${stats.fail} failed, ${stats.skip} skipped out of ${stats.tested} tested (${stats.total} total combos).`);
+          setTask('Complete.');
+        }
+
+      } catch (err) {
+        log('fail', 'Unexpected error in test runner', err.message + '\n' + err.stack);
+        setTask('Error: ' + err.message);
+      } finally {
+        running = false;
+        $('stopBtn').disabled = true;
+        clearInterval(timerInterval);
+        updateTimer();
+      }
+    }
+
+    function stopTests() {
+      stopped = true;
+      $('stopBtn').disabled = true;
+    }
+
+  </script>
+</body>
+</html>

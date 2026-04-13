@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 5: Linea en negrita (DOM real)</title>
+  <style>
+    body { font-family: monospace; font-size: 13px; padding: 20px; background: #f5f5f5; }
+    #summary { position: sticky; top: 0; background: #222; color: #fff; padding: 12px 20px; font-size: 15px; z-index: 10; border-radius: 6px; margin-bottom: 8px; }
+    #filters { margin-bottom: 12px; display: flex; gap: 8px; }
+    #filters button { padding: 4px 12px; cursor: pointer; border: 1px solid #999; border-radius: 4px; background: #fff; font-family: monospace; }
+    #filters button.active { background: #333; color: #fff; }
+    .pass { color: #2e7d32; }
+    .fail { color: #c62828; font-weight: bold; }
+    .skip { color: #ef6c00; }
+    .line { display: block; }
+    .line.hidden { display: none; }
+    pre { background: #fff; padding: 16px; border-radius: 6px; white-space: pre-wrap; }
+    iframe { width: 100%; height: 400px; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+<div id="summary">Cargando iframe...</div>
+<div id="filters">
+  <button class="active" data-f="all">All</button>
+  <button data-f="pass">Pass</button>
+  <button data-f="fail">Fail</button>
+  <button data-f="skip">Skip</button>
+</div>
+<iframe id="app" src="index.html"></iframe>
+<pre id="log"></pre>
+<script>
+const logEl = document.getElementById('log')
+const summaryEl = document.getElementById('summary')
+let pass = 0, fail = 0, skip = 0
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('button')
+  if (!btn) return
+  document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'))
+  btn.classList.add('active')
+  const f = btn.dataset.f
+  logEl.querySelectorAll('.line').forEach(el => {
+    el.classList.toggle('hidden', f !== 'all' && !el.classList.contains(f))
+  })
+})
+
+function log(msg, cls) {
+  const span = document.createElement('span')
+  span.className = 'line ' + (cls || '')
+  span.textContent = msg + '\n'
+  logEl.appendChild(span)
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)) }
+function getDoc() { return document.getElementById('app').contentDocument }
+
+async function waitForEl(fn, timeout = 10000) {
+  const s = Date.now()
+  while (Date.now() - s < timeout) { const el = fn(); if (el) return el; await wait(50) }
+  return null
+}
+
+async function search(onu) {
+  const doc = getDoc()
+  doc.getElementById('results').innerHTML = ''
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  doc.getElementById('numInput').value = onu
+  doc.getElementById('searchBtn').click()
+  await waitForEl(() => doc.querySelector('#results tbody tr') || doc.querySelector('#results p'))
+}
+
+async function clickRow(idx) {
+  const doc = getDoc()
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  const rows = doc.querySelectorAll('#results tbody tr')
+  if (idx >= rows.length) return false
+  rows[idx].querySelector('td').click()
+  await waitForEl(() => doc.querySelector('#embalaje-detail .card') || doc.querySelector('#embalaje-detail p'))
+  await wait(100)
+  return true
+}
+
+function findCard(pi) {
+  for (const card of getDoc().querySelectorAll('#embalaje-detail .card')) {
+    const s = card.querySelector('h6 strong')
+    if (s && s.textContent.trim() === String(pi)) return card
+  }
+  return null
+}
+
+async function run() {
+  await new Promise(r => { document.getElementById('app').onload = r })
+  await wait(500)
+  summaryEl.textContent = 'Cargando datos...'
+
+  const [tablaOnu, lineas] = await Promise.all([
+    fetch('tabla_onu.json').then(r => r.json()),
+    fetch('embalajes_lineas.json').then(r => r.json()),
+  ])
+
+  const piTests = {}
+  const byOnu = {}
+  for (const row of tablaOnu) {
+    const onu = String(row.onu)
+    if (!byOnu[onu]) byOnu[onu] = []
+    const ri = byOnu[onu].length
+    byOnu[onu].push(row)
+    for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
+      const v = String(row[col] || '')
+      if (v && !['Prohibido', 'nan', '—', ''].includes(v) && !piTests[v]) {
+        piTests[v] = { onu, rowIndex: ri }
+      }
+    }
+  }
+
+  const piCodes = Object.keys(piTests).sort()
+  log(`Total PIs a testear: ${piCodes.length}\n`)
+  let lastOnu = null
+
+  for (let i = 0; i < piCodes.length; i++) {
+    const pi = piCodes[i]
+    const { onu, rowIndex } = piTests[pi]
+    summaryEl.textContent = `${i + 1}/${piCodes.length} — ONU ${onu} PI ${pi}`
+
+    if (onu !== lastOnu) { await search(onu); lastOnu = onu }
+    const ok = await clickRow(rowIndex)
+    if (!ok) { log(`[SKIP] PI ${pi}: fila ${rowIndex} no existe`, 'skip'); skip++; continue }
+
+    const card = findCard(pi)
+    if (!card) { log(`[SKIP] PI ${pi}: card no encontrada`, 'skip'); skip++; continue }
+
+    const boldEl = card.querySelector('p.fw-bold')
+    const boldText = boldEl ? boldEl.textContent.trim() : null
+    const expected = lineas[pi]
+
+    if (expected === undefined) {
+      log(`[SKIP] PI ${pi}: no existe en embalajes_lineas.json`, 'skip'); skip++
+    } else if (expected === '-') {
+      if (boldText) { log(`[FAIL] PI ${pi}: NO deberia mostrar negrita pero se ve: "${boldText}"`, 'fail'); fail++ }
+      else { log(`[PASS] PI ${pi}: sin negrita (correcto)`, 'pass'); pass++ }
+    } else {
+      if (!boldText) { log(`[FAIL] PI ${pi}: FALTA negrita. Esperado: "${expected}"`, 'fail'); fail++ }
+      else if (boldText !== expected.trim()) { log(`[FAIL] PI ${pi}: texto no coincide. Esperado: "${expected}" | DOM: "${boldText}"`, 'fail'); fail++ }
+      else { log(`[PASS] PI ${pi}: "${boldText.substring(0, 60)}"`, 'pass'); pass++ }
+    }
+  }
+
+  summaryEl.innerHTML = `TEST 5 LINEA NEGRITA (DOM) | ${pass+fail} tests | <span class="pass">${pass} PASS</span> | <span class="fail">${fail} FAIL</span> | <span class="skip">${skip} SKIP</span>`
+}
+
+run().catch(e => log('ERROR: ' + e.message, 'fail'))
+</script>
+</body>
+</html>

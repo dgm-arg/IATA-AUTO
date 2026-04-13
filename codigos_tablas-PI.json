@@ -1,0 +1,60 @@
+{
+  "embalajes_ONU": {
+    "bidones": [
+      { "codigo": "1A1", "descripcion": "Bidones de acero de tapa fija" },
+      { "codigo": "1A2", "descripcion": "Bidones de acero de tapa amovible" },
+      { "codigo": "1B1", "descripcion": "Bidones de aluminio de tapa fija" },
+      { "codigo": "1B2", "descripcion": "Bidones de aluminio de tapa amovible" },
+      { "codigo": "1D", "descripcion": "Bidones de madera contrachapada" },
+      { "codigo": "1G", "descripcion": "Bidones de cartón" },
+      { "codigo": "1H1", "descripcion": "Bidones de plástico de tapa fija" },
+      { "codigo": "1H2", "descripcion": "Bidones de plástico de tapa amovible" },
+      { "codigo": "1N1", "descripcion": "Bidones de metal (otro) de tapa fija" },
+      { "codigo": "1N2", "descripcion": "Bidones de metal (otro) de tapa amovible" }
+    ],
+    "jerricanes": [
+      { "codigo": "3A1", "descripcion": "Jerricanes de acero de tapa fija" },
+      { "codigo": "3A2", "descripcion": "Jerricanes de acero de tapa amovible" },
+      { "codigo": "3B1", "descripcion": "Jerricanes de aluminio de tapa fija" },
+      { "codigo": "3B2", "descripcion": "Jerricanes de aluminio de tapa amovible" },
+      { "codigo": "3H1", "descripcion": "Jerricanes de plástico de tapa fija" },
+      { "codigo": "3H2", "descripcion": "Jerricanes de plástico de tapa amovible" }
+    ],
+    "cajas": [
+      { "codigo": "4A", "descripcion": "Cajas de acero" },
+      { "codigo": "4B", "descripcion": "Cajas de aluminio" },
+      { "codigo": "4N", "descripcion": "Cajas de metal, distinto de acero o aluminio" },
+      { "codigo": "4N1", "descripcion": "Cajas de metal de tapa fija, distinto de acero o aluminio" },
+      { "codigo": "4C1", "descripcion": "Cajas ordinarias de madera natural" },
+      { "codigo": "4C2", "descripcion": "Cajas de madera natural de paredes no tamizantes" },
+      { "codigo": "4D", "descripcion": "Cajas de madera contrachapada" },
+      { "codigo": "4F", "descripcion": "Cajas de madera reconstituida" },
+      { "codigo": "4G", "descripcion": "Cajas de cartón" },
+      { "codigo": "4H1", "descripcion": "Cajas de plástico expandido" },
+      { "codigo": "4H2", "descripcion": "Cajas de plástico sólido" }
+    ],
+    "sacos": [
+      { "codigo": "5H1", "descripcion": "Sacos tejidos de plástico sin forro" },
+      { "codigo": "5H2", "descripcion": "Sacos de polietileno no tamizantes" },
+      { "codigo": "5H3", "descripcion": "Sacos de polietileno resistentes al agua" },
+      { "codigo": "5H4", "descripcion": "Sacos de película de plástico" },
+      { "codigo": "5L2", "descripcion": "Sacos de tela no tamizantes" },
+      { "codigo": "5L3", "descripcion": "Sacos de tela resistentes al agua" },
+      { "codigo": "5M1", "descripcion": "Sacos de papel multicapa" },
+      { "codigo": "5M2", "descripcion": "Sacos de papel multicapa resistentes al agua" }
+    ],
+    "embalajes_compuestos": [
+      { "codigo": "6HA1", "descripcion": "Recipiente de plástico con bidón exterior de acero" },
+      { "codigo": "6HA2", "descripcion": "Recipiente de plástico con jaula o caja exterior de acero" },
+      { "codigo": "6HB1", "descripcion": "Recipiente de plástico con bidón exterior de aluminio" },
+      { "codigo": "6HB2", "descripcion": "Recipiente de plástico con jaula o caja exterior de aluminio" },
+      { "codigo": "6HC", "descripcion": "Recipiente de plástico con caja exterior de madera" },
+      { "codigo": "6HD1", "descripcion": "Recipiente de plástico con bidón exterior de madera contrachapada" },
+      { "codigo": "6HD2", "descripcion": "Recipiente de plástico con caja exterior de madera contrachapada" },
+      { "codigo": "6HG1", "descripcion": "Recipiente de plástico con bidón exterior de cartón" },
+      { "codigo": "6HG2", "descripcion": "Recipiente de plástico con caja exterior de cartón" },
+      { "codigo": "6HH1", "descripcion": "Recipiente de plástico con bidón exterior de plástico" },
+      { "codigo": "6HH2", "descripcion": "Recipiente de plástico con caja exterior de plástico sólido" }
+    ]
+  }
+}

@@ -41,6 +41,72 @@ async function loadEmbalajes() {
   return embalajesMap
 }
 
+let embalajeTablaClaudeMap = null
+
+async function loadEmbalajeTablaClaude() {
+  if (embalajeTablaClaudeMap) return embalajeTablaClaudeMap
+  const res = await fetch('embalajes_tabla_claude.json')
+  const data = await res.json()
+  embalajeTablaClaudeMap = Object.fromEntries(
+    data.instrucciones_embalaje.map(e => [String(e.codigo), e])
+  )
+  return embalajeTablaClaudeMap
+}
+
+let codigosPIMap = null
+
+async function loadCodigosPI() {
+  if (codigosPIMap) return codigosPIMap
+  const res = await fetch('codigos_tablas-PI.json')
+  const data = await res.json()
+  codigosPIMap = {}
+  for (const items of Object.values(data.embalajes_ONU)) {
+    for (const item of items) {
+      codigosPIMap[item.codigo] = item.descripcion
+    }
+  }
+  return codigosPIMap
+}
+
+let embalajeLineasMap = null
+
+async function loadEmbalajeLineas() {
+  if (embalajeLineasMap) return embalajeLineasMap
+  const res = await fetch('embalajes_lineas.json')
+  embalajeLineasMap = await res.json()
+  return embalajeLineasMap
+}
+
+let instruccionesMap = null
+
+async function loadInstrucciones() {
+  if (instruccionesMap) return instruccionesMap
+  const res = await fetch('instrucciones_embalaje.json')
+  instruccionesMap = await res.json()
+  return instruccionesMap
+}
+
+
+
+function renderInstrucciones(items, onuValue) {
+  if (!items || items.length === 0) return ''
+
+  const filtered = items.filter(item => {
+    if (!item.un) return true
+    const onuNum = parseInt(onuValue, 10)
+    return item.un.some(u => parseInt(u, 10) === onuNum)
+  })
+
+  if (filtered.length === 0) return ''
+
+  const lines = filtered.map(item => {
+    const texto = Array.isArray(item.texto) ? item.texto.join('<br>') : item.texto
+    return `<p class="small text-muted mb-1">${texto}</p>`
+  })
+
+  return `<div class="mt-2">${lines.join('')}</div>`
+}
+
 async function fetchSubcode(type, code) {
   const prefix = code.split('-')[0]
   const folder = type === 'estados'
@@ -84,10 +150,61 @@ async function buscarArchivos(instruccion, resultDiv) {
                         renderGroup(operadoresResults, 'Variaciones Operadores')
 }
 
+function groupHeaders(encabezados) {
+  const groups = []
+  for (const h of encabezados) {
+    const base = h.replace(/_\d+$/, '')
+    if (groups.length > 0 && groups[groups.length - 1].name === base) {
+      groups[groups.length - 1].count++
+    } else {
+      groups.push({ name: base, count: 1 })
+    }
+  }
+  return groups
+}
+
+function renderTablas(tablas, codigosPI) {
+  if (!tablas || tablas.length === 0) return ''
+
+  return tablas.map(tabla => {
+    const specRow = tabla.filas.find(f => f.Tipo === 'Spec.')
+    if (!specRow) return ''
+
+    const rawValues = tabla.encabezados
+      .filter(h => h !== 'Tipo')
+      .map(h => specRow[h])
+      .filter(v => v && v !== '—')
+
+    if (rawValues.length === 0) return ''
+
+    const lines = []
+    for (const val of rawValues) {
+      const tokens = val.split(/\s+/)
+      const isCode = tokens.every(t => /^\d/.test(t))
+      if (isCode) {
+        for (const c of tokens) {
+          const desc = codigosPI[c]
+          lines.push(desc ? `${c}: ${desc}` : c)
+        }
+      } else {
+        lines.push(val)
+      }
+    }
+
+    return `
+      <div class="mt-2">
+        <p class="fw-semibold small mb-1">${tabla.titulo}</p>
+        <p class="small text-muted mb-0">${lines.join('<br>')}</p>
+      </div>
+    `
+  }).join('')
+}
+
 async function showEmbalajes(row, container) {
-  const lookup = await loadEmbalajes()
+  const [lookup, tablaClaude, codigosPI, lineas, instrucciones] = await Promise.all([loadEmbalajes(), loadEmbalajeTablaClaude(), loadCodigosPI(), loadEmbalajeLineas(), loadInstrucciones()])
   const headers = [...container.querySelectorAll('thead th')].map(th => th.textContent.trim())
   const cells = [...row.querySelectorAll('td')]
+  const onuValue = document.getElementById('numInput').value
 
   const codes = [...new Set(
     EMBALAJE_COLS
@@ -106,7 +223,16 @@ async function showEmbalajes(row, container) {
     return
   }
 
-  detail.innerHTML = results.map(r => `
+  detail.innerHTML = results.map(r => {
+    const tcEntry = tablaClaude[String(r.instruccion)]
+    const lineaText = lineas[String(r.instruccion)]
+    const lineaHtml = lineaText && lineaText !== '-'
+      ? `<p class="fw-bold mt-3 mb-2" style="font-size:1.1rem">${lineaText}</p>`
+      : ''
+    const instrHtml = renderInstrucciones(instrucciones[String(r.instruccion)], onuValue)
+    const tablasHtml = tcEntry ? renderTablas(tcEntry.tablas, codigosPI) : ''
+
+    return `
     <div class="card mt-3 p-3">
       <h6 class="mb-3">Instrucción <strong>${r.instruccion}</strong></h6>
       <div class="row">
@@ -125,8 +251,11 @@ async function showEmbalajes(row, container) {
         </button>
         <div class="subcode-results"></div>
       </div>
+      ${lineaHtml}
+      ${instrHtml}
+      ${tablasHtml}
     </div>
-  `).join('')
+  `}).join('')
 
   detail.querySelectorAll('button[data-instruccion]').forEach(btn => {
     const resultDiv = btn.nextElementSibling

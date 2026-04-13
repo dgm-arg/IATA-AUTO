@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Filtro ONU</title>
+  <style>
+    body { font-family: monospace; font-size: 13px; padding: 20px; background: #f5f5f5; }
+    #summary { position: sticky; top: 0; background: #222; color: #fff; padding: 12px 20px; font-size: 15px; z-index: 10; border-radius: 6px; margin-bottom: 16px; }
+    .pass { color: #2e7d32; }
+    .fail { color: #c62828; font-weight: bold; }
+    .skip { color: #ef6c00; }
+    pre { background: #fff; padding: 16px; border-radius: 6px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+<div id="summary">Cargando...</div>
+<pre id="log"></pre>
+<script>
+const logEl = document.getElementById('log')
+const summaryEl = document.getElementById('summary')
+let pass = 0, fail = 0, skip = 0
+
+function log(msg, cls) {
+  const span = document.createElement('span')
+  span.className = cls || ''
+  span.textContent = msg + '\n'
+  logEl.appendChild(span)
+}
+
+// ========================================
+// EXACT same filter as app.js line 94-98
+// ========================================
+function filterInstrucciones(items, onuValue) {
+  return items.filter(item => {
+    if (!item.un) return true
+    const onuNum = parseInt(onuValue, 10)
+    return item.un.some(u => parseInt(u, 10) === onuNum)
+  })
+}
+
+async function run() {
+  const [tablaOnu, instrucciones] = await Promise.all([
+    fetch('tabla_onu.json').then(r => r.json()),
+    fetch('instrucciones_embalaje.json').then(r => r.json()),
+  ])
+
+  // Build: PI -> set of ONU numbers that use it (from tabla_onu columns)
+  const piToOnus = {}
+  for (const row of tablaOnu) {
+    const onu = String(row.onu)
+    for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
+      const v = String(row[col] || '')
+      if (v && !['Prohibido','nan','—',''].includes(v)) {
+        if (!piToOnus[v]) piToOnus[v] = new Set()
+        piToOnus[v].add(onu)
+      }
+    }
+  }
+
+  // For each PI that has items with "un" field
+  for (const [pi, items] of Object.entries(instrucciones)) {
+    const itemsWithUn = items.filter(i => i.un && i.un.length > 0)
+    if (itemsWithUn.length === 0) continue
+
+    const onus = piToOnus[pi]
+    if (!onus || onus.size === 0) {
+      log(`[SKIP] PI ${pi}: ningun ONU en tabla_onu usa esta PI`, 'skip')
+      skip++
+      continue
+    }
+
+    log(`\n===== PI ${pi} (${onus.size} ONUs la usan) =====`)
+
+    for (let i = 0; i < itemsWithUn.length; i++) {
+      const item = itemsWithUn[i]
+      const txt = (Array.isArray(item.texto) ? item.texto[0] : item.texto).substring(0, 90)
+      const unNums = item.un.map(u => parseInt(u, 10))
+
+      // --- TEST A: buscar un ONU que SI esta en la lista un y usa esta PI ---
+      let testedPositive = false
+      for (const onu of onus) {
+        if (unNums.includes(parseInt(onu, 10))) {
+          const filtered = filterInstrucciones([item], onu)
+          if (filtered.length === 1) {
+            log(`  [PASS] ONU ${onu} -> SE MUESTRA: "${txt}..."`, 'pass')
+            pass++
+          } else {
+            log(`  [FAIL] ONU ${onu} -> DEBERIA mostrarse pero NO: "${txt}..."`, 'fail')
+            fail++
+          }
+          testedPositive = true
+          break
+        }
+      }
+      if (!testedPositive) {
+        log(`  [SKIP] item[${i}] un:[${item.un.slice(0,3)}...] -> ningun ONU en tabla matchea`, 'skip')
+        skip++
+      }
+
+      // --- TEST B: buscar un ONU que NO esta en la lista un y usa esta PI ---
+      let testedNegative = false
+      for (const onu of onus) {
+        if (!unNums.includes(parseInt(onu, 10))) {
+          const filtered = filterInstrucciones([item], onu)
+          if (filtered.length === 0) {
+            log(`  [PASS] ONU ${onu} -> NO se muestra (correcto): "${txt}..."`, 'pass')
+            pass++
+          } else {
+            log(`  [FAIL] ONU ${onu} -> NO deberia mostrarse pero SI: "${txt}..."`, 'fail')
+            fail++
+          }
+          testedNegative = true
+          break
+        }
+      }
+      if (!testedNegative) {
+        log(`  [SKIP] item[${i}] -> todos los ONUs estan en la lista un, no se puede testear negativo`, 'skip')
+        skip++
+      }
+    }
+
+    // --- TEST C: items SIN campo un siempre se muestran ---
+    const sinUn = items.filter(i => !i.un)
+    if (sinUn.length > 0) {
+      const anyOnu = [...onus][0]
+      const filtered = filterInstrucciones(sinUn, anyOnu)
+      if (filtered.length === sinUn.length) {
+        log(`  [PASS] ONU ${anyOnu} -> ${sinUn.length} items sin "un" se muestran siempre`, 'pass')
+        pass++
+      } else {
+        log(`  [FAIL] ONU ${anyOnu} -> items sin "un": esperaba ${sinUn.length}, obtuvo ${filtered.length}`, 'fail')
+        fail++
+      }
+    }
+  }
+
+  summaryEl.innerHTML = `TOTAL: ${pass+fail} tests | <span class="pass">${pass} PASS</span> | <span class="fail">${fail} FAIL</span> | <span class="skip">${skip} SKIP</span>`
+}
+
+run().catch(e => log('ERROR: ' + e.message, 'fail'))
+</script>
+</body>
+</html>
