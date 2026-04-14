@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Debug PI 681 y 876</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-size: 0.82rem; padding: 1.5rem; }
+    h5 { margin-top: 2rem; }
+    th { background: #212529; color: #fff; white-space: nowrap; }
+    td { vertical-align: top; }
+    td:empty, td.vacia { background: #fff3cd; }
+    .tag-vacia { font-size: 0.7rem; color: #856404; font-style: italic; }
+    .tag-dato  { font-size: 0.7rem; color: #0f5132; font-style: italic; }
+    .num-un { max-width: 220px; font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+
+<h4>PI 681 y PI 876 — filas con rowspan mal parseado</h4>
+<p class="text-muted">Las filas en <span style="background:#fff3cd;padding:2px 6px;">amarillo</span> son filas vacías que deberían ser eliminadas (artefacto del rowspan del HTML original). Solo las filas con "Embalaje interior" real son válidas.</p>
+
+<script>
+async function load() {
+  const res = await fetch('embalajes_tabla_claude.json');
+  const data = await res.json();
+  const instr = data.instrucciones_embalaje;
+
+  ['681','876'].forEach(codigo => {
+    const e = instr.find(x => x.codigo === codigo);
+    const t = e.tablas[0];
+
+    const wrap = document.getElementById('pi'+codigo);
+
+    // Header
+    const h = document.createElement('h5');
+    h.className = 'fw-bold';
+    h.textContent = `PI ${codigo} — ${t.titulo} (${t.filas.length} filas en JSON)`;
+    wrap.appendChild(h);
+
+    // Columnas info
+    const colInfo = document.createElement('p');
+    colInfo.className = 'text-muted small mb-2';
+    colInfo.textContent = 'Columnas: ' + t.encabezados.join(' | ');
+    wrap.appendChild(colInfo);
+
+    // Table
+    const table = document.createElement('table');
+    table.className = 'table table-bordered table-sm mb-4';
+
+    // thead
+    const thead = document.createElement('thead');
+    const hrow = document.createElement('tr');
+    hrow.innerHTML = '<th>#</th>' + t.encabezados.map(h => `<th>${h}</th>`).join('');
+    thead.appendChild(hrow);
+    table.appendChild(thead);
+
+    // tbody
+    const tbody = document.createElement('tbody');
+    t.filas.forEach((row, ri) => {
+      const vals = Object.values(row);
+      // A fila es "vacía" si el embalaje interior (col index 1) está vacío
+      const embalaje = vals[1] || '';
+      const esVacia = embalaje.trim() === '';
+
+      const tr = document.createElement('tr');
+      if (esVacia) tr.classList.add('table-warning');
+
+      // index col
+      const tdIdx = document.createElement('td');
+      tdIdx.innerHTML = `<small class="text-muted">${ri}</small><br><span class="${esVacia ? 'tag-vacia' : 'tag-dato'}">${esVacia ? '⚠ vacía' : '✓ dato'}</span>`;
+      tr.appendChild(tdIdx);
+
+      vals.forEach((v, vi) => {
+        const td = document.createElement('td');
+        if (vi === 0) td.className = 'num-un';
+        td.textContent = v || '';
+        if (!v) td.classList.add('vacia');
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    wrap.appendChild(table);
+
+    // Lo que debería quedar
+    const clean = t.filas.filter(row => {
+      const vals = Object.values(row);
+      return (vals[1] || '').trim() !== '';
+    });
+    const info = document.createElement('div');
+    info.className = 'alert alert-success py-2 small';
+    info.innerHTML = `<strong>Filas reales (sin vacías):</strong> ${clean.length} de ${t.filas.length}<br>` +
+      clean.map(row => {
+        const vals = Object.values(row);
+        return `&nbsp;&nbsp;• ${vals[1]} → ${vals[2] || vals[3] || ''}`;
+      }).join('<br>');
+    wrap.appendChild(info);
+  });
+}
+
+load();
+</script>
+
+<div id="pi681"></div>
+<div id="pi876"></div>
+
+</body>
+</html>

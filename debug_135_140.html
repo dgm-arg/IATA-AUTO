@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Debug PI 135–140</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-size: 0.82rem; padding: 1.5rem; }
+    h5 { margin-top: 2rem; }
+    thead th { background: #212529; color: #fff; white-space: nowrap; }
+    .dup { background: #fff3cd !important; }
+  </style>
+</head>
+<body>
+<h4>PI 135, 137, 139, 140 — tal como está en JSON</h4>
+<p class="text-muted small">Columnas en <span style="background:#fff3cd;padding:1px 5px">amarillo</span> tienen sufijo _1 _2 _3 (posibles duplicados de la columna anterior).</p>
+
+<script>
+async function load() {
+  const res = await fetch('embalajes_tabla_claude.json');
+  const data = await res.json();
+  const instr = data.instrucciones_embalaje;
+
+  for (const codigo of ['135','137','139','140']) {
+    const e = instr.find(x => x.codigo === codigo);
+    const t = e.tablas[0];
+
+    const section = document.createElement('div');
+    section.className = 'mb-5';
+
+    section.innerHTML = `<h5 class="fw-bold">PI ${codigo} — ${t.titulo}</h5>
+      <p class="text-muted small mb-2">${t.encabezados.length} columnas · ${t.filas.length} fila(s)</p>`;
+
+    const table = document.createElement('table');
+    table.className = 'table table-bordered table-sm';
+
+    // thead
+    const thead = document.createElement('thead');
+    const hrow = document.createElement('tr');
+    t.encabezados.forEach(h => {
+      const th = document.createElement('th');
+      th.textContent = h;
+      if (/_\d+$/.test(h)) th.classList.add('dup');
+      hrow.appendChild(th);
+    });
+    thead.appendChild(hrow);
+    table.appendChild(thead);
+
+    // tbody
+    const tbody = document.createElement('tbody');
+    t.filas.forEach(row => {
+      const tr = document.createElement('tr');
+      const keys = t.encabezados;
+      keys.forEach(k => {
+        const td = document.createElement('td');
+        td.textContent = row[k] ?? '';
+        if (/_\d+$/.test(k)) td.classList.add('dup');
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    section.appendChild(table);
+    document.body.appendChild(section);
+  }
+}
+load();
+</script>
+</body>
+</html>

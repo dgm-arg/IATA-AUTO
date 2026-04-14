@@ -28,7 +28,7 @@ const PDF_PATHS = {
   'Disp-espec': 'PDF/DE',
 }
 
-const INVALID_VALUES = new Set(['prohibido', 'nan', '—', '', null, undefined])
+const INVALID_VALUES = new Set(['prohibido', 'no restringido', 'nan', '—', '', null, undefined])
 
 const EMBALAJE_COLS = ['APCCL Emb', 'APC Emb', 'AC Emb']
 let embalajesMap = null
@@ -172,8 +172,10 @@ function groupHeaders(encabezados) {
   return groups
 }
 
-function renderTablas(tablas, codigosPI) {
+function renderTablas(tablas, codigosPI, onuValue) {
   if (!tablas || tablas.length === 0) return ''
+
+  const onuNum = parseInt(onuValue, 10)
 
   return tablas.map(tabla => {
     const specRow = tabla.filas.find(f => f.Tipo === 'Spec.')
@@ -210,13 +212,27 @@ function renderTablas(tablas, codigosPI) {
       `
     }
 
-    // All other tables: render as HTML table
+    // All other tables: render as HTML table, filter by ONU if table has UN column
     const visibleCols = tabla.encabezados.filter(h => h !== 'Tipo')
+    const unCol = tabla.encabezados.find(h => /n[uú]mero|UN|No\./i.test(h) && h !== 'Tipo')
+
+    let filas = tabla.filas
+    if (unCol && onuValue) {
+      const filtered = tabla.filas.filter(fila => {
+        const cellVal = String(fila[unCol] || '')
+        const nums = cellVal.match(/\d{4}/g) || []
+        return nums.some(n => parseInt(n, 10) === onuNum)
+      })
+      if (filtered.length > 0) filas = filtered
+    }
+
+    if (filas.length === 0) return ''
+
     const groups = groupHeaders(visibleCols)
     const headerRow = groups.map(g =>
       `<th colspan="${g.count}" class="text-center">${g.name}</th>`
     ).join('')
-    const bodyRows = tabla.filas.map(fila => {
+    const bodyRows = filas.map(fila => {
       const cells = visibleCols.map(h =>
         `<td>${fila[h] ?? '—'}</td>`
       ).join('')
@@ -278,7 +294,7 @@ async function showEmbalajes(row, container) {
       ? `<p class="fw-bold mt-3 mb-2" style="font-size:1.1rem">${lineaText}</p>`
       : ''
     const instrHtml = renderInstrucciones(instrucciones[String(r.instruccion)], onuValue)
-    const tablasHtml = tcEntry ? renderTablas(tcEntry.tablas, codigosPI) : ''
+    const tablasHtml = tcEntry ? renderTablas(tcEntry.tablas, codigosPI, onuValue) : ''
 
     return `
     <div class="card mt-3 p-3">
@@ -350,11 +366,14 @@ function parseClaseImages(claseRaw) {
 }
 
 function renderCell(col, val) {
-  if (val === null || val === undefined) return '—'
+  if (val === null || val === undefined || val === '') return '—'
 
   const folder = PDF_PATHS[col]
   if (folder && !isInvalid(val)) {
-    return `<a href="${folder}/${encodeURIComponent(val)}.pdf" target="_blank">${val}</a>`
+    const parts = String(val).split('\n').map(v => v.trim()).filter(Boolean)
+    return parts.map(v =>
+      isInvalid(v) ? v : `<a href="${folder}/${encodeURIComponent(v)}.pdf" target="_blank">${v}</a>`
+    ).join(' ')
   }
 
   return val
@@ -365,9 +384,11 @@ function renderTable(rows) {
 
   if (!rows || rows.length === 0) {
     container.innerHTML = '<p class="text-center text-muted">No results found.</p>'
+    document.getElementById('embalaje-detail').innerHTML = ''
     return
   }
 
+  document.getElementById('embalaje-detail').innerHTML = ''
   const columns = Object.keys(rows[0]).slice(1)
 
   const headers = columns.map(col => {

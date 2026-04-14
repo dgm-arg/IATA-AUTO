@@ -191,8 +191,8 @@
         }
         if (pi === 'norestringido') {
           const cols = [r['APCCL-embalaje'], r['APC-embalaje'], r['AC-embalaje']];
-          const anyProh = cols.some(v => v === 'Prohibido');
-          if (anyProh) return false;
+          const hasNR = cols.some(v => v === 'No restringido');
+          if (!hasNR) return false;
         }
         return true;
       });
