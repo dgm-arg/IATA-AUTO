@@ -412,10 +412,8 @@
     {
       "texto": [
         "Los siguientes requisitos se deben cumplir: Nota: Para el transporte de oxígeno comprimido y aire comprimido con el fin de mantener vivos animales acuáticos durante el transporte, se deben cumplir los requisitos de 5.0.1.8 de esta Reglamentación.",
-        "(a) Elementos de liberación de la presión deben ser instalados en los cilindros utilizados para el transporte del dióxido de carbono UN 1013 y el óxido nitroso UN 1070. Los otros cilindros deberán ser dotados de elementos de liberación de la presión si es que ha sido especificado por la autoridad nacional apropiada del país en donde el cilindro es utilizado. El tipo de válvula de liberación de la presión, si fuere requerido, debe ser especificado por la autoridad nacional apropiada del país en donde se utiliza el cilindro. La interconexión de varios cilindros no está permitida.",
         "(b) Las Tablas 200.A y 200.B proporcionan: 1. El número ONU y para la Tabla 200.B, el nombre y descripción de la sustancia; 2. El CL50 para las sustancias tóxicas; 3. El período máximo para las inspecciones periódicas de los cilindros; Nota: En los cilindros en que se empleen materiales compuestos, el intervalo máximo entre las pruebas debe ser de cinco años. Este intervalo puede ampliarse al que se señala en las Tablas 200.A y 200.B (es decir, a un máximo de diez años), si así lo aprueba la autoridad nacional que corresponda del país donde se utilicen. 4. La presión mínima de prueba para los cilindros; 5. La presión de trabajo máxima de los cilindros para gases comprimidos (cuando no se dan valores, la presión de trabajo no debe exceder de dos tercios de la presión de prueba) o el rango máximo de llenado dependiendo de la presión de prueba para los gases licuados y disueltos; 6. Disposiciones Especiales, que sean específicas para la sustancia.",
         "(c) En ningún caso se podrá rellenar los cilindros por encima del límite permitido en los requisitos siguientes: 1. para los gases comprimidos, la presión de trabajo no debe ser superior a dos tercios de la presión de prueba de los cilindros. Determinadas disposiciones de las contenidas en las Tablas 200.A y 200.B pueden imponer restricciones a este límite superior con respecto a la presión de trabajo. En ningún caso la presión interna a 65°C podrá exceder la presión de prueba. 2. para los gases licuados a alta presión, la proporción de llenado debe ser tal que la presión establecida a 65°C no exceda de la presión de prueba de los cilindros. El uso de presiones de prueba y de proporciones de llenado que no sean los establecidos en las Tablas 200.A y 200.B se permitirá siempre y cuando se cumpla el criterio citado anteriormente, excepto cuando sea de aplicación la Disposición Particular de Embalaje “h”. Para los gases licuados a alta presión y las mezclas de gases para los que no haya datos pertinentes disponibles, la proporción máxima de llenado (FR) se determinará como se indica a continuación: FR = 8,5 × 10-4 × dg × Ph donde: FR = proporción de llenado máxima dg = densidad del gas (a 15° C, 1 bar) (in g/L) Ph = presión de prueba mínima (en bar) Si no se conoce la densidad del gas, la proporción máxima de llenado debe determinarse como sigue: donde: FR = proporción de llenado máxima Ph = presión de prueba mínima (en bar) MM = masa molecular (en g/mol) R = 8,31451 × 10-2 bar L/mol K (gas constante) Para mezclas de gases, debe calcularse el promedio de la masa molecular, teniendo en cuenta las concentraciones volumétricas de los distintos componentes; 3. para los gases licuados a baja presión, la masa máxima del contenido por litro de capacidad de agua debe ser igual a 0,95 veces la densidad del líquido a 50 °C; además, la fase líquida no debe llenar el cilindro a temperaturas inferiores a 60 °C. La presión de prueba del cilindro debe ser, al menos, igual a la presión del vapor (absoluta) del líquido a 65 °C, menos 100 kPa (1 bar). Para los gases licuados a baja presión cuyos datos de llenado no se recojan en la tabla, la proporción máxima de llenado debe determinarse como sigue: FR = (0,0032 × BP - 0,24) × d1 donde: FR = proporción de llenado máxima BP = punto de ebullición (en Kelvin) d1 = densidad del líquido en su punto de ebullición (en kg/L). 4. Para los gases licuados cargados con gases comprimidos, deben tomarse en consideración ambos componentes — el gas licuado y el gas comprimido — al calcular la presión interna del cilindro.La masa máxima de contenido por litro de capacidad en agua no debe exceder de 0,95 veces la densidad de la fase líquida a 50 ºC; además, la fase líquida no debe llenar completamente el cilindro a ninguna temperatura inferior o igual a 60 ºC. Cuando los cilindros estén llenos, la presión interna a 65 ºC no debe superar la presión de ensayo. Deben tenerse en cuenta las presiones de vapor y las expansiones volumétricas de todas las sustancias presentes en el cilindro. Cuando no se disponga de datos experimentales, deben llevarse a cabo las siguientes operaciones: (i) cálculo de la presión de vapor del gas licuado y de la presión parcial del gas comprimido a 15 ºC (temperatura de llenado); (ii) cálculo de la expansión volumétrica de la fase líquida resultante del calentamiento de 15 ºC a 65 ºC, y cálculo del volumen restante para la fase gaseosa; (iii) cálculo de la presión parcial del gas comprimido a 65 ºC teniendo en cuenta la expansión volumétrica de la fase líquida; Nota: Debe tomarse en consideración el factor de compresibilidad del gas comprimido a 15 ºC y 65 ºC. (iv) cálculo de la presión de vapor del componente líquido a 65 ºC; (v) la presión total será la suma de la presión de vapor del gas licuado y la presión parcial del gas comprimido a 65 °C; (vi) Consideración de la solubilidad del gas comprimido a 65 ºC en la fase líquida. La presión de ensayo del cilindro no debe ser inferior a la presión total calculada menos 100 kPa (1 bar). Si no se conoce la solubilidad del gas comprimido en el gas licuado para este cálculo, la presión de ensayo puede calcularse sin tener en cuenta la solubilidad del gas (subpárrafo (vi)).",
-        "(d) Las mezclas de gases que contengan cualquiera de los siguientes gases no deben ser ofrecidas para el transporte en cilindros de aluminio a menos que sea aprobado por la autoridad nacional apropiada del Estado de origen y del Estado del operador: • UN 1037 Cloruro de etilo • UN 1063 Cloruro de metilo • UN 1063 Gas refrigerante R40 • UN 1085 Bromuro de vinilo estabilizado • UN 1086 Cloruro de vinilo estabilizado • UN 1860 Fluoruro de vinilo estabilizado • UN 1912 Mezcla de cloruro de metilo y cloruro de metileno.",
         "(e) el llenado de los cilindros debe ser efectuado por personal cualificado utilizando el equipo y los procedimientos apropiados. Los procedimientos deberían comprender comprobaciones de: 1. la conformidad de los cilindros y accesorios con esta Reglamentación; 2. su compatibilidad con el producto que se transportará; 3. la ausencia de daños que puedan afectar a la seguridad; 4. el cumplimiento del grado o la presión de llenado, según el caso; 5. las marcas y la identificación. Se considera que se cumplen estos requisitos si se aplican las siguientes normas: ISO 10691: 2004 Cilindros de gas – Cilindros rellenables, de acero y con soldaduras, para gas de petróleo licuado (GPL) – Procedimientos para el control antes, durante y después del llenado. ISO 11372: 2011 Cilindros de gas – Cilindros de acetileno – Condiciones e inspección del llenado ISO 11755: 2005 Cilindros de gas – Bloques de cilindros para gases comprimidos y licuados (excluido el acetileno) – Inspección durante el llenado ISO 13088: 2011 + Amd. 1:2020 Cilindros de gas - Cilindros de acetileno - Condiciones de llenado e inspección de llenado ISO 24431:2016 Cilindros de gas – Cilindros sin juntas, soldados y compuestos para gases comprimidos y licuados (excluido el acetileno) – Inspección durante el llenado"
       ],
       "un": [
@@ -423,6 +421,24 @@
         "1037",
         "1063",
         "1070",
+        "1085",
+        "1086",
+        "1860",
+        "1912"
+      ]
+    },
+    {
+      "texto": "(a) Elementos de liberación de la presión deben ser instalados en los cilindros utilizados para el transporte del dióxido de carbono UN 1013 y el óxido nitroso UN 1070. Los otros cilindros deberán ser dotados de elementos de liberación de la presión si es que ha sido especificado por la autoridad nacional apropiada del país en donde el cilindro es utilizado. El tipo de válvula de liberación de la presión, si fuere requerido, debe ser especificado por la autoridad nacional apropiada del país en donde se utiliza el cilindro. La interconexión de varios cilindros no está permitida.",
+      "un": [
+        "1013",
+        "1070"
+      ]
+    },
+    {
+      "texto": "(d) Las mezclas de gases que contengan cualquiera de los siguientes gases no deben ser ofrecidas para el transporte en cilindros de aluminio a menos que sea aprobado por la autoridad nacional apropiada del Estado de origen y del Estado del operador: • UN 1037 Cloruro de etilo • UN 1063 Cloruro de metilo • UN 1063 Gas refrigerante R40 • UN 1085 Bromuro de vinilo estabilizado • UN 1086 Cloruro de vinilo estabilizado • UN 1860 Fluoruro de vinilo estabilizado • UN 1912 Mezcla de cloruro de metilo y cloruro de metileno.",
+      "un": [
+        "1037",
+        "1063",
         "1085",
         "1086",
         "1860",
@@ -439,8 +455,6 @@
         "(f) Los cilindros deben ser llenados hasta una presión de trabajo que no exceda de 5 bar.",
         "(g) No se utiliza.",
         "(h) En ningún caso deben excederse los rangos de presión de trabajo o de llenado mostrados en la tabla.",
-        "(i) Para el UN 1001 Acetileno disuelto y el UN 3374 Acetileno sin disolvente: 1. los cilindros deben ser llenados con una masa porosa homogénea monolítica; la presión de trabajo y la cantidad de acetileno no debe exceder de los valores prescritos en la aprobación o en ISO 3807-1:2000, ISO 3807-2:2000 o ISO 3807:2013, según sea aplicable; 2. para el UN 1001, los cilindros deben contener una cantidad de acetona o un solvente adecuado según se haya especificado en la aprobación (ver ISO 3807-1:2000, ISO 3807-2:200 o ISO 3807:2013, según corresponda); los cilindros provistos de dispositivos de descompresión deberán transportarse verticalmente; 3. la presión de prueba de 52 bar, solamente aplica a los cilindros dotados de un tapón fusible.",
-        "(j) El UN 1037 puede ser transportado en ampollas de vidrio, selladas en forma segura, que no contengan más de 5 g de cloruro de etilo y llenadas con una merma de no menos del 7,5% a 21 °C. Las ampollas deben ser almohadilladas con un material eficiente, no combustible, y en cartones con compartimientos, al punto de que, en un cartón, no se embalen más de 12 ampollas por cartón. Los cartones deben ser embalados en forma muy ajustada de manera de prevenir los movimientos, en cajas de madera (4C1, 4C2), cajas de madera contrachapada (4D), cajas de madera reconstituida (4F), cajas de cartón (4G) o cajas de plástico (4H1, 4H2) que cumplan con las normas de idoneidad 6.3 a nivel del Grupo de Embalaje II. No más de 300 g de cloruro de etilo están permitidos por bulto.",
         "(k) El intervalo entre las pruebas periódicas puede ser extendido a 10 años para los cilindros de aleaciones de aluminio cuando la aleación ha sido sometida a las pruebas de fatiga y corrosión como se especifica en la ISO 7866:2012 + Cor 1:2014",
         "(l) El intervalo entre las pruebas periódicas puede ser extendido a 15 años para los cilindros de acero si es aprobado por la autoridad nacional apropiada del país de uso.",
         "(m) Los materiales de construcción de los cilindros y sus accesorios deben ser compatibles con el contenido y no deben reaccionar para formar con el contenido compuestos dañinos o peligrosos. La prueba de presión y el rango de llenado deben ser calculados de acuerdo con los requisitos pertinentes de 5.2.0.6. Deben darse los pasos necesarios para prevenir las reacciones peligrosas (i.e. polimerización o descomposición) durante el transporte. Si fuera necesario, podrían requerirse la estabilización o la adición de un inhibidor."
@@ -449,6 +463,19 @@
         "1001",
         "1037",
         "3374"
+      ]
+    },
+    {
+      "texto": "(i) Para el UN 1001 Acetileno disuelto y el UN 3374 Acetileno sin disolvente: 1. los cilindros deben ser llenados con una masa porosa homogénea monolítica; la presión de trabajo y la cantidad de acetileno no debe exceder de los valores prescritos en la aprobación o en ISO 3807-1:2000, ISO 3807-2:2000 o ISO 3807:2013, según sea aplicable; 2. para el UN 1001, los cilindros deben contener una cantidad de acetona o un solvente adecuado según se haya especificado en la aprobación (ver ISO 3807-1:2000, ISO 3807-2:200 o ISO 3807:2013, según corresponda); los cilindros provistos de dispositivos de descompresión deberán transportarse verticalmente; 3. la presión de prueba de 52 bar, solamente aplica a los cilindros dotados de un tapón fusible.",
+      "un": [
+        "1001",
+        "3374"
+      ]
+    },
+    {
+      "texto": "(j) El UN 1037 puede ser transportado en ampollas de vidrio, selladas en forma segura, que no contengan más de 5 g de cloruro de etilo y llenadas con una merma de no menos del 7,5% a 21 °C. Las ampollas deben ser almohadilladas con un material eficiente, no combustible, y en cartones con compartimientos, al punto de que, en un cartón, no se embalen más de 12 ampollas por cartón. Los cartones deben ser embalados en forma muy ajustada de manera de prevenir los movimientos, en cajas de madera (4C1, 4C2), cajas de madera contrachapada (4D), cajas de madera reconstituida (4F), cajas de cartón (4G) o cajas de plástico (4H1, 4H2) que cumplan con las normas de idoneidad 6.3 a nivel del Grupo de Embalaje II. No más de 300 g de cloruro de etilo están permitidos por bulto.",
+      "un": [
+        "1037"
       ]
     }
   ],
@@ -5199,13 +5226,23 @@
       "texto": [
         "El hielo seco en un dispositivo unitario de carga:",
         "(a) puede enviarse en un dispositivo unitario de carga preparado por un mismo expedidor, siempre que el expedidor haya llegado a un acuerdo con el operador.",
-        "(b) el dispositivo unitario de carga no debe contener mercancías peligrosas, excepto UN 3373, Sustancias biológicas de Categoría B o ID 8000, Artículo de consumo. Si el dispositivo unitario de carga contiene UN 3373 o ID 8000, deben cumplirse las disposiciones de esta Reglamentación aplicables a dichas sustancias además de las disposiciones de esta instrucción de embalaje;",
-        "(c) el dispositivo unitario de carga debe permitir el venteo del gas de dióxido de carbono a fin de impedir una formación de presión que resulte peligrosa (los requisitos relativos a marcas de Sección 7 no se aplican a los dispositivos unitarios de carga);",
-        "(d) el expedidor debe proporcionar la siguiente información en la casilla “Nature and Quantity of Goods” de la guía aérea, cuando ésta se utiliza, o en una ubicación adecuada en algún documento de transporte alternativo. Donde exista un acuerdo con el operador, el expedidor puede proporcionar la información mediante técnicas EDP o EDI. La información debería mostrarse en el orden siguiente: • UN 1845; •nombre apropiado del envío (“Dry ice” o “Carbon dioxide, solid”) (Hielo seco o Dióxido de carbono, sólido); •cantidad de bultos y el peso neto de hielo seco en cada bulto si el ULD incluye bultos con hielo seco; o •el número de identificación del ULD y la cantidad neta de hielo seco en cada ULD si el hielo seco se coloca en el compartimento de hielo seco del ULD o suelto en el ULD."
+        "(c) el dispositivo unitario de carga debe permitir el venteo del gas de dióxido de carbono a fin de impedir una formación de presión que resulte peligrosa (los requisitos relativos a marcas de Sección 7 no se aplican a los dispositivos unitarios de carga);"
       ],
       "un": [
         "1845",
         "3373"
+      ]
+    },
+    {
+      "texto": "(b) el dispositivo unitario de carga no debe contener mercancías peligrosas, excepto UN 3373, Sustancias biológicas de Categoría B o ID 8000, Artículo de consumo. Si el dispositivo unitario de carga contiene UN 3373 o ID 8000, deben cumplirse las disposiciones de esta Reglamentación aplicables a dichas sustancias además de las disposiciones de esta instrucción de embalaje;",
+      "un": [
+        "3373"
+      ]
+    },
+    {
+      "texto": "(d) el expedidor debe proporcionar la siguiente información en la casilla “Nature and Quantity of Goods” de la guía aérea, cuando ésta se utiliza, o en una ubicación adecuada en algún documento de transporte alternativo. Donde exista un acuerdo con el operador, el expedidor puede proporcionar la información mediante técnicas EDP o EDI. La información debería mostrarse en el orden siguiente: • UN 1845; •nombre apropiado del envío (“Dry ice” o “Carbon dioxide, solid”) (Hielo seco o Dióxido de carbono, sólido); •cantidad de bultos y el peso neto de hielo seco en cada bulto si el ULD incluye bultos con hielo seco; o •el número de identificación del ULD y la cantidad neta de hielo seco en cada ULD si el hielo seco se coloca en el compartimento de hielo seco del ULD o suelto en el ULD.",
+      "un": [
+        "1845"
       ]
     },
     {
@@ -8063,6 +8100,29 @@
     },
     {
       "texto": "No se permiten los embalajes únicos."
+    }
+  ],
+  "138": [
+    {
+      "texto": "Esta instrucción aplica al UN 0237 en avión de carga solamente.",
+      "un": [
+        "0237"
+      ]
+    },
+    {
+      "texto": "Deberán cumplirse, además, los requisitos generales de embalaje de las Subsecciones 5.0.2 , 5.1.0 y 5.1.1 ."
+    },
+    {
+      "texto": "A menos que se disponga otra cosa en esta Reglamentación, los embalajes deberán alcanzar los estándares de desempeño para el Grupo de Embalaje II."
+    },
+    {
+      "texto": "No se requieren Embalajes Intermedios."
+    },
+    {
+      "texto": "Condiciones particulares de embalaje o excepciones:"
+    },
+    {
+      "texto": "Donde no se requieran embalajes interiores, solamente bolsas plásticas están permitidas; si los extremos del artículo están sellados no se requerirán embalajes interiores."
     }
   ]
 }

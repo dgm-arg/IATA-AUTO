@@ -1469,33 +1469,15 @@
       "notas_texto": null,
       "tablas": [
         {
-          "titulo": "EMBALAJES COMBINADOS — EMBALAJES INTERIORES",
-          "encabezados": [
-            "Tipo",
-            "Sacos",
-            "Cajas",
-            "Cajas_1",
-            "Tubos",
-            "Tubos_1",
-            "Tubos_2"
-          ],
-          "num_filas": 1,
-          "filas": [
-            {
-              "Tipo": "Desc.",
-              "Sacos": "Plástico",
-              "Cajas": "Cartón prensado",
-              "Cajas_1": "Madera",
-              "Tubos": "Cartón prensado",
-              "Tubos_1": "Metal",
-              "Tubos_2": "Plástico"
-            }
-          ]
-        },
-        {
           "titulo": "EMBALAJES EXTERIORES",
           "encabezados": [
             "Tipo",
+            "Bidones",
+            "Bidones_1",
+            "Bidones_2",
+            "Bidones_3",
+            "Bidones_4",
+            "Bidones_5",
             "Cajas",
             "Cajas_1",
             "Cajas_2",
@@ -1509,6 +1491,12 @@
           "filas": [
             {
               "Tipo": "Desc.",
+              "Bidones": "Acero",
+              "Bidones_1": "Aluminio",
+              "Bidones_2": "Madera contrachapada",
+              "Bidones_3": "Cartón",
+              "Bidones_4": "Plástico",
+              "Bidones_5": "Otro metal",
               "Cajas": "Acero",
               "Cajas_1": "Aluminio",
               "Cajas_2": "Madera",
@@ -1520,13 +1508,19 @@
             },
             {
               "Tipo": "Spec.",
+              "Bidones": "1A1 1A2",
+              "Bidones_1": "1B1 1B2",
+              "Bidones_2": "1D",
+              "Bidones_3": "1G",
+              "Bidones_4": "1H1 1H2",
+              "Bidones_5": "1N1 1N2",
               "Cajas": "4A",
               "Cajas_1": "4B",
               "Cajas_2": "4C1 4C2",
               "Cajas_3": "4D",
               "Cajas_4": "4F",
               "Cajas_5": "4G",
-              "Cajas_6": "4H2",
+              "Cajas_6": "4H1 4H2",
               "Cajas_7": "4N"
             }
           ]

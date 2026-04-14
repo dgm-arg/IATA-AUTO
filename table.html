@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla ONU — Mercancías Peligrosas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-size: 0.85rem; }
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #212529;
+      color: #fff;
+      white-space: nowrap;
+    }
+    td.desc-col {
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    td.en-col {
+      max-width: 180px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    tbody tr { cursor: pointer; }
+    tbody tr.selected td { background-color: #0d6efd !important; color: #fff !important; }
+    .badge-onu { font-size: 0.8rem; letter-spacing: 0.03em; }
+    .prohibido { color: #dc3545; font-weight: 600; }
+    #load-more-wrap { padding: 1rem 0; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3 py-1" style="font-size:0.8rem;">
+    <a class="navbar-brand mb-0" href="index.html" style="font-size:0.9rem;">IATA-AUTO</a>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="text-light">Inicio</a>
+    </div>
+  </nav>
+
+  <div class="container-fluid py-3">
+    <h5 class="mb-3 fw-bold">Tabla ONU — Mercancías Peligrosas</h5>
+
+    <!-- Buscar por PI -->
+    <div class="row g-2 mb-3 align-items-end">
+      <div class="col-12 col-md-3">
+        <label class="form-label text-muted small mb-0">Buscar PI en APCCL + APC + AC</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" id="piInput" placeholder="ej: 956, Y203">
+          <button class="btn btn-success" id="piSearchBtn">Go</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <label class="form-label text-muted small mb-0">APCCL Emb</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" id="apcclInput" placeholder="ej: Y203">
+          <button class="btn btn-outline-primary search-col" data-col="APCCL-embalaje">Go</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <label class="form-label text-muted small mb-0">APC Emb</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" id="apcInput" placeholder="ej: 956">
+          <button class="btn btn-outline-primary search-col" data-col="APC-embalaje">Go</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <label class="form-label text-muted small mb-0">AC Emb</label>
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control" id="acInput" placeholder="ej: 866">
+          <button class="btn btn-outline-primary search-col" data-col="AC-embalaje">Go</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="row g-2 mb-2 align-items-end">
+      <div class="col-12 col-md-4">
+        <input type="text" id="searchInput" class="form-control form-control-sm"
+               placeholder="Buscar por ONU, descripción, inglés…">
+      </div>
+      <div class="col-6 col-md-2">
+        <select id="filterClase" class="form-select form-select-sm">
+          <option value="">Todas las clases</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2">
+        <select id="filterGrp" class="form-select form-select-sm">
+          <option value="">Todos los grupos</option>
+          <option value="I">Grupo I</option>
+          <option value="II">Grupo II</option>
+          <option value="III">Grupo III</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2">
+        <select id="filterPI" class="form-select form-select-sm">
+          <option value="">Mostrar todo</option>
+          <option value="withPI">Con PI asignado</option>
+          <option value="prohibido">Solo Prohibido</option>
+          <option value="norestringido">No restringido</option>
+        </select>
+      </div>
+      <div class="col-6 col-md-2 text-muted" id="counter" style="font-size:0.8rem;"></div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-responsive">
+      <table class="table table-sm table-striped table-hover table-bordered mb-0" id="mainTable">
+        <thead>
+          <tr>
+            <th style="width:60px;">ONU</th>
+            <th>Descripción</th>
+            <th style="width:70px;">Clase</th>
+            <th style="width:50px;">Etiq.</th>
+            <th style="width:40px;">Grp</th>
+            <th style="width:35px;">EQ</th>
+            <th style="width:70px;">APCCL Emb</th>
+            <th style="width:65px;">APCCL Máx</th>
+            <th style="width:70px;">APC Emb</th>
+            <th style="width:65px;">APC Máx</th>
+            <th style="width:70px;">AC Emb</th>
+            <th style="width:65px;">AC Máx</th>
+            <th style="width:55px;">Disp</th>
+            <th>EN</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr><td colspan="14" class="text-center text-muted py-4">Cargando…</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="load-more-wrap" class="text-center d-none">
+      <button class="btn btn-outline-secondary btn-sm" id="loadMoreBtn">Cargar más</button>
+    </div>
+  </div>
+
+  <script>
+    const PAGE_SIZE = 300;
+    let allData = [];
+    let filtered = [];
+    let shown = 0;
+
+    async function loadData() {
+      const res = await fetch('tabla_onu.json');
+      allData = await res.json();
+      populateClaseFilter();
+      applyFilters();
+    }
+
+    function populateClaseFilter() {
+      const clases = [...new Set(allData.map(r => r['Clase o Div. (Peligros sec.)'] || '').filter(Boolean))].sort();
+      const sel = document.getElementById('filterClase');
+      clases.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        sel.appendChild(opt);
+      });
+    }
+
+    function applyFilters() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const clase = document.getElementById('filterClase').value;
+      const grp = document.getElementById('filterGrp').value;
+      const pi = document.getElementById('filterPI').value;
+
+      filtered = allData.filter(r => {
+        if (q) {
+          const hay = [
+            r.onu || '',
+            r['Nombre apropiado de envío/Descripción'] || '',
+            r.ingles || '',
+            r['Clase o Div. (Peligros sec.)'] || ''
+          ].join(' ').toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        if (clase && r['Clase o Div. (Peligros sec.)'] !== clase) return false;
+        if (grp && r['Grp. De emb.'] !== grp) return false;
+        if (pi === 'withPI') {
+          const hasPI = [r['APCCL-embalaje'], r['APC-embalaje'], r['AC-embalaje']]
+            .some(v => v && v !== 'Prohibido' && v !== 'No restringido');
+          if (!hasPI) return false;
+        }
+        if (pi === 'prohibido') {
+          const isProh = r['APCCL-embalaje'] === 'Prohibido' || r['APC-embalaje'] === 'Prohibido' || r['AC-embalaje'] === 'Prohibido';
+          if (!isProh) return false;
+        }
+        if (pi === 'norestringido') {
+          const cols = [r['APCCL-embalaje'], r['APC-embalaje'], r['AC-embalaje']];
+          const anyProh = cols.some(v => v === 'Prohibido');
+          if (anyProh) return false;
+        }
+        return true;
+      });
+
+      shown = 0;
+      document.getElementById('tableBody').innerHTML = '';
+      renderRows();
+      document.getElementById('counter').textContent = `${filtered.length} de ${allData.length} entradas`;
+    }
+
+    function renderRows() {
+      const tbody = document.getElementById('tableBody');
+      const slice = filtered.slice(shown, shown + PAGE_SIZE);
+      shown += slice.length;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="14" class="text-center text-muted py-4">Sin resultados</td></tr>';
+        document.getElementById('load-more-wrap').classList.add('d-none');
+        return;
+      }
+
+      slice.forEach(r => {
+        const tr = document.createElement('tr');
+        const onu = r.onu ? `<span class="badge bg-primary badge-onu">${escH(r.onu)}</span>` : '';
+        const desc = r['Nombre apropiado de envío/Descripción'] || '';
+        const en = r.ingles || '';
+
+        tr.innerHTML = `
+          <td>${onu}</td>
+          <td class="desc-col" title="${escAttr(desc)}">${escH(desc)}</td>
+          <td>${escH(r['Clase o Div. (Peligros sec.)'] || '')}</td>
+          <td>${escH(r['Etiqueta(s) de peligro'] || '')}</td>
+          <td>${escH(r['Grp. De emb.'] || '')}</td>
+          <td>${escH(r.EQ || '')}</td>
+          <td>${piCell(r['APCCL-embalaje'])}</td>
+          <td>${escH(r['APCCL-neta-máx-bulto'] || '')}</td>
+          <td>${piCell(r['APC-embalaje'])}</td>
+          <td>${escH(r['APC-neta-máx-bulto'] || '')}</td>
+          <td>${piCell(r['AC-embalaje'])}</td>
+          <td>${escH(r['AC-neta-máx-bulto'] || '')}</td>
+          <td>${escH(r['Disp-espec'] || '')}</td>
+          <td class="en-col" title="${escAttr(en)}">${escH(en)}</td>
+        `;
+        tr.addEventListener('click', () => {
+          document.querySelectorAll('#tableBody tr.selected').forEach(t => t.classList.remove('selected'));
+          tr.classList.add('selected');
+        });
+        tbody.appendChild(tr);
+      });
+
+      const loadMoreWrap = document.getElementById('load-more-wrap');
+      if (shown < filtered.length) {
+        loadMoreWrap.classList.remove('d-none');
+      } else {
+        loadMoreWrap.classList.add('d-none');
+      }
+    }
+
+    function piCell(val) {
+      if (!val) return '';
+      if (val === 'Prohibido') return `<span class="prohibido">Prohibido</span>`;
+      return escH(val);
+    }
+
+    function escH(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n/g, ' ');
+    }
+
+    function escAttr(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/\n/g, ' ');
+    }
+
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('filterClase').addEventListener('change', applyFilters);
+    document.getElementById('filterGrp').addEventListener('change', applyFilters);
+    document.getElementById('filterPI').addEventListener('change', applyFilters);
+    document.getElementById('loadMoreBtn').addEventListener('click', renderRows);
+
+    loadData();
+
+    // PI search
+    const PI_COLS = ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje'];
+
+    function piSearch(val) {
+      const q = val.trim().toUpperCase();
+      filtered = allData.filter(r => PI_COLS.some(col => String(r[col] ?? '').toUpperCase() === q));
+      shown = 0;
+      document.getElementById('tableBody').innerHTML = '';
+      renderRows();
+      document.getElementById('counter').textContent = `${filtered.length} de ${allData.length} entradas`;
+    }
+
+    function colSearch(col, val) {
+      const q = val.trim().toUpperCase();
+      filtered = allData.filter(r => String(r[col] ?? '').toUpperCase() === q);
+      shown = 0;
+      document.getElementById('tableBody').innerHTML = '';
+      renderRows();
+      document.getElementById('counter').textContent = `${filtered.length} de ${allData.length} entradas`;
+    }
+
+    document.getElementById('piInput').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('piSearchBtn').click(); });
+    document.getElementById('piSearchBtn').addEventListener('click', () => {
+      const v = document.getElementById('piInput').value;
+      if (v.trim()) piSearch(v);
+    });
+
+    document.querySelectorAll('.search-col').forEach(btn => {
+      const col = btn.dataset.col;
+      const input = btn.parentElement.querySelector('input');
+      input.addEventListener('keydown', e => { if (e.key === 'Enter') btn.click(); });
+      btn.addEventListener('click', () => { if (input.value.trim()) colSearch(col, input.value); });
+    });
+  </script>
+</body>
+</html>

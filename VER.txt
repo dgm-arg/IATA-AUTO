@@ -1,0 +1,19 @@
+Valores "Ver" encontrados en columnas de embalaje de tabla_onu.json
+===================================================================
+
+Ver 10.3
+Ver 211
+Ver 603
+Ver 650
+Ver 962
+Ver 965
+Ver 968
+
+===================================================================
+Codigo sin descripcion confirmada:
+
+4N1 - aparece en PI 674 y PI 675 (tabla "EMBALAJES ÚNICOS", columna Cajas)
+    - Actualmente dice: "Cajas de metal de tapa fija, distinto de acero o aluminio"
+    - VERIFICAR con experto
+
+Arreglar VEVO de 138

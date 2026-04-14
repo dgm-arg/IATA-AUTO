@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test 8: Etiquetas, cards por columna, cargo only (DOM real)</title>
+  <style>
+    body { font-family: monospace; font-size: 13px; padding: 20px; background: #f5f5f5; }
+    #summary { position: sticky; top: 0; background: #222; color: #fff; padding: 12px 20px; font-size: 15px; z-index: 10; border-radius: 6px; margin-bottom: 8px; }
+    #filters { margin-bottom: 12px; display: flex; gap: 8px; }
+    #filters button { padding: 4px 12px; cursor: pointer; border: 1px solid #999; border-radius: 4px; background: #fff; font-family: monospace; }
+    #filters button.active { background: #333; color: #fff; }
+    .pass { color: #2e7d32; }
+    .fail { color: #c62828; font-weight: bold; }
+    .skip { color: #ef6c00; }
+    .line { display: block; }
+    .line.hidden { display: none; }
+    pre { background: #fff; padding: 16px; border-radius: 6px; white-space: pre-wrap; }
+    iframe { width: 100%; height: 90vh; border: 1px solid #ccc; border-radius: 6px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+<div id="summary">Cargando iframe...</div>
+<div id="filters">
+  <button class="active" data-f="all">All</button>
+  <button data-f="pass">Pass</button>
+  <button data-f="fail">Fail</button>
+  <button data-f="skip">Skip</button>
+</div>
+<iframe id="app" src="index.html"></iframe>
+<pre id="log"></pre>
+<script>
+const logEl = document.getElementById('log')
+const summaryEl = document.getElementById('summary')
+let pass = 0, fail = 0, skip = 0
+
+document.getElementById('filters').addEventListener('click', e => {
+  const btn = e.target.closest('button')
+  if (!btn) return
+  document.querySelectorAll('#filters button').forEach(b => b.classList.remove('active'))
+  btn.classList.add('active')
+  const f = btn.dataset.f
+  logEl.querySelectorAll('.line').forEach(el => {
+    el.classList.toggle('hidden', f !== 'all' && !el.classList.contains(f))
+  })
+})
+
+function log(msg, cls) {
+  const span = document.createElement('span')
+  span.className = 'line ' + (cls || '')
+  span.textContent = msg + '\n'
+  logEl.appendChild(span)
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)) }
+function getDoc() { return document.getElementById('app').contentDocument }
+
+async function waitForEl(fn, timeout = 10000) {
+  const s = Date.now()
+  while (Date.now() - s < timeout) { const el = fn(); if (el) return el; await wait(50) }
+  return null
+}
+
+async function search(onu) {
+  const doc = getDoc()
+  doc.getElementById('results').innerHTML = ''
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  doc.getElementById('numInput').value = onu
+  doc.getElementById('searchBtn').click()
+  await waitForEl(() => doc.querySelector('#results tbody tr') || doc.querySelector('#results p'))
+}
+
+async function clickRow(idx) {
+  const doc = getDoc()
+  doc.getElementById('embalaje-detail').innerHTML = ''
+  const rows = doc.querySelectorAll('#results tbody tr')
+  if (idx >= rows.length) return false
+  rows[idx].querySelector('td').click()
+  await waitForEl(() => doc.querySelector('#embalaje-detail .card') || doc.querySelector('#embalaje-detail p'))
+  await wait(150)
+  return true
+}
+
+function parseClaseImages(claseRaw) {
+  if (!claseRaw || claseRaw === 'nan') return []
+  const nums = claseRaw.match(/\d+(\.\d+)?[A-Z]*/g) || []
+  const imgs = []
+  const seen = new Set()
+  for (const n of nums) {
+    const base = n.replace(/[A-Z]+$/, '')
+    if (seen.has(base)) continue
+    seen.add(base)
+    let file
+    if (base === '7') file = '7.1.png'
+    else if (base.startsWith('1.')) file = base.substring(0, 3) + '.png'
+    else file = base + '.png'
+    imgs.push(file)
+  }
+  return imgs
+}
+
+const ORIGIN_LABELS = {
+  'APCCL Emb': 'AVIÓN DE PASAJEROS Y CARGA POR CANTIDAD LIMITADA',
+  'APC Emb': 'AVIÓN DE PASAJEROS Y CARGA',
+  'AC Emb': 'AVIÓN DE CARGA',
+}
+
+async function run() {
+  await new Promise(r => { document.getElementById('app').onload = r })
+  await wait(500)
+  summaryEl.textContent = 'Cargando datos...'
+
+  const [tablaOnu, embCodigos, columnasEmb] = await Promise.all([
+    fetch('tabla_onu.json').then(r => r.json()),
+    fetch('embalajes_codigos.json').then(r => r.json()),
+    fetch('columnas_embalaje.json').then(r => r.json()),
+  ])
+
+  const embMap = Object.fromEntries(embCodigos.map(e => [String(e.instruccion), e]))
+  const EMBALAJE_COLS = ['APCCL Emb', 'APC Emb', 'AC Emb']
+  const COL_KEYS = {'APCCL Emb':'APCCL-embalaje', 'APC Emb':'APC-embalaje', 'AC Emb':'AC-embalaje'}
+
+  // Build by ONU
+  const byOnu = {}
+  for (const row of tablaOnu) {
+    const onu = String(row.onu)
+    if (!byOnu[onu]) byOnu[onu] = []
+    byOnu[onu].push(row)
+  }
+
+  // Build test cases: unique ONU rows that have at least one valid code
+  const tests = []
+  const seenOnus = new Set()
+  for (const [onu, rows] of Object.entries(byOnu)) {
+    for (let ri = 0; ri < rows.length; ri++) {
+      const row = rows[ri]
+      const claseRaw = String(row['Clase o Div. (Peligros sec.)'] || '').trim()
+      // What cards should be created? One per column with valid code
+      const expectedCards = []
+      for (const label of EMBALAJE_COLS) {
+        const code = String(row[COL_KEYS[label]] || '').trim()
+        if (code && code !== 'Prohibido' && code !== 'nan' && code !== '—' && embMap[code]) {
+          expectedCards.push({ origin: label, code, isAPCCL: label === 'APCCL Emb', isAC: label === 'AC Emb' })
+        }
+      }
+      if (expectedCards.length === 0) continue
+
+      const key = onu + '|' + ri
+      if (seenOnus.has(key)) continue
+      seenOnus.add(key)
+
+      tests.push({ onu, rowIndex: ri, claseRaw, expectedCards, expectedClaseImgs: parseClaseImages(claseRaw) })
+      // Limit to one row per ONU for speed (different rows same ONU have different classes)
+      break
+    }
+  }
+
+  log(`Total ONUs a testear: ${tests.length}\n`)
+  let lastOnu = null
+
+  for (let i = 0; i < tests.length; i++) {
+    const t = tests[i]
+    summaryEl.textContent = `${i + 1}/${tests.length} — ONU ${t.onu}`
+
+    if (t.onu !== lastOnu) { await search(t.onu); lastOnu = t.onu }
+    const ok = await clickRow(t.rowIndex)
+    if (!ok) { log(`[SKIP] ONU ${t.onu}: fila no existe`, 'skip'); skip++; continue }
+
+    const detail = getDoc().getElementById('embalaje-detail')
+    const cards = [...detail.querySelectorAll('.card')]
+    if (cards.length === 0) { log(`[SKIP] ONU ${t.onu}: sin cards`, 'skip'); skip++; continue }
+
+    // TEST A: correct number of cards
+    if (cards.length === t.expectedCards.length) {
+      log(`[PASS] ONU ${t.onu}: ${cards.length} cards (esperadas ${t.expectedCards.length})`, 'pass')
+      pass++
+    } else {
+      log(`[FAIL] ONU ${t.onu}: ${cards.length} cards pero esperaba ${t.expectedCards.length}`, 'fail')
+      fail++
+    }
+
+    // TEST B: each card has correct origin title, and correct images
+    for (let ci = 0; ci < Math.min(cards.length, t.expectedCards.length); ci++) {
+      const card = cards[ci]
+      const expected = t.expectedCards[ci]
+      const cardText = card.textContent
+      const imgSrcs = [...card.querySelectorAll('img')].map(img => (img.getAttribute('src') || '').split('/').pop())
+
+      // B1: Origin title present (uppercase)
+      const expectedTitle = columnasEmb[expected.origin] || expected.origin
+      if (cardText.toUpperCase().includes(expectedTitle.toUpperCase())) {
+        log(`[PASS] ONU ${t.onu} card[${ci}]: titulo "${expectedTitle}" presente`, 'pass')
+        pass++
+      } else {
+        log(`[FAIL] ONU ${t.onu} card[${ci}]: titulo "${expectedTitle}" FALTA`, 'fail')
+        fail++
+      }
+
+      // B2: Class images present
+      for (const img of t.expectedClaseImgs) {
+        if (imgSrcs.includes(img)) {
+          log(`[PASS] ONU ${t.onu} card[${ci}]: clase img ${img} presente`, 'pass')
+          pass++
+        } else {
+          log(`[FAIL] ONU ${t.onu} card[${ci}]: clase img ${img} FALTA`, 'fail')
+          fail++
+        }
+      }
+
+      // B3: Y label always on APCCL cards, never on others
+      if (expected.isAPCCL) {
+        if (imgSrcs.includes('Y.png')) {
+          log(`[PASS] ONU ${t.onu} card[${ci}]: Y.png presente (APCCL)`, 'pass')
+          pass++
+        } else {
+          log(`[FAIL] ONU ${t.onu} card[${ci}]: Y.png FALTA (APCCL siempre lleva Y)`, 'fail')
+          fail++
+        }
+      } else {
+        if (imgSrcs.includes('Y.png')) {
+          log(`[FAIL] ONU ${t.onu} card[${ci}]: Y.png NO deberia estar (${expected.origin})`, 'fail')
+          fail++
+        } else {
+          log(`[PASS] ONU ${t.onu} card[${ci}]: sin Y.png (correcto, ${expected.origin})`, 'pass')
+          pass++
+        }
+      }
+
+      // B4: Cargo Aircraft Only on AC cards
+      if (expected.isAC) {
+        if (imgSrcs.includes('cargounicamente.png')) {
+          log(`[PASS] ONU ${t.onu} card[${ci}]: cargounicamente.png presente (AC)`, 'pass')
+          pass++
+        } else {
+          log(`[FAIL] ONU ${t.onu} card[${ci}]: cargounicamente.png FALTA (AC)`, 'fail')
+          fail++
+        }
+      } else {
+        if (imgSrcs.includes('cargounicamente.png')) {
+          log(`[FAIL] ONU ${t.onu} card[${ci}]: cargounicamente.png NO deberia estar (${expected.origin})`, 'fail')
+          fail++
+        } else {
+          log(`[PASS] ONU ${t.onu} card[${ci}]: sin cargounicamente.png (correcto, ${expected.origin})`, 'pass')
+          pass++
+        }
+      }
+    }
+  }
+
+  summaryEl.innerHTML = `TEST 8 ETIQUETAS + CARDS (DOM) | ${pass+fail} tests | <span class="pass">${pass} PASS</span> | <span class="fail">${fail} FAIL</span> | <span class="skip">${skip} SKIP</span>`
+}
+
+run().catch(e => log('ERROR: ' + e.message, 'fail'))
+</script>
+</body>
+</html>

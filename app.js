@@ -41,6 +41,15 @@ async function loadEmbalajes() {
   return embalajesMap
 }
 
+let columnasEmbMap = null
+
+async function loadColumnasEmbalaje() {
+  if (columnasEmbMap) return columnasEmbMap
+  const res = await fetch('columnas_embalaje.json')
+  columnasEmbMap = await res.json()
+  return columnasEmbMap
+}
+
 let embalajeTablaClaudeMap = null
 
 async function loadEmbalajeTablaClaude() {
@@ -168,55 +177,94 @@ function renderTablas(tablas, codigosPI) {
 
   return tablas.map(tabla => {
     const specRow = tabla.filas.find(f => f.Tipo === 'Spec.')
-    if (!specRow) return ''
+    const descRow = tabla.filas.find(f => f.Tipo === 'Desc.')
 
-    const rawValues = tabla.encabezados
-      .filter(h => h !== 'Tipo')
-      .map(h => specRow[h])
-      .filter(v => v && v !== '—')
+    if (specRow) {
+      // Tables with Spec row: show codes with descriptions
+      const rawValues = tabla.encabezados
+        .filter(h => h !== 'Tipo')
+        .map(h => specRow[h])
+        .filter(v => v && v !== '—')
 
-    if (rawValues.length === 0) return ''
+      if (rawValues.length === 0) return ''
 
-    const lines = []
-    for (const val of rawValues) {
-      const tokens = val.split(/\s+/)
-      const isCode = tokens.every(t => /^\d/.test(t))
-      if (isCode) {
-        for (const c of tokens) {
-          const desc = codigosPI[c]
-          lines.push(desc ? `${c}: ${desc}` : c)
+      const lines = []
+      for (const val of rawValues) {
+        const tokens = val.split(/\s+/)
+        const isCode = tokens.every(t => /^\d/.test(t))
+        if (isCode) {
+          for (const c of tokens) {
+            const desc = codigosPI[c]
+            lines.push(desc ? `${c}: ${desc}` : c)
+          }
+        } else {
+          lines.push(val)
         }
-      } else {
-        lines.push(val)
       }
+
+      return `
+        <div class="mt-2">
+          <p class="fw-semibold small mb-1">${tabla.titulo}</p>
+          <p class="small text-muted mb-0">${lines.join('<br>')}</p>
+        </div>
+      `
     }
+
+    // All other tables: render as HTML table
+    const visibleCols = tabla.encabezados.filter(h => h !== 'Tipo')
+    const groups = groupHeaders(visibleCols)
+    const headerRow = groups.map(g =>
+      `<th colspan="${g.count}" class="text-center">${g.name}</th>`
+    ).join('')
+    const bodyRows = tabla.filas.map(fila => {
+      const cells = visibleCols.map(h =>
+        `<td>${fila[h] ?? '—'}</td>`
+      ).join('')
+      return `<tr>${cells}</tr>`
+    }).join('')
 
     return `
       <div class="mt-2">
         <p class="fw-semibold small mb-1">${tabla.titulo}</p>
-        <p class="small text-muted mb-0">${lines.join('<br>')}</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm small mb-0">
+            <thead class="table-light"><tr>${headerRow}</tr></thead>
+            <tbody>${bodyRows}</tbody>
+          </table>
+        </div>
       </div>
     `
   }).join('')
 }
 
 async function showEmbalajes(row, container) {
-  const [lookup, tablaClaude, codigosPI, lineas, instrucciones] = await Promise.all([loadEmbalajes(), loadEmbalajeTablaClaude(), loadCodigosPI(), loadEmbalajeLineas(), loadInstrucciones()])
+  const [lookup, tablaClaude, codigosPI, lineas, instrucciones, columnasEmb] = await Promise.all([loadEmbalajes(), loadEmbalajeTablaClaude(), loadCodigosPI(), loadEmbalajeLineas(), loadInstrucciones(), loadColumnasEmbalaje()])
   const headers = [...container.querySelectorAll('thead th')].map(th => th.textContent.trim())
   const cells = [...row.querySelectorAll('td')]
   const onuValue = document.getElementById('numInput').value
 
-  const codes = [...new Set(
-    EMBALAJE_COLS
-      .map(label => {
-        const idx = headers.indexOf(label)
-        return idx >= 0 ? cells[idx]?.textContent.trim() : null
-      })
-      .filter(v => v && v !== '—')
-  )]
+  // Get class images from the Clase column
+  const claseIdx = headers.indexOf('Clase')
+  const claseRaw = claseIdx >= 0 ? cells[claseIdx]?.textContent.trim() : ''
+  const claseImgFiles = parseClaseImages(claseRaw)
+  const etiquetaImgs = claseImgFiles.map(file =>
+    `<img src="Etiquetas/${file}" alt="${file}" title="${file}" style="height:140px;margin-right:8px;">`
+  ).join('')
+
+  const codeEntries = []
+  for (const label of EMBALAJE_COLS) {
+    const idx = headers.indexOf(label)
+    const code = idx >= 0 ? cells[idx]?.textContent.trim() : null
+    if (code && code !== '—') {
+      codeEntries.push({ code, origin: label })
+    }
+  }
 
   const detail = document.getElementById('embalaje-detail')
-  const results = codes.map(code => lookup[code]).filter(Boolean)
+  const results = codeEntries.map(e => {
+    const data = lookup[e.code]
+    return data ? { ...data, origin: e.origin } : null
+  }).filter(Boolean)
 
   if (results.length === 0) {
     detail.innerHTML = '<p class="text-center text-muted mt-3">No embalaje data found for this row.</p>'
@@ -237,12 +285,12 @@ async function showEmbalajes(row, container) {
       <h6 class="mb-3">Instrucción <strong>${r.instruccion}</strong></h6>
       <div class="row">
         <div class="col-md-6">
-          <p class="fw-semibold mb-1">Variaciones Operadores</p>
-          <p class="text-muted">${r.variaciones_operadores.join(', ')}</p>
-        </div>
-        <div class="col-md-6">
           <p class="fw-semibold mb-1">Variaciones Estados</p>
           <p class="text-muted">${r.variaciones_estados.join(', ')}</p>
+        </div>
+        <div class="col-md-6">
+          <p class="fw-semibold mb-1">Variaciones Operadores</p>
+          <p class="text-muted">${r.variaciones_operadores.join(', ')}</p>
         </div>
       </div>
       <div class="mt-2">
@@ -251,6 +299,8 @@ async function showEmbalajes(row, container) {
         </button>
         <div class="subcode-results"></div>
       </div>
+      <h5 class="fw-bold mt-3 mb-2" style="text-transform:uppercase;">${columnasEmb[r.origin] || r.origin}</h5>
+      <div class="mb-2 d-flex align-items-center flex-wrap">${etiquetaImgs}${r.origin === 'APCCL Emb' ? '<img src="Etiquetas/Y.png" alt="Carga Limitada" style="height:140px;margin-right:8px;">' : ''}${r.origin === 'AC Emb' ? '<img src="Etiquetas/cargounicamente.png" alt="Cargo Aircraft Only" style="height:140px;margin-right:8px;">' : ''}</div>
       ${lineaHtml}
       ${instrHtml}
       ${tablasHtml}
@@ -272,6 +322,31 @@ async function showEmbalajes(row, container) {
 function isInvalid(val) {
   if (val === null || val === undefined) return true
   return INVALID_VALUES.has(String(val).toLowerCase().trim())
+}
+
+function parseClaseImages(claseRaw) {
+  if (!claseRaw || claseRaw === 'nan') return []
+  // Extract all class numbers: "2.3 (2.1, 8)" -> ["2.3", "2.1", "8"]
+  const nums = claseRaw.match(/\d+(\.\d+)?[A-Z]*/g) || []
+  // Map to image filenames, strip letter suffixes for image lookup
+  const imgs = []
+  const seen = new Set()
+  for (const n of nums) {
+    const base = n.replace(/[A-Z]+$/, '')
+    if (seen.has(base)) continue
+    seen.add(base)
+    // For class 1.x, use the division number (1.1, 1.2, etc.)
+    // For class 7, use 7.1.png
+    let file
+    if (base.startsWith('1.')) {
+      const div = base.substring(0, 3)
+      file = div + '.png'
+    } else {
+      file = base + '.png'
+    }
+    imgs.push(file)
+  }
+  return imgs
 }
 
 function renderCell(col, val) {
@@ -365,3 +440,4 @@ document.getElementById('searchBtn').addEventListener('click', () => {
   const value = String(parseInt(raw, 10))
   fetchRows(value)
 })
+
