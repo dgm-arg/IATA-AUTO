@@ -82,15 +82,18 @@ async function clickRow(idx) {
 
 function findCard(pi) {
   for (const card of getDoc().querySelectorAll('#embalaje-detail .card')) {
-    const s = card.querySelector('h6 strong')
-    if (s && s.textContent.trim() === String(pi)) return card
+    const h = card.querySelector('h3')
+    if (h && h.childNodes[0].textContent.trim().replace('PI ', '') === String(pi)) return card
   }
   return null
 }
 
 async function run() {
-  await new Promise(r => { document.getElementById('app').onload = r })
-  await wait(500)
+  const iframe = document.getElementById('app')
+  if (!iframe.contentDocument || iframe.contentDocument.readyState !== 'complete') {
+    await new Promise(r => { iframe.onload = r })
+  }
+  await wait(1000)
   summaryEl.textContent = 'Cargando datos...'
 
   const [tablaOnu, lineas] = await Promise.all([
@@ -107,7 +110,7 @@ async function run() {
     byOnu[onu].push(row)
     for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
       const v = String(row[col] || '')
-      if (v && !['Prohibido', 'nan', '—', ''].includes(v) && !piTests[v]) {
+      if (v && !['Prohibido', 'No restringido', 'nan', '—', ''].includes(v) && !piTests[v]) {
         piTests[v] = { onu, rowIndex: ri }
       }
     }
@@ -129,7 +132,7 @@ async function run() {
     const card = findCard(pi)
     if (!card) { log(`[SKIP] PI ${pi}: card no encontrada`, 'skip'); skip++; continue }
 
-    const boldEl = card.querySelector('p.fw-bold')
+    const boldEl = card.querySelector('p.linea-negrita')
     const boldText = boldEl ? boldEl.textContent.trim() : null
     const expected = lineas[pi]
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VER.txt — IATA-YA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-family: Verdana, sans-serif; background: #f5f5f5; }
+    pre { background: #fff; padding: 20px; border-radius: 6px; border: 1px solid #dee2e6; white-space: pre-wrap; font-family: Verdana, sans-serif; font-size: 0.85rem; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3 py-1" style="font-size:0.8rem;">
+    <a class="navbar-brand mb-0" href="index.html" style="font-size:0.9rem;">IATA-YA</a>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="text-light">Inicio</a>
+      <a href="table.html" class="text-light">Tabla PI</a>
+      <a href="embalajes.html" class="text-light">Embalajes</a>
+      <a href="tests.html" class="text-light">Tests</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <h4 class="mb-3">VER.txt — Notas y errores pendientes</h4>
+    <pre id="content">Cargando...</pre>
+  </div>
+
+  <script>
+    fetch('VER.txt')
+      .then(r => r.text())
+      .then(text => { document.getElementById('content').textContent = text; })
+      .catch(() => { document.getElementById('content').textContent = 'Error cargando VER.txt'; });
+  </script>
+</body>
+</html>

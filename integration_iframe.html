@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>All Tests — IATA-YA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-family: Verdana, sans-serif; background: #f5f5f5; margin: 0; }
+    .navbar { font-size: 0.8rem; }
+    .test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px; }
+    .test-slot { border: 2px solid #dee2e6; border-radius: 6px; overflow: hidden; background: #fff; }
+    .test-slot-header { background: #212529; color: #fff; padding: 4px 10px; font-size: 0.78rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+    .test-slot-header .status { font-size: 0.7rem; padding: 1px 8px; border-radius: 3px; }
+    .status-running { background: #ffc107; color: #000; }
+    .status-pass { background: #198754; color: #fff; }
+    .status-fail { background: #dc3545; color: #fff; }
+    .status-waiting { background: #6c757d; color: #fff; }
+    iframe { width: 100%; height: 70vh; border: none; }
+    @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3 py-1">
+    <a class="navbar-brand mb-0" href="index.html" style="font-size:0.9rem;">IATA-YA</a>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="text-light">Inicio</a>
+      <a href="tests.html" class="text-light">Tests</a>
+    </div>
+  </nav>
+
+  <div class="test-grid" id="grid"></div>
+
+  <script>
+    const TESTS = [
+      { name: '1 — Linea negrita', src: 'test_5_linea_negrita.html' },
+      { name: '2 — Instrucciones', src: 'test_6_instrucciones.html' },
+      { name: '3 — Tablas Spec', src: 'test_7_tablas_spec.html' },
+      { name: '4 — Filtro ONU', src: 'test_filtro_onu.html' },
+      { name: '5 — Etiquetas', src: 'test_8_etiquetas.html' },
+      { name: '6 — Integration', src: 'test_integration.html' },
+    ];
+
+    const grid = document.getElementById('grid');
+
+    TESTS.forEach((t, i) => {
+      const slot = document.createElement('div');
+      slot.className = 'test-slot';
+      slot.innerHTML = `
+        <div class="test-slot-header">
+          <span>${t.name}</span>
+          <span class="status status-waiting" id="status-${i}">Esperando...</span>
+        </div>
+      `;
+      const iframe = document.createElement('iframe');
+      iframe.id = `frame-${i}`;
+      iframe.src = t.src;
+      slot.appendChild(iframe);
+      grid.appendChild(slot);
+
+      // Monitor the iframe for results
+      const statusEl = slot.querySelector('.status');
+      statusEl.textContent = 'Corriendo...';
+      statusEl.className = 'status status-running';
+
+      const check = setInterval(() => {
+        try {
+          const doc = iframe.contentDocument;
+          if (!doc) return;
+          const summary = doc.getElementById('summary');
+          if (!summary) return;
+          const text = summary.textContent || '';
+          const passMatch = text.match(/(\d+)\s*PASS/);
+          const failMatch = text.match(/(\d+)\s*FAIL/);
+          const skipMatch = text.match(/(\d+)\s*SKIP/);
+          if (passMatch || failMatch) {
+            const p = passMatch ? parseInt(passMatch[1]) : 0;
+            const f = failMatch ? parseInt(failMatch[1]) : 0;
+            const s = skipMatch ? parseInt(skipMatch[1]) : 0;
+            statusEl.textContent = `PASS ${p} | FAIL ${f} | SKIP ${s}`;
+            statusEl.className = 'status ' + (f > 0 ? 'status-fail' : 'status-pass');
+            slot.style.borderColor = f > 0 ? '#dc3545' : '#198754';
+            clearInterval(check);
+          }
+        } catch(e) {}
+      }, 2000);
+
+      // Timeout after 5 minutes
+      setTimeout(() => {
+        clearInterval(check);
+        if (statusEl.className.includes('running')) {
+          statusEl.textContent = 'TIMEOUT';
+          statusEl.className = 'status status-fail';
+        }
+      }, 300000);
+    });
+  </script>
+</body>
+</html>

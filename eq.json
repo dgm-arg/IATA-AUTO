@@ -1,0 +1,26 @@
+{
+  "E0": {
+    "interior_max": "",
+    "exterior_max": "No se permite el transporte como cantidad exceptuada"
+  },
+  "E1": {
+    "interior_max": "30 g / 30 mL",
+    "exterior_max": "1 kg / 1 L"
+  },
+  "E2": {
+    "interior_max": "30 g / 30 mL",
+    "exterior_max": "500 g / 500 mL"
+  },
+  "E3": {
+    "interior_max": "30 g / 30 mL",
+    "exterior_max": "300 g / 300 mL"
+  },
+  "E4": {
+    "interior_max": "1 g / 1 mL",
+    "exterior_max": "500 g / 500 mL"
+  },
+  "E5": {
+    "interior_max": "1 g / 1 mL",
+    "exterior_max": "300 g / 300 mL"
+  }
+}

@@ -50,7 +50,7 @@ async function run() {
     const onu = String(row.onu)
     for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
       const v = String(row[col] || '')
-      if (v && !['Prohibido','nan','—',''].includes(v)) {
+      if (v && !['Prohibido','No restringido','nan','—',''].includes(v)) {
         if (!piToOnus[v]) piToOnus[v] = new Set()
         piToOnus[v].add(onu)
       }

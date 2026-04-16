@@ -82,15 +82,18 @@ async function clickRow(idx) {
 
 function findCard(pi) {
   for (const card of getDoc().querySelectorAll('#embalaje-detail .card')) {
-    const s = card.querySelector('h6 strong')
-    if (s && s.textContent.trim() === String(pi)) return card
+    const h = card.querySelector('h3')
+    if (h && h.childNodes[0].textContent.trim().replace('PI ', '') === String(pi)) return card
   }
   return null
 }
 
 async function run() {
-  await new Promise(r => { document.getElementById('app').onload = r })
-  await wait(500)
+  const iframe = document.getElementById('app')
+  if (!iframe.contentDocument || iframe.contentDocument.readyState !== 'complete') {
+    await new Promise(r => { iframe.onload = r })
+  }
+  await wait(1000)
   summaryEl.textContent = 'Cargando datos...'
 
   const [tablaOnu, instrucciones] = await Promise.all([
@@ -114,7 +117,7 @@ async function run() {
     for (let ri = 0; ri < rows.length; ri++) {
       for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
         const v = String(rows[ri][col] || '')
-        if (v && !['Prohibido', 'nan', '—', ''].includes(v)) {
+        if (v && !['Prohibido', 'No restringido', 'nan', '—', ''].includes(v)) {
           if (!piToOnus[v]) piToOnus[v] = []
           piToOnus[v].push({ onu, rowIndex: ri })
         }
@@ -148,8 +151,8 @@ async function run() {
     if (!card) { log(`[SKIP] PI ${pi}: card no encontrada`, 'skip'); skip++; continue }
 
     // Get all rendered small text-muted paragraphs from this card
-    const renderedTexts = [...card.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim())
-    const renderedHtml = [...card.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML)
+    const renderedTexts = [...card.querySelectorAll('p.instruccion-item')].map(el => el.textContent.trim())
+    const renderedHtml = [...card.querySelectorAll('p.instruccion-item')].map(el => el.innerHTML)
 
     // Check items WITHOUT un: should all appear
     for (const item of itemsWithoutUn) {
@@ -189,8 +192,8 @@ async function run() {
         if (ok2) {
           const card2 = findCard(pi)
           if (card2) {
-            const texts2 = [...card2.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim())
-            const html2 = [...card2.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML)
+            const texts2 = [...card2.querySelectorAll('p.instruccion-item')].map(el => el.textContent.trim())
+            const html2 = [...card2.querySelectorAll('p.instruccion-item')].map(el => el.innerHTML)
             const onuNum2 = parseInt(other.onu, 10)
 
             for (const item of itemsWithUn) {

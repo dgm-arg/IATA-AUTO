@@ -95,7 +95,64 @@ async function loadInstrucciones() {
   return instruccionesMap
 }
 
+let dispEspecMap = null
+async function loadDispEspec() {
+  if (dispEspecMap) return dispEspecMap
+  const res = await fetch('disp_espec.json')
+  dispEspecMap = await res.json()
+  return dispEspecMap
+}
 
+function renderDispEspec(dispCodes, dispEspec) {
+  if (!dispCodes || !dispCodes.length) return ''
+  const rows = dispCodes.map(code => {
+    const desc = dispEspec[code]
+    if (!desc) return `<tr><td class="fw-bold">${code}</td><td class="text-muted fst-italic">Sin descripción</td></tr>`
+    return `<tr><td class="fw-bold" style="white-space:nowrap;vertical-align:top;">${code}</td><td>${desc}</td></tr>`
+  }).join('')
+  return `
+    <div class="mt-3">
+      <table class="table table-sm table-bordered mb-0" style="font-size:0.8rem;width:100%;">
+        <thead><tr><th colspan="2" class="text-center table-dark">DISPOSICIONES ESPECIALES</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `
+}
+
+let eqMap = null
+async function loadEQ() {
+  if (eqMap) return eqMap
+  const res = await fetch('eq.json')
+  eqMap = await res.json()
+  return eqMap
+}
+
+function renderEQ(eqCode, eqData) {
+  if (!eqCode || eqCode === '—') return ''
+  const entry = eqData[eqCode]
+  if (!entry) return ''
+  if (!entry.interior_max) {
+    return `
+      <div class="mt-3">
+        <table class="table table-sm table-bordered mb-0" style="font-size:0.8rem;width:100%;">
+          <thead><tr><th colspan="3" class="text-center table-dark">CANTIDAD EXCEPTUADA</th></tr>
+          <tr class="table-light"><th>Código EQ</th><th colspan="2">Cantidad máxima neta por embalaje interior / exterior</th></tr></thead>
+          <tbody><tr><td class="fw-bold">${eqCode}</td><td colspan="2">${entry.exterior_max}</td></tr></tbody>
+        </table>
+      </div>
+    `
+  }
+  return `
+    <div class="mt-3">
+      <table class="table table-sm table-bordered mb-0" style="font-size:0.8rem;width:100%;">
+        <thead><tr><th colspan="3" class="text-center table-dark">CANTIDAD EXCEPTUADA</th></tr>
+        <tr class="table-light"><th>Código EQ</th><th>Cantidad máxima neta por embalaje interior</th><th>Cantidad máxima neta por embalaje exterior</th></tr></thead>
+        <tbody><tr><td class="fw-bold">${eqCode}</td><td>${entry.interior_max}</td><td>${entry.exterior_max}</td></tr></tbody>
+      </table>
+    </div>
+  `
+}
 
 function renderInstrucciones(items, onuValue) {
   if (!items || items.length === 0) return ''
@@ -110,10 +167,11 @@ function renderInstrucciones(items, onuValue) {
 
   const lines = filtered.map(item => {
     const texto = Array.isArray(item.texto) ? item.texto.join('<br>') : item.texto
-    return `<p class="small text-muted mb-1">${texto}</p>`
+    return `<p class="small text-muted mb-1 instruccion-item">${texto}</p>`
   })
 
-  return `<div class="mt-2">${lines.join('')}</div>`
+  const sep = '<hr style="margin:12px 0;border:none;border-top:2px solid #aaa;">'
+  return `<div class="mt-2">${sep}${lines.join(sep)}</div>`
 }
 
 async function fetchSubcode(type, code) {
@@ -197,7 +255,7 @@ function renderTablas(tablas, codigosPI, onuValue) {
         if (isCode) {
           for (const c of tokens) {
             const desc = codigosPI[c]
-            lines.push(desc ? `${c}: ${desc}` : c)
+            lines.push(desc ? `<span style="display:inline-block;min-width:3.2em;font-weight:600;">${c}:</span> ${desc}` : c)
           }
         } else {
           lines.push(val)
@@ -206,8 +264,14 @@ function renderTablas(tablas, codigosPI, onuValue) {
 
       return `
         <div class="mt-2">
-          <p class="fw-semibold small mb-1">${tabla.titulo}</p>
-          <p class="small text-muted mb-0">${lines.join('<br>')}</p>
+          <table class="table table-sm table-bordered mb-0" style="font-size:0.8rem;width:100%;">
+            <thead><tr><th colspan="2" class="text-center">${tabla.titulo}</th></tr></thead>
+            <tbody>${lines.map(l => {
+              const m = l.match(/^<span[^>]*>([^<]+)<\/span>\s*(.*)$/)
+              if (m) return `<tr><td class="fw-bold">${m[1]}</td><td>${m[2]}</td></tr>`
+              return `<tr><td colspan="2">${l}</td></tr>`
+            }).join('')}</tbody>
+          </table>
         </div>
       `
     }
@@ -215,6 +279,8 @@ function renderTablas(tablas, codigosPI, onuValue) {
     // All other tables: render as HTML table, filter by ONU if table has UN column
     const visibleCols = tabla.encabezados.filter(h => h !== 'Tipo')
     const unCol = tabla.encabezados.find(h => /n[uú]mero|UN|No\./i.test(h) && h !== 'Tipo')
+    const hasTipo = tabla.encabezados.includes('Tipo')
+
 
     let filas = tabla.filas
     if (unCol && onuValue) {
@@ -224,6 +290,7 @@ function renderTablas(tablas, codigosPI, onuValue) {
         return nums.some(n => parseInt(n, 10) === onuNum)
       })
       if (filtered.length > 0) filas = filtered
+      else return '' // ONU not in this table → hide it
     }
 
     if (filas.length === 0) return ''
@@ -241,10 +308,9 @@ function renderTablas(tablas, codigosPI, onuValue) {
 
     return `
       <div class="mt-2">
-        <p class="fw-semibold small mb-1">${tabla.titulo}</p>
         <div class="table-responsive">
           <table class="table table-bordered table-sm small mb-0">
-            <thead class="table-light"><tr>${headerRow}</tr></thead>
+            <thead><tr><th colspan="${visibleCols.length}" class="text-center table-dark">${tabla.titulo}</th></tr><tr class="table-light">${headerRow}</tr></thead>
             <tbody>${bodyRows}</tbody>
           </table>
         </div>
@@ -254,7 +320,7 @@ function renderTablas(tablas, codigosPI, onuValue) {
 }
 
 async function showEmbalajes(row, container) {
-  const [lookup, tablaClaude, codigosPI, lineas, instrucciones, columnasEmb] = await Promise.all([loadEmbalajes(), loadEmbalajeTablaClaude(), loadCodigosPI(), loadEmbalajeLineas(), loadInstrucciones(), loadColumnasEmbalaje()])
+  const [lookup, tablaClaude, codigosPI, lineas, instrucciones, columnasEmb, dispEspec, eqData] = await Promise.all([loadEmbalajes(), loadEmbalajeTablaClaude(), loadCodigosPI(), loadEmbalajeLineas(), loadInstrucciones(), loadColumnasEmbalaje(), loadDispEspec(), loadEQ()])
   const headers = [...container.querySelectorAll('thead th')].map(th => th.textContent.trim())
   const cells = [...row.querySelectorAll('td')]
   const onuValue = document.getElementById('numInput').value
@@ -266,6 +332,15 @@ async function showEmbalajes(row, container) {
   const etiquetaImgs = claseImgFiles.map(file =>
     `<img src="Etiquetas/${file}" alt="${file}" title="${file}" style="height:140px;margin-right:8px;">`
   ).join('')
+
+  // Get EQ code from the row
+  const eqIdx = headers.indexOf('EQ')
+  const eqCode = eqIdx >= 0 ? cells[eqIdx]?.textContent.trim() : ''
+
+  // Get Disp-espec codes from the row
+  const dispIdx = headers.indexOf('Disp Espec')
+  const dispRaw = dispIdx >= 0 ? cells[dispIdx]?.textContent.trim() : ''
+  const dispCodes = dispRaw ? dispRaw.split(/\s+/).filter(c => c && c !== '—') : []
 
   const codeEntries = []
   for (const label of EMBALAJE_COLS) {
@@ -291,48 +366,44 @@ async function showEmbalajes(row, container) {
     const tcEntry = tablaClaude[String(r.instruccion)]
     const lineaText = lineas[String(r.instruccion)]
     const lineaHtml = lineaText && lineaText !== '-'
-      ? `<p class="fw-bold mt-3 mb-2" style="font-size:1.1rem">${lineaText}</p>`
+      ? `<p class="fw-bold mt-3 mb-2 linea-negrita" style="font-size:1.1rem">${lineaText}</p>`
       : ''
     const instrHtml = renderInstrucciones(instrucciones[String(r.instruccion)], onuValue)
     const tablasHtml = tcEntry ? renderTablas(tcEntry.tablas, codigosPI, onuValue) : ''
 
     return `
-    <div class="card mt-3 p-3">
-      <h6 class="mb-3">Instrucción <strong>${r.instruccion}</strong></h6>
-      <div class="row">
-        <div class="col-md-6">
-          <p class="fw-semibold mb-1">Variaciones Estados</p>
-          <p class="text-muted">${r.variaciones_estados.join(', ')}</p>
-        </div>
-        <div class="col-md-6">
-          <p class="fw-semibold mb-1">Variaciones Operadores</p>
-          <p class="text-muted">${r.variaciones_operadores.join(', ')}</p>
-        </div>
+    <div class="card mt-3" style="position:relative;">
+      <div class="p-3 card-toggle" style="cursor:pointer;user-select:none;">
+        <h3 class="mb-0 text-center" style="font-weight:500;">PI ${r.instruccion} <small style="font-size:0.5em;opacity:0.4;">▼</small></h3>
       </div>
-      <div class="mt-2">
-        <button class="btn btn-sm btn-outline-secondary" data-instruccion="${r.instruccion}">
-          Buscar archivos
-        </button>
-        <div class="subcode-results"></div>
+      <div class="card-body-collapsible p-3 pt-0">
+        <hr class="mt-0 mb-3">
+        <h5 class="fw-bold mb-2 text-center" style="text-transform:uppercase;">${columnasEmb[r.origin] || r.origin}</h5>
+        <div class="mb-2 d-flex align-items-center flex-wrap justify-content-center">${etiquetaImgs}${r.origin === 'APCCL Emb' ? '<img src="Etiquetas/Y.png" alt="Carga Limitada" style="height:140px;margin-right:8px;">' : ''}${r.origin === 'AC Emb' ? '<img src="Etiquetas/cargounicamente.png" alt="Cargo Aircraft Only" style="height:140px;margin-right:8px;">' : ''}</div>
+        <hr class="mt-0 mb-3">
+        <p class="fw-bold small mb-2 text-center text-uppercase">Variaciones Estados</p>
+        <p class="small text-muted text-center fst-italic mb-3">${r.variaciones_estados.join('   ')}</p>
+        <p class="fw-bold small mb-2 text-center text-uppercase mt-3">Variaciones Operadores</p>
+        <p class="small text-muted text-center fst-italic mb-3">${r.variaciones_operadores.join('   ')}</p>
+        ${lineaHtml}
+        ${instrHtml}
+        ${tablasHtml}
+        ${renderEQ(eqCode, eqData)}
+        ${renderDispEspec(dispCodes, dispEspec)}
       </div>
-      <h5 class="fw-bold mt-3 mb-2" style="text-transform:uppercase;">${columnasEmb[r.origin] || r.origin}</h5>
-      <div class="mb-2 d-flex align-items-center flex-wrap">${etiquetaImgs}${r.origin === 'APCCL Emb' ? '<img src="Etiquetas/Y.png" alt="Carga Limitada" style="height:140px;margin-right:8px;">' : ''}${r.origin === 'AC Emb' ? '<img src="Etiquetas/cargounicamente.png" alt="Cargo Aircraft Only" style="height:140px;margin-right:8px;">' : ''}</div>
-      ${lineaHtml}
-      ${instrHtml}
-      ${tablasHtml}
     </div>
   `}).join('')
 
-  detail.querySelectorAll('button[data-instruccion]').forEach(btn => {
-    const resultDiv = btn.nextElementSibling
-    btn.addEventListener('click', () => {
-      if (resultDiv.innerHTML && !resultDiv.innerHTML.includes('Cargando')) {
-        resultDiv.innerHTML = ''
-        return
-      }
-      buscarArchivos(btn.dataset.instruccion, resultDiv)
+  detail.querySelectorAll('.card-toggle').forEach(toggle => {
+    const body = toggle.nextElementSibling
+    const arrow = toggle.querySelector('small')
+    toggle.addEventListener('click', () => {
+      const hidden = body.style.display === 'none'
+      body.style.display = hidden ? '' : 'none'
+      arrow.textContent = hidden ? '▼' : '▶'
     })
   })
+
 }
 
 function isInvalid(val) {

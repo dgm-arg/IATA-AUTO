@@ -82,15 +82,18 @@ async function clickRow(idx) {
 
 function findCard(pi) {
   for (const card of getDoc().querySelectorAll('#embalaje-detail .card')) {
-    const s = card.querySelector('h6 strong')
-    if (s && s.textContent.trim() === String(pi)) return card
+    const h = card.querySelector('h3')
+    if (h && h.childNodes[0].textContent.trim().replace('PI ', '') === String(pi)) return card
   }
   return null
 }
 
 async function run() {
-  await new Promise(r => { document.getElementById('app').onload = r })
-  await wait(500)
+  const iframe = document.getElementById('app')
+  if (!iframe.contentDocument || iframe.contentDocument.readyState !== 'complete') {
+    await new Promise(r => { iframe.onload = r })
+  }
+  await wait(1000)
   summaryEl.textContent = 'Cargando datos...'
 
   const [tablaOnu, tablaClaude, codigosPIRaw] = await Promise.all([
@@ -119,7 +122,7 @@ async function run() {
     for (let ri = 0; ri < rows.length; ri++) {
       for (const col of ['APCCL-embalaje', 'APC-embalaje', 'AC-embalaje']) {
         const v = String(rows[ri][col] || '')
-        if (v && !['Prohibido', 'nan', '—', ''].includes(v) && !piTests[v]) {
+        if (v && !['Prohibido', 'No restringido', 'nan', '—', ''].includes(v) && !piTests[v]) {
           piTests[v] = { onu, rowIndex: ri }
         }
       }
@@ -185,7 +188,11 @@ async function run() {
     let piPass = true
     const errors = []
     for (const line of expectedLines) {
-      if (!cardText.includes(line) && !cardHtml.includes(line)) {
+      // Check exact match, or check code + description separately (table cells split them)
+      const parts = line.split(': ')
+      const found = cardText.includes(line) || cardHtml.includes(line) ||
+        (parts.length >= 2 && cardText.includes(parts[0]) && cardText.includes(parts.slice(1).join(': ')))
+      if (!found) {
         errors.push(line)
         piPass = false
       }

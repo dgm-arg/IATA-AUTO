@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Test UN Display — PIs con filtro ONU</title>
+  <style>
+    body { font-family: Verdana, sans-serif; font-size: 13px; margin: 0; display: flex; height: 100vh; }
+    #sidebar { width: 280px; display: flex; flex-direction: column; border-right: 2px solid #ccc; background: #f8f9fa; flex-shrink: 0; }
+    #sidebar h6 { padding: 8px 10px 0; margin: 0; }
+    #searchWrap { padding: 6px 10px; }
+    #searchWrap input { width: 100%; padding: 4px 8px; font-size: 12px; border: 1px solid #ccc; border-radius: 4px; }
+    #stats { padding: 4px 10px; font-size: 11px; color: #666; border-bottom: 1px solid #ddd; }
+    #piList { flex: 1; overflow-y: auto; }
+    .pi-item { padding: 5px 10px; border-bottom: 1px solid #eee; cursor: pointer; font-size: 12px; display: flex; justify-content: space-between; }
+    .pi-item:hover { background: #e9ecef; }
+    .pi-item.active { background: #0d6efd; color: #fff; }
+    .pi-item .un-count { font-size: 10px; color: #888; }
+    .pi-item.active .un-count { color: #ccc; }
+    #main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    #info { background: #212529; color: #fff; padding: 6px 12px; font-size: 12px; flex-shrink: 0; }
+    #info span { margin-right: 15px; }
+    #framesWrap { flex: 1; overflow-y: auto; }
+    .frame-slot { border-bottom: 2px solid #aaa; }
+    .frame-label { background: #343a40; color: #fff; padding: 5px 10px; font-size: 12px; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+    .frame-label:hover { background: #495057; }
+    .frame-label .arrow { font-size: 10px; opacity: 0.6; }
+    .frame-slot iframe { width: 100%; height: 70vh; border: none; display: block; }
+    .frame-slot.closed iframe { display: none; }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h6>PIs con columna UN</h6>
+  <div id="searchWrap"><input type="text" id="searchInput" placeholder="Buscar PI o ONU..."></div>
+  <div id="stats">Cargando...</div>
+  <div id="piList"></div>
+</div>
+
+<div id="main">
+  <div id="info"><span>Seleccionar un PI a la izquierda</span></div>
+  <div id="framesWrap">
+    <div class="frame-col">
+      <iframe id="app0" src="index.html"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+let allPIs = [];
+let allOnus = []; // all real ONU numbers from tabla_onu
+let piToOnus = {}; // pi code -> set of ONUs that use this PI
+
+async function init() {
+  const [tablaClaudeRaw, tablaOnu] = await Promise.all([
+    fetch('embalajes_tabla_claude.json').then(r => r.json()),
+    fetch('tabla_onu.json').then(r => r.json()),
+  ]);
+
+  // Collect all ONUs and which PI each ONU uses
+  const onuSet = new Set();
+  for (const row of tablaOnu) {
+    if (row.onu) onuSet.add(parseInt(row.onu, 10));
+    for (const col of ['APCCL-embalaje','APC-embalaje','AC-embalaje']) {
+      const v = String(row[col] || '');
+      if (v && !['Prohibido','No restringido','nan','—',''].includes(v)) {
+        if (!piToOnus[v]) piToOnus[v] = new Set();
+        piToOnus[v].add(parseInt(row.onu, 10));
+      }
+    }
+  }
+  allOnus = [...onuSet].sort((a,b) => a-b);
+
+  const tablaMap = Object.fromEntries(
+    tablaClaudeRaw.instrucciones_embalaje.map(e => [e.codigo, e])
+  );
+
+  for (const [codigo, entry] of Object.entries(tablaMap)) {
+    for (const [ti, t] of entry.tablas.entries()) {
+      const unCol = t.encabezados.find(h => /n[uú]mero|UN|No\./i.test(h) && h !== 'Tipo');
+      if (!unCol) continue;
+      const uns = new Set();
+      for (const fila of t.filas) {
+        const val = String(fila[unCol] || '');
+        const nums = val.match(/\d{4}/g) || [];
+        nums.forEach(n => uns.add(parseInt(n, 10)));
+      }
+      if (uns.size === 0) continue;
+      const piO = piToOnus[codigo] || new Set();
+      const extrasCount = [...piO].filter(o => !uns.has(o)).length;
+      allPIs.push({ pi: codigo, tablaIdx: ti, titulo: t.titulo || '(sin título)', unValues: [...uns].sort((a,b) => a-b), extrasCount });
+    }
+  }
+
+  allPIs.sort((a, b) => {
+    const na = parseInt(a.pi) || 0, nb = parseInt(b.pi) || 0;
+    return na !== nb ? na - nb : a.pi.localeCompare(b.pi);
+  });
+
+  document.getElementById('stats').textContent = `${allPIs.length} tablas con UN en ${new Set(allPIs.map(p => p.pi)).size} PIs`;
+  renderList();
+}
+
+function renderList(filter) {
+  const q = (filter || '').toLowerCase();
+  const list = document.getElementById('piList');
+  let html = '';
+  for (const item of allPIs) {
+    if (q) {
+      const matchPI = item.pi.toLowerCase().includes(q);
+      const matchUN = item.unValues.some(u => String(u).includes(q));
+      if (!matchPI && !matchUN) continue;
+    }
+    html += `<div class="pi-item" data-idx="${allPIs.indexOf(item)}">
+      <span>PI ${item.pi} — T${item.tablaIdx}</span>
+      <span class="un-count">${item.unValues.length} UNs · ${item.extrasCount} sin</span>
+    </div>`;
+  }
+  list.innerHTML = html || '<div style="padding:10px;color:#999;">Sin resultados</div>';
+}
+
+function buildFrames(count) {
+  const wrap = document.getElementById('framesWrap');
+  wrap.innerHTML = '';
+  const frames = [];
+  const collapsible = count > 2;
+  for (let i = 0; i < count; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'frame-slot';
+    const label = document.createElement('div');
+    label.className = 'frame-label';
+    label.id = `label-${i}`;
+    if (collapsible) {
+      const arrow = document.createElement('span');
+      arrow.className = 'arrow';
+      arrow.textContent = '▼';
+      label.appendChild(arrow);
+      label.addEventListener('click', () => {
+        const closed = slot.classList.toggle('closed');
+        arrow.textContent = closed ? '▶' : '▼';
+      });
+    }
+    slot.appendChild(label);
+    const iframe = document.createElement('iframe');
+    iframe.id = `app-${i}`;
+    iframe.src = 'index.html';
+    slot.appendChild(iframe);
+    wrap.appendChild(slot);
+    frames.push(iframe);
+  }
+  return frames;
+}
+
+function waitForLoad(iframe) {
+  return new Promise(resolve => {
+    if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete' && iframe.contentDocument.getElementById('searchBtn')) {
+      resolve();
+    } else {
+      iframe.onload = () => setTimeout(resolve, 500);
+    }
+  });
+}
+
+function searchInFrame(iframe, onu, pi) {
+  const doc = iframe.contentDocument;
+  if (!doc) return;
+  doc.getElementById('numInput').value = onu;
+  doc.getElementById('searchBtn').click();
+
+  const poll = setInterval(() => {
+    const rows = doc.querySelectorAll('#results tbody tr');
+    if (!rows.length) return;
+    clearInterval(poll);
+    rows[0].querySelector('td').click();
+
+    // Poll until cards appear with tables inside
+    const cardPoll = setInterval(() => {
+      const cards = doc.querySelectorAll('#embalaje-detail .card');
+      if (!cards.length) return;
+      // Wait until at least one card has a table or instruccion rendered
+      const anyContent = [...cards].some(c => c.querySelector('table, .instruccion-item'));
+      if (!anyContent && Date.now() - pollStart < 5000) return;
+      clearInterval(cardPoll);
+
+      for (const card of cards) {
+        const h = card.querySelector('h3');
+        if (!h) continue;
+        const cardPI = h.childNodes[0].textContent.trim().replace('PI ', '');
+        if (cardPI !== pi) continue;
+
+        const body = card.querySelector('.card-body-collapsible');
+        if (body && body.style.display === 'none') card.querySelector('.card-toggle').click();
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        card.style.outline = '3px solid #dc3545';
+
+        const unRe = new RegExp('\\b' + onu + '\\b');
+        // Highlight entire rows where UN column matches
+        card.querySelectorAll('tr').forEach(tr => {
+          if (unRe.test(tr.textContent || '')) {
+            tr.querySelectorAll('td').forEach(td => { td.style.background = '#ffcdd2'; });
+          }
+        });
+        // Highlight paragraphs/instructions that mention this ONU
+        card.querySelectorAll('p').forEach(el => {
+          if (unRe.test(el.textContent || '') && !el.querySelector('table, tr')) {
+            el.style.background = '#ffcdd2';
+          }
+        });
+        break;
+      }
+    }, 200);
+    const pollStart = Date.now();
+  }, 100);
+}
+
+document.getElementById('piList').addEventListener('click', async e => {
+  const item = e.target.closest('.pi-item');
+  if (!item) return;
+
+  document.querySelectorAll('.pi-item').forEach(el => el.classList.remove('active'));
+  item.classList.add('active');
+
+  const data = allPIs[parseInt(item.dataset.idx)];
+  const uns = data.unValues;
+  const unSet = new Set(uns);
+
+  const piOnus = piToOnus[data.pi] || new Set();
+  const extras = [...piOnus].filter(o => !unSet.has(o)).sort((a,b) => a-b);
+  document.getElementById('info').innerHTML = `
+    <span><b>PI ${data.pi}</b> — ${data.titulo}</span>
+    <span>UNs en tabla: ${uns.slice(0, 8).join(', ')}${uns.length > 8 ? ' ... (+' + (uns.length - 8) + ')' : ''}</span>
+    <span>ONU con PI sin filtro UN: ${extras.length ? extras.slice(0, 15).join(', ') + (extras.length > 15 ? ' ... (+' + (extras.length - 15) + ')' : '') + ' (' + extras.length + ')' : 'ninguno'}</span>
+  `;
+
+  const frames = buildFrames(uns.length);
+  for (let i = 0; i < uns.length; i++) {
+    document.getElementById(`label-${i}`).textContent = `ONU ${uns[i]}`;
+    await waitForLoad(frames[i]);
+    searchInFrame(frames[i], String(uns[i]), data.pi);
+  }
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  renderList(this.value.trim());
+});
+
+init();
+</script>
+</body>
+</html>

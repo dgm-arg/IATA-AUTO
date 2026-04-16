@@ -90,8 +90,7 @@ function parseClaseImages(claseRaw) {
     if (seen.has(base)) continue
     seen.add(base)
     let file
-    if (base === '7') file = '7.1.png'
-    else if (base.startsWith('1.')) file = base.substring(0, 3) + '.png'
+    if (base.startsWith('1.')) file = base.substring(0, 3) + '.png'
     else file = base + '.png'
     imgs.push(file)
   }
@@ -105,8 +104,11 @@ const ORIGIN_LABELS = {
 }
 
 async function run() {
-  await new Promise(r => { document.getElementById('app').onload = r })
-  await wait(500)
+  const iframe = document.getElementById('app')
+  if (!iframe.contentDocument || iframe.contentDocument.readyState !== 'complete') {
+    await new Promise(r => { iframe.onload = r })
+  }
+  await wait(1000)
   summaryEl.textContent = 'Cargando datos...'
 
   const [tablaOnu, embCodigos, columnasEmb] = await Promise.all([
@@ -138,7 +140,7 @@ async function run() {
       const expectedCards = []
       for (const label of EMBALAJE_COLS) {
         const code = String(row[COL_KEYS[label]] || '').trim()
-        if (code && code !== 'Prohibido' && code !== 'nan' && code !== '—' && embMap[code]) {
+        if (code && code !== 'Prohibido' && code !== 'No restringido' && code !== 'nan' && code !== '—' && embMap[code]) {
           expectedCards.push({ origin: label, code, isAPCCL: label === 'APCCL Emb', isAC: label === 'AC Emb' })
         }
       }

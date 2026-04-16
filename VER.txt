@@ -140,3 +140,6 @@ PI 217, 376, 497, 875 — las 4 son tablas EMBALAJES EXTERIORES con headers pero
 
 1. AC con código pero APC Prohibido (10+ filas)
 ONU 50, 54, 66, 92, 93, 103, 104, 186, etc. Tienen AC con PI (ej: 130, 135, 139, 140) pero APC es Prohibido. Son explosivos clase 1 — solo carga. Correcto, no es error.
+
+
+CASO ESPECIAL PI200

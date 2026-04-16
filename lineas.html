@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embalajes Líneas — IATA-YA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <style>
+    body { font-family: Verdana, sans-serif; background: #f5f5f5; }
+    .pi-row { border-bottom: 1px solid #dee2e6; padding: 6px 12px; display: flex; align-items: baseline; gap: 12px; }
+    .pi-row:hover { background: #e9ecef; }
+    .pi-code { font-weight: bold; min-width: 60px; font-size: 0.9rem; }
+    .pi-text { font-size: 0.85rem; color: #333; }
+    .pi-text.dash { color: #aaa; font-style: italic; }
+    #searchWrap { max-width: 400px; }
+    .stats { font-size: 0.75rem; color: #888; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark bg-dark px-3 py-1" style="font-size:0.8rem;">
+    <a class="navbar-brand mb-0" href="index.html" style="font-size:0.9rem;">IATA-YA</a>
+    <div class="d-flex gap-3">
+      <a href="index.html" class="text-light">Inicio</a>
+      <a href="table.html" class="text-light">Tabla PI</a>
+      <a href="embalajes.html" class="text-light">Embalajes</a>
+      <a href="tests.html" class="text-light">Tests</a>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <h4 class="mb-3">Embalajes Líneas</h4>
+    <div id="searchWrap" class="mb-3">
+      <input type="text" class="form-control form-control-sm" id="searchInput" placeholder="Buscar PI o texto...">
+    </div>
+    <div class="mb-2 d-flex gap-3">
+      <button class="btn btn-sm btn-outline-secondary active" data-filter="all">Todos (241)</button>
+      <button class="btn btn-sm btn-outline-secondary" data-filter="text">Con texto</button>
+      <button class="btn btn-sm btn-outline-secondary" data-filter="dash">Solo "-"</button>
+    </div>
+    <div class="stats mb-2" id="stats"></div>
+    <div class="bg-white border rounded" id="list"></div>
+  </div>
+
+  <script>
+    let data = {};
+    let filter = 'all';
+
+    async function init() {
+      data = await fetch('embalajes_lineas.json').then(r => r.json());
+      render();
+    }
+
+    function render(search) {
+      const q = (search || '').toLowerCase();
+      const list = document.getElementById('list');
+      let html = '';
+      let shown = 0, total = 0, withText = 0;
+
+      for (const [pi, text] of Object.entries(data)) {
+        total++;
+        const isDash = text === '-';
+        if (!isDash) withText++;
+
+        if (filter === 'text' && isDash) continue;
+        if (filter === 'dash' && !isDash) continue;
+        if (q && !pi.toLowerCase().includes(q) && !text.toLowerCase().includes(q)) continue;
+
+        shown++;
+        html += `<div class="pi-row">
+          <span class="pi-code">PI ${pi}</span>
+          <span class="pi-text ${isDash ? 'dash' : ''}">${isDash ? '—' : text}</span>
+        </div>`;
+      }
+
+      list.innerHTML = html || '<div class="p-3 text-muted">Sin resultados</div>';
+      document.getElementById('stats').textContent = `${shown} de ${total} PIs (${withText} con texto, ${total - withText} con "-")`;
+    }
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+      render(this.value.trim());
+    });
+
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filter = btn.dataset.filter;
+        render(document.getElementById('searchInput').value.trim());
+      });
+    });
+
+    init();
+  </script>
+</body>
+</html>

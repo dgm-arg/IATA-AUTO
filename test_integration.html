@@ -194,7 +194,7 @@
 
     // --- Build unique ONU+PI combos from tabla_onu ---
     function buildCombos() {
-      const INVALID = new Set(['prohibido', 'nan', '\u2014', '', 'undefined', 'null']);
+      const INVALID = new Set(['prohibido', 'no restringido', 'nan', '\u2014', '', 'undefined', 'null']);
       // Group rows by ONU
       const byOnu = {};
       for (const row of tablaOnu) {
@@ -312,7 +312,7 @@
       if (!card) return { status: 'skip', msg: `Card for PI ${piCode} not found in detail` };
 
       const expectedLinea = embalajesLineas[String(piCode)];
-      const boldEl = card.querySelector('p.fw-bold');
+      const boldEl = card.querySelector('p.linea-negrita');
       const hasBold = boldEl && boldEl.textContent.trim().length > 0;
 
       if (expectedLinea === undefined) {
@@ -357,9 +357,9 @@
       const errors = [];
 
       // Get all text-muted paragraphs from the card
-      const allSmallTexts = [...card.querySelectorAll('p.small.text-muted')].map(el => el.textContent.trim());
+      const allSmallTexts = [...card.querySelectorAll('p.instruccion-item')].map(el => el.textContent.trim());
       // Also gather the innerHTML to handle <br> joined texts
-      const allSmallHtmls = [...card.querySelectorAll('p.small.text-muted')].map(el => el.innerHTML);
+      const allSmallHtmls = [...card.querySelectorAll('p.instruccion-item')].map(el => el.innerHTML);
 
       for (const item of items) {
         // Determine if this item should appear
@@ -448,8 +448,14 @@
 
         // Each expected line must appear somewhere in the card
         for (const line of expectedLines) {
-          // Check both textContent and innerHTML since <br> joins may affect matching
-          if (!cardText.includes(line) && !cardHtml.includes(line)) {
+          const colonIdx = line.indexOf(': ');
+          let found = cardText.includes(line) || cardHtml.includes(line);
+          if (!found && colonIdx > 0) {
+            const code = line.substring(0, colonIdx);
+            const desc = line.substring(colonIdx + 2);
+            found = cardText.includes(code) && cardText.includes(desc);
+          }
+          if (!found) {
             errors.push(`Expected "${line}" not found in card (tabla: ${tabla.titulo})`);
           }
         }
@@ -464,12 +470,8 @@
     // --- Helper: find the card element for a given PI code ---
     function findCardForPI(cards, piCode) {
       for (const card of cards) {
-        const h6 = card.querySelector('h6');
-        if (h6) {
-          const strong = h6.querySelector('strong');
-          const instrText = strong ? strong.textContent.trim() : h6.textContent.trim();
-          if (instrText === String(piCode)) return card;
-        }
+        const h = card.querySelector('h3');
+        if (h && h.childNodes[0].textContent.trim().replace('PI ', '') === String(piCode)) return card;
       }
       return null;
     }
@@ -675,6 +677,11 @@
     function stopTests() {
       stopped = true;
       $('stopBtn').disabled = true;
+    }
+
+    // Auto-start when loaded inside an iframe
+    if (window !== window.top) {
+      window.addEventListener('load', () => setTimeout(startTests, 500));
     }
 
   </script>
